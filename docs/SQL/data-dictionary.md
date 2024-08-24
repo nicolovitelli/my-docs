@@ -2,8 +2,9 @@
 title: Data Dictionary
 ---
 
-The Data Dictionary is a read-only set of tables that provides information about the database.\
+The Data Dictionary is a read-only set of tables that provides information about the database.  
 A data dictionary contains:
+
 - The definitions of all schema objects in the database (tables, views, indexes, clusters, synonyms, sequences, procedures, functions, packages, triggers, and so on)
 - How much space has been allocated for, and is currently used by, the schema objects
 - Default values for columns
@@ -28,12 +29,13 @@ The data dictionary is structured in tables and views, just like other database 
 
 ## Dynamic Performance Views
 
-Dynamic Performance Views display information about current database activity in real time.\
+Dynamic Performance Views display information about current database activity in real time.  
 They are maintaned automatically by the system and are available for querying with some limitations.
 
 Dynamic Performance Views start with the prefix V\_$ or their public synonym counterpart starts with V$.
 
 **List of Dynamic Performance Views**
+
 - `V$DATABASE`: includes information about the Database itself, including the database name, the date created, etc.
 - `V$INSTANCE`: includes the instance name, host name, etc.
 - `V$PARAMETER`: current settings for system parameters such as NLS_LANGUAGE, NLS_DATE_LANGUAGE, NLS_CURRENCY, etc.
@@ -44,13 +46,14 @@ Dynamic Performance Views start with the prefix V\_$ or their public synonym cou
 	- `TZNAME`: time zone region
 	- `TZABBREV`: time zone abbreviation
 
-**Sources**
-- [Oracle Documentation - Overview of the Dynamic Performance Views](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/data-dictionary-and-dynamic-performance-views.html)
+??? abstract "Sources"
+    - [Oracle Documentation - Overview of the Dynamic Performance Views](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/data-dictionary-and-dynamic-performance-views.html)
 
 ---
 
 ## Checking Privileges in the Data Dictionary
 Privileges can be inspected using the following views:
+
 - `USER_SYS_PRIVS`: System privileges granted to the current user
 - `USER_TAB_PRIVS`: Granted privileges on objects for which the user is the owner, grantor or grantee.
 - `USER_ROLE_PRIVS`: Roles granted to the current user.
@@ -64,30 +67,31 @@ Privileges can be inspected using the following views:
 ---
 
 ## USER_CATALOG
-The USER_CATALOG view displays a summary listing of tables, views, synonym, and sequences owned by the user.\
+The USER_CATALOG view displays a summary listing of tables, views, synonym, and sequences owned by the user.  
 There are two columns in USER_CATALOG:
+
 - `TABLE_TYPE`: indicates the Database Object (SEQUENCE, TABLE, VIEW, etc.).
 - `TABLE_NAME`: name of the Table.
 
-**Sources**
-- [Oracle Documentation - USER_CATALOG](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_CATALOG.html)
+??? abstract "Sources"
+    - [Oracle Documentation - USER_CATALOG](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_CATALOG.html)
 
 ---
 
 ## USER_OBJECTS
 The USER_OBJECTS view contain information about all objects owned by the user.
 
-**Sources**
-- [Oracle Documentation - USER_OBJECTS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_OBJECTS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - USER_OBJECTS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_OBJECTS.html)
 
 ---
 
 ## USER_SYNONYMS
-The USER_SYNONYMS View describes the private synonyms (synonyms owned by the current user).\
+The USER_SYNONYMS View describes the private synonyms (synonyms owned by the current user).  
 Its columns (except for OWNER) are the same as those in ALL_SYNONYMS.
 
-**Sources**
-- [Oracle Documentation - USER_SYNONYMS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_SYNONYMS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - USER_SYNONYMS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_SYNONYMS.html)
 
 ---
 
@@ -95,29 +99,30 @@ Its columns (except for OWNER) are the same as those in ALL_SYNONYMS.
 The USER_TABLES view shows detailed information about the Tables owned by current session account.
 
 Some of the columns include:
+
 - `TABLE_NAME`: Name of the Table.
 - `STATUS`: Indicates whether the Table is currently valid and therefore available for use.
 - `ROW_MOVEMENT`: Indicates whether ROW MOVEMENT has been enabled for the Table.
 - `AVG_ROW_LEN`: Average length of the rows currently stored in the Table.
 
-**Sources**
-- [Oracle Documentation - USER_TABLES](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_TABLES.html)
+??? abstract "Sources"
+    - [Oracle Documentation - USER_TABLES](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_TABLES.html)
 
 ---
 
 ## ALL_TABLES
 The ALL_TABLES view shows detailed information about the Tables to which the current User has privileges, regardless of owner.
 
-**Sources**
-- [Oracle Documentation - ALL_TABLES](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/ALL_TABLES.html)
+??? abstract "Sources"
+    - [Oracle Documentation - ALL_TABLES](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/ALL_TABLES.html)
 
 ---
 
 ## DBA_TABLES
 The DBA_TABLES view shows detailed information about the Tables in the entire Database, regardless of owner or Table privileges.
 
-**Sources**
-- [Oracle Documentation - DBA_TABLES](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/DBA_TABLES.html)
+??? abstract "Sources"
+    - [Oracle Documentation - DBA_TABLES](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/DBA_TABLES.html)
 
 ---
 
@@ -125,6 +130,7 @@ The DBA_TABLES view shows detailed information about the Tables in the entire Da
 ALL_CONSTRAINTS describes constraint definitions on tables accessible to the current user.
 
 **Columns**
+
 - `OWNER`: owner of the constraint
 - `CONSTRAINT_NAME`: constraint name
 - `CONSTRAINT_TYPE`: type of constraint (full list below)
@@ -155,6 +161,7 @@ ALL_CONSTRAINTS describes constraint definitions on tables accessible to the cur
 - `ORIGIN_CON_ID`: [...]
 
 **Constraint Types**
+
 - C → CHECK Constraint
 - P → PRIMARY KEY Constraint
 - U → UNIQUE Key
@@ -165,25 +172,31 @@ ALL_CONSTRAINTS describes constraint definitions on tables accessible to the cur
 - F → Constraint that involves a REF Column
 - S → Supplemental Logging
 
-**Sources**
-- [Oracle Documentation - ALL_CONSTRAINTS](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ALL_CONSTRAINTS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - ALL_CONSTRAINTS](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ALL_CONSTRAINTS.html)
 
 ---
 
 ## Get existing Constraints on a Table
-```sql
-SELECT constraint_name, constraint_type, search_condition, r_constraint_name, delete_rule, status
+```sql linenums="1"
+SELECT 
+	constraint_name
+	, constraint_type
+	, search_condition
+	, r_constraint_name
+	, delete_rule
+	, status
 FROM all_constraints
 WHERE UPPER(table_name) = UPPER('tablename');
 ```
 
-**Sources**
-- [Oracle Documentation - ALL_CONSTRAINTS](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ALL_CONSTRAINTS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - ALL_CONSTRAINTS](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ALL_CONSTRAINTS.html)
 
 ---
 
 ## Get Primary Key details about Table
-```sql
+```sql linenums="1"
 SELECT
 	cols.table_name
 	, cols.column_name
@@ -199,30 +212,35 @@ AND UPPER(cols.table_name) = UPPER('table_name')
 ORDER BY cols.table_name, cols.position;
 ```
 
-**Sources**
-- [Oracle Documentation - ALL_CONSTRAINTS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/ALL_CONSTRAINTS.html)
-- [Oracle Documentation - ALL_CONS_COLUMNS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/ALL_CONS_COLUMNS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - ALL_CONSTRAINTS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/ALL_CONSTRAINTS.html)
+    - [Oracle Documentation - ALL_CONS_COLUMNS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/ALL_CONS_COLUMNS.html)
 
 ---
 
 ## Get current Date format
-```sql
+```sql linenums="1"
 SELECT *
 FROM nls_session_parameters
 WHERE parameter = 'NLS_DATE_FORMAT';
 ```
 
-**Sources**
-- [Oracle Documentation - NLS_SESSION_PARAMETERS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/NLS_SESSION_PARAMETERS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - NLS_SESSION_PARAMETERS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/NLS_SESSION_PARAMETERS.html)
 
 ---
 
 ## Get List of updatable Columns on a View
-```sql
-SELECT table_name, column_name, updatable, insertable,deletable
+```sql linenums="1"
+SELECT 
+	table_name
+	, column_name
+	, updatable
+	, insertable
+	, deletable
 FROM USER_UPDATABLE_COLUMNS
 WHERE table_name= 'view_name'; 
 ```
 
-**Sources**
-- [Oracle Documentation - USER_UPDATABLE_COLUMNS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_UPDATABLE_COLUMNS.html)
+??? abstract "Sources"
+    - [Oracle Documentation - USER_UPDATABLE_COLUMNS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_UPDATABLE_COLUMNS.html)
