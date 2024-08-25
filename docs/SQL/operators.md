@@ -34,7 +34,6 @@ operator comparison_op ANY ({expr_1, expr_n | subquery})
     SELECT *
     FROM tablename
     WHERE c > ANY (v1, v2, v3);
-    ```
     
     -- would be equivalent to:
     
@@ -52,7 +51,7 @@ The INTERSECT operator compares the result of two queries and returns the distin
 
 INTERSECT does not ignore NULL values.
 
-![intersect](https://i.imgur.com/gp8xApQ.png)
+![Image title](https://i.imgur.com/gp8xApQ.png){ align=left }
 
 **Syntax**
 ```sql

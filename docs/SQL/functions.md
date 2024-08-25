@@ -24,7 +24,7 @@ Character functions operate on values of dataype CHAR or VARCHAR2.
 ---
 
 ## CONCAT
-The `CONCAT` (Single-Row) Function concatenates two strings and returns the combined string.
+The CONCAT (Single-Row) Function concatenates two strings and returns the combined string.
 
 The two strings do not need to be the same data type.
 
@@ -42,7 +42,7 @@ CONCAT(string1, string2)
 ---
 
 ## INITCAP
-The `INITCAP` (Single-Row) Function sets the first character in each word to uppercase and the rest to lowercase.
+The INITCAP (Single-Row) Function sets the first character in each word to uppercase and the rest to lowercase.
 
 **Syntax**
 ```sql
@@ -72,7 +72,7 @@ INITCAP(string1)
 ---
 
 ## LOWER
-The `LOWER` (Single-Row) Function converts all letters in the specified string to lowercase.
+The LOWER (Single-Row) Function converts all letters in the specified string to lowercase.
 
 **Syntax**
 ```sql
@@ -102,7 +102,7 @@ LOWER(string1)
 ---
 
 ## UPPER
-The `UPPER` (Single-Row) Function converts all letters in the specified string to uppercase.
+The UPPER (Single-Row) Function converts all letters in the specified string to uppercase.
 
 **Syntax**
 ```sql
@@ -132,7 +132,7 @@ UPPER(string1)
 ---
 
 ## LPAD & RPAD
-The `LPAD` & `RPAD` (Single-Row) Functions pad the left/right-side of a string with a specific set of characters.
+The LPAD & RPAD (Single-Row) Functions pad the left/right-side of a string with a specific set of characters.
 
 **Syntax**
 ```sql
@@ -165,7 +165,7 @@ RPAD(string1, padded_length, [, pad_string])
 ---
 
 ## LTRIM & RTRIM
-The `LTRIM` & `RTRIM` (Single-Row) Functions remove all specified characters from the left/right-hand side of a string.
+The LTRIM & RTRIM (Single-Row) Functions remove all specified characters from the left/right-hand side of a string.
 
 **Syntax**
 ```sql
@@ -196,7 +196,7 @@ RPAD(string1, [, trim_string])
 ---
 
 ## TRIM
-The `TRIM` (Single-Row) Function removes all specified characters either from the beginning or the end of a string.
+The TRIM (Single-Row) Function removes all specified characters either from the beginning or the end of a string.
 
 **Syntax**
 ```sql
@@ -229,7 +229,7 @@ TRIM([[LEADING | TRAILING | BOTH] trim_character FROM] string1)
 ---
 
 ## REPLACE
-The `REPLACE` (Single-Row) Function replaces a sequence of characters in a string with another set of characters.
+The REPLACE (Single-Row) Function replaces a sequence of characters in a string with another set of characters.
 
 **Syntax**
 ```sql

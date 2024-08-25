@@ -3,6 +3,7 @@ title: DDL Statements
 ---
 
 Data Definition Language (DDL) statements let you to perform these tasks:
+
 - Create, alter, and drop schema objects
 - Grant and revoke privileges and roles
 - Analyze information on a table, index, or cluster
@@ -16,25 +17,26 @@ The GRANT, REVOKE, ANALYZE, AUDIT, and COMMENT commands do not require exclusive
 Oracle Database implicitly commits the current transaction before and after every DDL statement.
 
 The DDL Statements are:
-- `ALTER ...` (*all statements beginning with ALTER*)
-- `ANALYZE`
-- `ASSOCIATE STATISTICS`
-- `AUDIT`
-- `COMMENT`
-- `CREATE ...` (*all statements beginning with CREATE*)
-- `DISASSOCIATE STATISTICS`
-- `DROP ...` (*all statements beginning with DROP*)
-- `FLASHBACK ...` (*all statements beginning with FLASHBACK*)
-- `GRANT`
-- `NOAUDIT`
-- `PURGE`
-- `RENAME`
-- `REVOKE`
-- `TRUNCATE`
-- `UNDROP`
 
-**Sources**
-- [Oracle Documentation - Data Definition Language (DDL) Statements](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Types-of-SQL-Statements.html)
+- `#!sql ALTER ...` (*all statements beginning with ALTER*)
+- `#!sql ANALYZE`
+- `#!sql ASSOCIATE STATISTICS`
+- `#!sql AUDIT`
+- `#!sql COMMENT`
+- `#!sql CREATE ...` (*all statements beginning with CREATE*)
+- `#!sql DISASSOCIATE STATISTICS`
+- `#!sql DROP ...` (*all statements beginning with DROP*)
+- `#!sql FLASHBACK ...` (*all statements beginning with FLASHBACK*)
+- `#!sql GRANT`
+- `#!sql NOAUDIT`
+- `#!sql PURGE`
+- `#!sql RENAME`
+- `#!sql REVOKE`
+- `#!sql TRUNCATE`
+- `#!sql UNDROP`
+
+??? abstract "Sources"
+    - [Oracle Documentation - Data Definition Language (DDL) Statements](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Types-of-SQL-Statements.html)
 
 ---
 
@@ -53,18 +55,17 @@ CREATE TABLE [schema.]table_name
 AS subquery;
 ```
 
-**Notes about Tables**
-- Tables are created with no data unless a Subquery is specified.
-	- if the Subquery returns no rows, then the Table is still created with no data.
-- It it possible to add rows with the INSERT Statement.
-- After creating a Table, it is possible to define additional columns, partitions and integrity constraints with the ALTER TABLE Statement.
+!!! info "Notes"
+    - Tables are created with no data unless a Subquery is specified.
+        - if the Subquery returns no rows, then the Table is still created with no data.
+    - It it possible to add rows with the INSERT Statement.
+    - After creating a Table, it is possible to define additional columns, partitions and integrity constraints with the ALTER TABLE Statement.
 
-**Privileges**
-- CREATE TABLE System Privilege
-	- `GRANT CREATE ANY TABLE TO user_name`
+!!! warning "Privilege Restrictions"
+    - `GRANT CREATE ANY TABLE TO user_name`
 
-**Sources**
-- [Oracle Documentation - CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/CREATE-TABLE.html)
+??? abstract "Sources"
+    - [Oracle Documentation - CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/CREATE-TABLE.html)
 
 ---
 
@@ -84,8 +85,8 @@ The following table shows the essential differences between them:
 | Storage of table definition    | Disk                                                                                       | Memory only                                                                                          |
 | Types                          | Transaction-specific (ON COMMIT DELETE ROWS) or session-specific (ON COMMIT PRESERVE ROWS) | Transaction-specific (ON COMMIT DROP DEFINITION) or session-specific (ON COMMIT PRESERVE DEFINITION) |
 
-**Sources**
-- [Oracle Documentation - Overview of Temporary Tables](https://docs.oracle.com/en/database/oracle/oracle-database/23/cncpt/tables-and-table-clusters.html#GUID-97709804-7430-4BD0-AFF4-727B74F6997E)
+??? abstract "Sources"
+    - [Oracle Documentation - Overview of Temporary Tables](https://docs.oracle.com/en/database/oracle/oracle-database/23/cncpt/tables-and-table-clusters.html#GUID-97709804-7430-4BD0-AFF4-727B74F6997E)
 
 ---
 
@@ -94,16 +95,13 @@ Use the CREATE GLOBAL TEMPORARY TABLE Statement to create a Global Temporary Tab
 
 The definition of a Global Temporary Table is visible to all sessions, but the data in a Global Temporary Table is visible only to the session that inserts the data into the table.
 
-**Notes about Global Temporary Tables**
-- DDL operations (except TRUNCATE) are allowed on an existing temporary table only if no session is currently bound to that temporary table. If you rollback a transaction, the data you entered is lost, although the table definition persists.
-- Indexes can be created on global temporary tables. They are also temporary and the data in the index has the same session or transaction scope as the data in the underlying table.
-
-**The ON COMMIT Clause**\
+**The ON COMMIT Clause**  
 The ON COMMIT clause indicates if the data in the table is transaction-specific (the default) or session-specific, the implications of which are as follows:
-- **DELETE ROWS**: The database truncates the table after each commit.
+
+- `#!sql DELETE ROWS`: The database truncates the table after each commit.
 	- Rows will also be deleted after a failed DDL Statement.
 	- N.B.: only certain failed DDL Statements will delete all rows.
-- **PRESERVE ROWS**: The database truncates the table when you terminate the session.
+- `#!sql PRESERVE ROWS`: The database truncates the table when you terminate the session.
 
 **Global Temporary Tables Syntax**
 ```sql
@@ -114,28 +112,20 @@ CREATE GLOBAL TEMPORARY TABLE global_temp_table_name
 [ON COMMIT DELETE ROWS | PRESERVE ROWS];
 ```
 
+!!! info "Notes"
+    - DDL operations (except TRUNCATE) are allowed on an existing temporary table only if no session is currently bound to that temporary table. If you rollback a transaction, the data you entered is lost, although the table definition persists.
+    - Indexes can be created on global temporary tables. They are also temporary and the data in the index has the same session or transaction scope as the data in the underlying table.
+
 ---
 
 ## Private Temporary Tables
 Private Temporary Tables are temporary database objects that are dropped at the end of a transaction or session.
 
-**Notes about Private Temporary Tables**
-- Private Temporary Tables are stored in memory and each one is visible only to the session that created it.
-- The metadata and content of a Private Temporary Table is visible only within the session that created the it.
-
-**Restrictions**
-- Names of Private Temporary Tables must be prefixed according to the initialization parameter private_temp_table_prefix.
-- You cannot create Indexes, Materialized Views on Private Temporary Tables.
-- You cannot define column with default values.
-- You cannot reference Private Temporary Tables in any permanent object (views or triggers).
-- Only three DDL Statements are allowed: CREATE, DROP, and TRUNCATE.
-	- Other DDL Statements will return `ORA-00942: table or view does not exist`.
-- You must be a User other than SYS to create Private Temporary Tables.
-
-**The ON COMMIT Clause**\
+**The ON COMMIT Clause**  
 The ON COMMIT clause indicates if the data in the table is transaction-specific (the default) or session-specific, the implications of which are as follows:
-- **DROP DEFINITION**: All data in the table is lost, and the table is dropped at the end of transaction.
-- **PRESERVE DEFINITION**: All data in the table is lost, and the table is dropped at the end of the session that created the table.
+
+- `#!sql DROP DEFINITION`: All data in the table is lost, and the table is dropped at the end of transaction.
+- `#!sql PRESERVE DEFINITION`: All data in the table is lost, and the table is dropped at the end of the session that created the table.
 
 **Private Temporary Tables Syntax**
 ```sql
@@ -145,6 +135,19 @@ CREATE PRIVATE TEMPORARY TABLE ORA$PTT_priv_temp_table_name
 	… column_n datatype)
 [ON COMMIT DROP DEFINITION | PRESERVE DEFINITION];
 ```
+
+!!! info "Notes"
+    - Private Temporary Tables are stored in memory and each one is visible only to the session that created it.
+    - The metadata and content of a Private Temporary Table is visible only within the session that created the it.
+
+!!! warning "Restrictions"
+    - Names of Private Temporary Tables must be prefixed according to the initialization parameter private_temp_table_prefix.
+    - You cannot create Indexes, Materialized Views on Private Temporary Tables.
+    - You cannot define column with default values.
+    - You cannot reference Private Temporary Tables in any permanent object (views or triggers).
+    - Only three DDL Statements are allowed: CREATE, DROP, and TRUNCATE.
+	    - Other DDL Statements will return `#!sql ORA-00942: table or view does not exist`.
+    - You must be a User other than SYS to create Private Temporary Tables.
 
 ---
 
@@ -159,13 +162,13 @@ CREATE PRIVATE TEMPORARY TABLE ORA$PTT_priv_temp_table_name
 CREATE [OR REPLACE] DIRECTORY directory_name AS 'path_name';
 ```
 
-- OR REPLACE: Specify OR REPLACE to re-create the directory database obejct if it already exists.
+- `#!sql OR REPLACE`: Specify OR REPLACE to re-create the directory database obejct if it already exists.
 
-**Restrictions**
-- You must have the CREATE ANY DIRECTORY System Privilege to create directories.
+!!! warning "Privilege Restrictions"
+    - `#!sql GRANT CREATE ANY DIRECTORY TO user_name;`
 
-**Sources**
-- [Oracle Documentation - CREATE DIRECTORY](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/CREATE-DIRECTORY.html)
+??? abstract "Sources"
+    - [Oracle Documentation - CREATE DIRECTORY](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/CREATE-DIRECTORY.html)
 
 ---
 
@@ -177,22 +180,11 @@ Use the DROP DIRECTORY Statement to remove a directory object from the Database.
 DROP DIRECTORY directory_name;
 ```
 
-**Restrictions**
-- You must have the DROP ANY DIRECTORY System Privilege to drop a directory.
+!!! warning "Privilege Restrictions"
+    - `#!sql GRANT DROP ANY DIRECTORY TO user_name;`
 
-**Sources**
-- [Oracle Documentation - DROP DIRECTORY](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/DROP-DIRECTORY.html)
-
----
-
-## ALTER TABLE Statement
-```sql
-ALTER TABLE tablename
-	ADD|MODIFY|DROP COLUMN| columnname [definition];
-```
-
-**Sources**
-- [Oracle Documentation - ALTER TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/ALTER-TABLE.html)
+??? abstract "Sources"
+    - [Oracle Documentation - DROP DIRECTORY](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/DROP-DIRECTORY.html)
 
 ---
 
@@ -202,11 +194,11 @@ ALTER TABLE tablename
 	ADD (columnname datatype, [DEFAULT] ...);
 ```
 
-**Example**
-```sql
-ALTER TABLE publisher
-	ADD (ext NUMBER(4));
-```
+!!! example "Examples"
+    ```sql linenums="1"
+    ALTER TABLE publisher
+    	ADD (ext NUMBER(4));
+    ```
 
 ---
 
@@ -216,11 +208,11 @@ ALTER TABLE tablename
 	MODIFY (columnname datatype [DEFAULT], …);
 ```
 
-**Example**
-```sql
-ALTER TABLE publisher
-	MODIFY (rating DEFAULT 'N');
-```
+!!! example "Examples"
+    ```sql linenums="1"
+    ALTER TABLE publisher
+    	MODIFY (rating DEFAULT 'N');
+    ```
 
 ---
 
@@ -228,6 +220,7 @@ ALTER TABLE publisher
 Specify DROP to remove the column descriptor and the data associated with the target column from each row in the table. If you explicitly drop a particular column, then all columns currently marked UNUSED in the target table are dropped at the same time.
 
 When the column data is dropped:
+
 - All indexes defined on any of the target columns are also dropped.
 - All constraints that reference a target column are removed.
 
@@ -283,21 +276,21 @@ ALTER TABLE target_table EXCHANGE PARTITION partition_name
 
 ## RENAME Statement
 ```sql
-RENAME old_object_name TO new_object_name;
+RENAME [schema.]old_object_name TO [schema.]new_object_name;
 ```
 
-**Sources**
-- [Oracle Documentation - RENAME](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/RENAME.html)
+??? abstract "Sources"
+    - [Oracle Documentation - RENAME](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/RENAME.html)
 
 ---
 
 ## TRUNCATE TABLE
 ```sql
-TRUNCATE TABLE tablename;
+TRUNCATE TABLE [schema.]table_name;
 ```
 
-**Sources**
-- [Oracle Documentation - TRUNCATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/TRUNCATE-TABLE.html)
+??? abstract "Sources"
+    - [Oracle Documentation - TRUNCATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/TRUNCATE-TABLE.html)
 
 ---
 
@@ -308,29 +301,29 @@ This statement is used to move a Table to the recycle bin or to remove the table
 ```sql
 DROP TABLE table_name [CASCADE CONSTRAINTS] [PURGE];
 ```
-- `CASCADE CONSTRAINTS`: drop all referential integrity constraints that refer to primary and unique keys in the dropped table.
-- `PURGE`: drop the table and release the space associated with it.
+
+- `#!sql CASCADE CONSTRAINTS`: drop all referential integrity constraints that refer to primary and unique keys in the dropped table.
+- `#!sql PURGE`: drop the table and release the space associated with it.
 
 After a successful DROP TABLE…
+
 - An uncommited transaction is automatically committed.
 - All indexes and constraints defined on the table are also dropped.
 - The dropped table may be moved to the Recycle Bin.
-- The dropped table **cannot** be recovered using the ROLLBACK command.
-- Sequences used in the dropped table **do remain** valid.
+- The dropped table ***cannot*** be recovered using the ROLLBACK command.
+- Sequences used in the dropped table ***do remain*** valid.
 
-**Sources**
-- [Oracle Documentation - DROP TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/DROP-TABLE.html#GUID-39D89EDC-155D-4A24-837E-D45DDA757B45)
+??? abstract "Sources"
+    - [Oracle Documentation - DROP TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/DROP-TABLE.html#GUID-39D89EDC-155D-4A24-837E-D45DDA757B45)
 
 ---
 
 ## PURGE Statement
 The PURGE Statement is used to:
-- remove a table or index from your recycle bin and release all of the space associated with the object;
-- remove part or all of a dropped tablespace or tablespace set from the recycle bin;
-- remove the entire recycle bin.
-	- see the contents in your recycle bin with `SELECT * FROM RECYCLEBIN`;
 
-You cannot recover an object after it is purged.
+- remove a table or index from your Recycle Bin and release all of the space associated with the object;
+- remove part or all of a dropped tablespace or tablespace set from the recycle bin;
+- remove the entire Recycle Bin.
 
 **Syntax**
 ```sql
@@ -342,8 +335,15 @@ RECYCLEBIN
 DBA_RECYCLEBIN };
 ```
 
-**Sources**
-- [Oracle Documentation - PURGE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/PURGE.html#GUID-9257F773-E019-4464-80F4-F5AB61D7D9B6)
+!!! info "Notes"
+    - You cannot recover an object after it is purged.
+    - See the contents of the Recycle Bin with the following query:
+    ```sql
+    SELECT * FROM RECYCLEBIN;
+    ```
+
+??? abstract "Sources"
+    - [Oracle Documentation - PURGE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/PURGE.html#GUID-9257F773-E019-4464-80F4-F5AB61D7D9B6)
 
 ---
 
