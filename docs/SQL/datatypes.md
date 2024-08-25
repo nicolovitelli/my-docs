@@ -73,6 +73,9 @@ NCHAR[(size)]
     - If you insert a value that is shorter than the column length, then Oracle blank-pads the value to column length.
     - This datatype is generally used for storing characters in multiple languages.
 
+!!! example "Examples"
+    - [Oracle Live SQL - CHAR vs. NCHAR](https://livesql.oracle.com/apex/livesql/s/b7luuw1hmfkjr6rew4aek1wfb)
+
 ??? abstract "Sources"
     - [Oracle Documentation - NCHAR Data Type](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Data-Types.html#GUID-FE15E51B-52C6-45D7-9883-4DF47716A17D)
 
