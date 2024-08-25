@@ -244,3 +244,59 @@ WHERE table_name= 'view_name';
 
 ??? abstract "Sources"
     - [Oracle Documentation - USER_UPDATABLE_COLUMNS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/USER_UPDATABLE_COLUMNS.html)
+
+---
+
+## NLS_LENGTH_SEMANTICS
+**Syntax**
+```sql
+SELECT PARAMETER, VALUE 
+FROM NLS_SESSION_PARAMETERS 
+WHERE PARAMETER = 'NLS_LENGTH_SEMANTICS';
+```
+
+!!! example "Examples"
+    ```sql linenums="1"
+    
+    SELECT PARAMETER, VALUE 
+    FROM NLS_SESSION_PARAMETERS 
+    WHERE PARAMETER = 'NLS_LENGTH_SEMANTICS';
+    
+    /*
+    PARAMETER 			 | VALUE
+    -------------------- | -----
+    NLS_LENGTH_SEMANTICS | BYTE
+    */
+    ```
+
+??? abstract "Sources"
+    - [Oracle Documentation - NLS_LENGTH_SEMANTICS](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/NLS_LENGTH_SEMANTICS.html)
+
+---
+
+## Updating NLS_LENGTH_SEMANTICS
+**Syntax**
+```sql linenums="1"
+-- for the current session
+ALTER SESSION SET NLS_LENGTH_SEMANTICS = '{CHAR | BYTE}';
+
+-- for the Database
+ALTER SYSTEM SET NLS_LENGTH_SEMANTICS = '{CHAR | BYTE}' SCOPE = {BOTH | SPFILE};
+```
+
+- `#!sql CHAR | BYTE`: any new [Character column](/sql/datatypes/#character-dataypes) will use CHAR or BYTE by default.
+- `#!sql BOTH`: makes the change for the running istance and in the parameter file (so it persists across database restarts)
+- `#!sql SPFILE`: makes the change after the next database restart.
+
+!!! info "Notes"
+    - This change only affects new Tables and not existing ones.
+
+!!! warning "Privilege Restrictions"
+    - `#!sql ALTER SESSION`:
+    	- no Privilege is required to change the value for the current session.
+    - `#!sql ALTER SYSTEM`:
+    	- `#!sql GRANT ALTER SYSTEM TO user_name;`
+
+??? abstract "Sources"
+    - [Oracle Documentation - ALTER SESSION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-SESSION.html)
+    - [Oracle Documentation - ALTER SYSTEM](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-SYSTEM.html)

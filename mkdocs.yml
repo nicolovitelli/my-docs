@@ -1,6 +1,8 @@
 site_name: my-docs
 theme:
   name: material
+  logo: assets/icon.png
+  favicon: assets/icon.png
   font:
     text: Roboto
     code: Roboto Mono
