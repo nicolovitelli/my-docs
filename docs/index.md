@@ -1,4 +1,4 @@
 # my-docs
 
-- [SQL](sql)
-- [PL/SQL](plsql)
+- [SQL](SQL)
+- [PL/SQL](PLSQL)
