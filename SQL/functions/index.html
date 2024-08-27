@@ -1,0 +1,3381 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../db-objects/">
+      
+      
+        <link rel="next" href="../hints/">
+      
+      
+      <link rel="icon" href="../../assets/icon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Functions - my-docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#character-functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="my-docs" class="md-header__button md-logo" aria-label="my-docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            my-docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  my-docs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PLSQL/" class="md-tabs__link">
+          
+  
+  PLSQL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  SQL
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="my-docs" class="md-nav__button md-logo" aria-label="my-docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    my-docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    my-docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PLSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PLSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PL/SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/accessible_by/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACCESSIBLE BY Clause
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/associative_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Associative Arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/conditional_compilation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conditional Compilation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/deprecate_pragma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DEPRECATE Pragma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/hints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hints
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/subprograms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subprograms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLSQL/triggers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Triggers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DDL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DDL Statements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DML Statements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constraints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constraints
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dictionary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Dictionary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datatypes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datatypes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db-objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Database Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#character-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      CONCAT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initcap" class="md-nav__link">
+    <span class="md-ellipsis">
+      INITCAP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lower" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOWER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upper" class="md-nav__link">
+    <span class="md-ellipsis">
+      UPPER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lpad-rpad" class="md-nav__link">
+    <span class="md-ellipsis">
+      LPAD &amp; RPAD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ltrim-rtrim" class="md-nav__link">
+    <span class="md-ellipsis">
+      LTRIM &amp; RTRIM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      TRIM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      REPLACE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    <span class="md-ellipsis">
+      LENGTH
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substr" class="md-nav__link">
+    <span class="md-ellipsis">
+      SUBSTR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instr" class="md-nav__link">
+    <span class="md-ellipsis">
+      INSTR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least" class="md-nav__link">
+    <span class="md-ellipsis">
+      LEAST
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeric-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numeric Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceil" class="md-nav__link">
+    <span class="md-ellipsis">
+      CEIL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLOOR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mod" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      POWER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remainder" class="md-nav__link">
+    <span class="md-ellipsis">
+      REMAINDER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROUND (number)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trunc-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      TRUNC (number)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add_months" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADD_MONTHS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_date" class="md-nav__link">
+    <span class="md-ellipsis">
+      CURRENT_DATE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      CURRENT_TIMESTAMP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbtimezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBTIMEZONE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last_day" class="md-nav__link">
+    <span class="md-ellipsis">
+      LAST_DAY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localtimestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOCALTIMESTAMP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_date-vs-current_timestamp-vs-localtimestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      CURRENT_DATE vs. CURRENT_TIMESTAMP vs. LOCALTIMESTAMP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#months_between" class="md-nav__link">
+    <span class="md-ellipsis">
+      MONTHS_BETWEEN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next_day" class="md-nav__link">
+    <span class="md-ellipsis">
+      NEXT_DAY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROUND (date)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessiontimezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      SESSIONTIMEZONE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sysdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      SYSDATE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systimestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      SYSTIMESTAMP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interval-year-to-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL YEAR TO MONTH
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interval-day-to-second" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL DAY TO SECOND
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trunc-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      TRUNC (date)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#null-related-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      NULL-Related Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvl" class="md-nav__link">
+    <span class="md-ellipsis">
+      NVL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decode" class="md-nav__link">
+    <span class="md-ellipsis">
+      DECODE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    <span class="md-ellipsis">
+      CASE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvl2" class="md-nav__link">
+    <span class="md-ellipsis">
+      NVL2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coalesce" class="md-nav__link">
+    <span class="md-ellipsis">
+      COALESCE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nullif" class="md-nav__link">
+    <span class="md-ellipsis">
+      NULLIF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coalesce-vs-nvl" class="md-nav__link">
+    <span class="md-ellipsis">
+      COALESCE vs NVL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count" class="md-nav__link">
+    <span class="md-ellipsis">
+      COUNT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avg" class="md-nav__link">
+    <span class="md-ellipsis">
+      AVG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listagg" class="md-nav__link">
+    <span class="md-ellipsis">
+      LISTAGG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      SUM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_number" class="md-nav__link">
+    <span class="md-ellipsis">
+      TO_NUMBER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_date" class="md-nav__link">
+    <span class="md-ellipsis">
+      TO_DATE
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hints
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../joins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparison Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subqueries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subqueries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transactions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Functions</h1>
+
+<h2 id="character-functions">Character Functions</h2>
+<p>Character functions operate on values of dataype CHAR or VARCHAR2.</p>
+<p><strong>List of Character Functions covered</strong></p>
+<ul>
+<li><code>CONCAT</code></li>
+<li><code>INITCAP</code></li>
+<li><code>LOWER</code></li>
+<li><code>LPAD</code></li>
+<li><code>LTRIM</code></li>
+<li><code>REPLACE</code></li>
+<li><code>RPAD</code></li>
+<li><code>RTRIM</code></li>
+<li><code>SUBSTR</code></li>
+<li><code>TRIM</code></li>
+<li><code>UPPER</code></li>
+<li><code>INSTR</code></li>
+<li><code>LENGTH</code></li>
+</ul>
+<hr />
+<h2 id="concat">CONCAT</h2>
+<p>The CONCAT (Single-Row) Function concatenates two strings and returns the combined string.</p>
+<p>The two strings do not need to be the same data type.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">CONCAT</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">string2</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the first string to concatenate.</li>
+<li><em>string2</em>: the second string to concatenate.</li>
+</ul>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/CONCAT.html">Oracle Documentation - CONCAT</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="initcap">INITCAP</h2>
+<p>The INITCAP (Single-Row) Function sets the first character in each word to uppercase and the rest to lowercase.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">INITCAP</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string argument whose first character in each word will be converted to uppercase and all remaining characters converted to lowercase.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Special characters and numbers are unaffected by this function.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">INITCAP</span><span class="p">(</span><span class="s1">&#39;hello everyone!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1">-- Hello Everyone!</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">INITCAP</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1">-- 1234567890</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">INITCAP</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;20-NOV-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1">-- 20-Nov-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/INITCAP.html">Oracle Documentation - INITCAP</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="lower">LOWER</h2>
+<p>The LOWER (Single-Row) Function converts all letters in the specified string to lowercase.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">LOWER</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to convert to lowercase.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Special characters and numbers are unaffected by this function.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LOWER</span><span class="p">(</span><span class="s1">&#39;hello EVERYONE!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1">-- hello everyone!</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LOWER</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1">-- 1234567890</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LOWER</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;20-NOV-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="c1">-- 20-nov-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LOWER.html">Oracle Documentation - LOWER</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="upper">UPPER</h2>
+<p>The UPPER (Single-Row) Function converts all letters in the specified string to uppercase.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">UPPER</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to convert to uppercase.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Special characters and numbers are unaffected by this function.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span>
+<span class="normal"><a href="#__codelineno-6-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="s1">&#39;hello EVERYONE!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1">-- HELLO EVERYONE!</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1">-- 1234567890</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;20-NOV-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="c1">-- 20-NOV-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/UPPER.html">Oracle Documentation - UPPER</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="lpad-rpad">LPAD &amp; RPAD</h2>
+<p>The LPAD &amp; RPAD (Single-Row) Functions pad the left/right-side of a string with a specific set of characters.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">LPAD</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">padded_length</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">pad_string</span><span class="p">])</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">RPAD</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">padded_length</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">pad_string</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to pad characters to (the left/right-hand side).</li>
+<li><em>padded_length</em>: the number of characters to return.</li>
+<li><em>pad_string</em> the string that will be padded to the left/right-hand side of <em>string1</em>.<ul>
+<li>optional value; default is blank space.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>If <em>string1</em> is NULL, the function returns NULL.</li>
+<li>If the <em>padded_length</em> is smaller than the original string, the function will truncate the string to the size of <em>padded_length</em>.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LPAD</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1">-- aaaaHello!</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">RPAD</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="c1">-- Hello!aaaa</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LPAD.html">Oracle Documentation - LPAD</a></li>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/RPAD.html">Oracle Documentation - RPAD</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="ltrim-rtrim">LTRIM &amp; RTRIM</h2>
+<p>The LTRIM &amp; RTRIM (Single-Row) Functions remove all specified characters from the left/right-hand side of a string.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">LTRIM</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">trim_string</span><span class="p">])</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">RPAD</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">trim_string</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to trim the characters from the left/right-hand side.</li>
+<li><em>trim_string</em>: the string that will be removed from the left/right-hand side of <em>string1</em>.<ul>
+<li>default is blank space.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LTRIM</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="c1">-- ello!</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">RTRIM</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c1">-- Hello</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LTRIM</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;h&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="c1">-- Hello!</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LTRIM.html">Oracle Documentation - LTRIM</a></li>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/RTRIM.html">Oracle Documentation - RTRIM</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="trim">TRIM</h2>
+<p>The TRIM (Single-Row) Function removes all specified characters either from the beginning or the end of a string.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">TRIM</span><span class="p">([[</span><span class="k">LEADING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TRAILING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">BOTH</span><span class="p">]</span><span class="w"> </span><span class="n">trim_character</span><span class="w"> </span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="n">string1</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><code>LEADING</code>: the function will remove <em>trim_character</em> from the front of <em>string1</em>.</li>
+<li><code>TRAILING</code>: the function will remove <em>trim_character</em> from the end of <em>string1</em>.</li>
+<li><code>BOTH</code>: the function will remove <em>trim_character</em> from the front and end of <em>string1</em>.</li>
+<li><em>trim_character</em>: the character that will be removed from <em>string1</em>.<ul>
+<li>optional value; default is blank space.</li>
+<li>this argument cannot contain more than 1 character.</li>
+</ul>
+</li>
+<li><em>string1</em>: the string to trim.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span>
+<span class="normal"><a href="#__codelineno-12-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="k">LEADING</span><span class="w"> </span><span class="s1">&#39;H&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1">-- ello!</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="k">TRAILING</span><span class="w"> </span><span class="s1">&#39;o&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1">-- Hell</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="c1">-- Hello</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/TRIM.html">Oracle Documentation - TRIM</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="replace">REPLACE</h2>
+<p>The REPLACE (Single-Row) Function replaces a sequence of characters in a string with another set of characters.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">REPLACE</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">string_to_replace</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">replacement_string</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to replace a sequence of characters with another set of characters.</li>
+<li><em>string_to_replace</em>: the string that will be searched for in <em>string1</em>.</li>
+<li><em>replacement_string</em>: all occurrences of string_to_replace will be replaced with <em>replacement_string</em> in <em>string1</em>.<ul>
+<li>if omitted, the function removes all occurrences of <em>string_to_replace</em>.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">(</span><span class="s1">&#39;123Hello123&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;123&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="c1">-- Hello</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">(</span><span class="s1">&#39;123Hello123&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;456&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="c1">-- 456Hello456</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">(</span><span class="s1">&#39;0123456789&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1">-- 123456789</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/REPLACE.html">Oracle Documentation - REPLACE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="length">LENGTH</h2>
+<p>The LENGTH (Single-Row) Function returns the length of the specified string.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">LENGTH</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to return the length for.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>LENGTH does <strong>not</strong> count dashes in DATE values.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span>
+<span class="normal"><a href="#__codelineno-16-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="c1">-- 12</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1">-- 10</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;20-NOV-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="c1">-- 9</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LENGTH.html">Oracle Documentation - LENGTH</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="substr">SUBSTR</h2>
+<p>The SUBSTR (Single-Row) Function allows to extract a substring from a string.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">SUBSTR</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="w"> </span><span class="n">start_position</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="k">length</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>string</em>: the source string.</li>
+<li><em>start_position</em>: the starting position for extraction. First position is always 1.</li>
+<li><em>length</em>: number of characters to extract.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>If <em>string</em> is SYSDATE, Oracle will execute an implicit data type conversion.</li>
+<li>If <em>start_position</em> is 0, SUBSTR treats <em>start_position</em> as 1.</li>
+<li>If <em>start_position</em> is negative, SUBSTR start from the end of the string and count backwards.</li>
+<li>If <em>length</em> is omitted, SUBSTR will return the entire string.</li>
+<li>If <em>length</em> is negative, SUBSTR returns a NULL value.</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/SUBSTR.html">Oracle Documentation - SUBSTR</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="instr">INSTR</h2>
+<p>The INSTR (Single-Row) Function returns the location of a substring in a string.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">INSTR</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="k">substring</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">start_position</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">nth_appearance</span><span class="p">]])</span>
+</code></pre></div></p>
+<ul>
+<li><em>string</em>: the string to search.</li>
+<li><em>substring</em>: substring to search for in <em>string</em>.</li>
+<li><em>start_position</em>: position in <em>string</em> where the search will start.<ul>
+<li>default is 1.</li>
+</ul>
+</li>
+<li><em>nth_appearance</em>: the nth appearance of <em>substring</em>.<ul>
+<li>default is 1.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>If either <em>string</em> or <em>substring</em> is NULL, INSTR returns NULL.</li>
+<li>If <em>substring</em> is not found in <em>string</em>, INSTR returns 0.</li>
+<li>If <em>start_position</em> negative, the INSTR function counts backwards.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">INSTR</span><span class="p">(</span><span class="s1">&#39;ciaoc&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1">-- 5</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/INSTR.html">Oracle Documentation - INSTR</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="least">LEAST</h2>
+<p>The LEAST (Single-Row) Function returns the smallest value in a list of expressions.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">LEAST</span><span class="p">(</span><span class="n">expr1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expr_n</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>expr1</em>: the first expression to evaluate whether it is the smallest.</li>
+<li><em>expr2, expr_n</em>: additional expressions that are to be evaluated.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>If either <em>expr1</em> or <em>expr2</em> is NULL, LEAST returns NULL.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span>
+<span class="normal"><a href="#__codelineno-21-7">7</a></span>
+<span class="normal"><a href="#__codelineno-21-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LEAST</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HELLO&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="c1">-- HELLO</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LEAST</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HELLO&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hELLO&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;zzz&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="c1">-- NULL</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LEAST</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">56</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="c1">-- NULL</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LEAST.html">Oracle Documentation - LEAST</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="numeric-functions">Numeric Functions</h2>
+<p>The Numeric Functions take a numeric input as an expression and return numeric values.<br />
+The return type for most of the Numeric Functions is NUMBER.</p>
+<p><strong>List of Numeric Functions covered</strong></p>
+<ul>
+<li><code>CEIL</code></li>
+<li><code>FLOOR</code></li>
+<li><code>MOD</code></li>
+<li><code>POWER</code></li>
+<li><code>REMAINDER</code></li>
+<li><code>ROUND</code></li>
+<li><code>TRUNC</code></li>
+</ul>
+<hr />
+<h2 id="ceil">CEIL</h2>
+<p>The CEIL (Single-Row) Function returns the smallest integer value that is greater than or equal to a number.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">CEIL</span><span class="p">(</span><span class="nb">number</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>number</em>: the value used to find the smallest integer value.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">CEIL</span><span class="p">(</span><span class="mi">21</span><span class="p">.</span><span class="mi">65</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="c1">-- 21</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">CEIL</span><span class="p">(</span><span class="mi">21</span><span class="p">.</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="c1">-- 22</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">CEIL</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="c1">-- 21</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">CEIL</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">.</span><span class="mi">65</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="c1">-- -21</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/CEIL.html">Oracle Documentation - CEIL</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="floor">FLOOR</h2>
+<p>The FLOOR (Single-Row) Function returns the largest integer value that is equal to or less than a number.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">FLOOR</span><span class="p">(</span><span class="nb">number</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>number</em>: the value used to determine the largest integer value that is equal to or less than a number.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="mi">21</span><span class="p">.</span><span class="mi">65</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="c1">-- 21</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="mi">21</span><span class="p">.</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="c1">-- 21</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="c1">-- 21</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">.</span><span class="mi">65</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="c1">-- -22</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/FLOOR.html">Oracle Documentation - FLOOR</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="mod">MOD</h2>
+<p>The MOD (Single-Row) Function returns the remainder of <em>m</em> divided by <em>n</em>.</p>
+<p>The difference with the REMAINDER function is that REMAINDER uses ROUND in its calculation, and MOD uses the FLOOR function.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">MOD</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>m</em>: the numeric value used in the calculation.</li>
+<li><em>n</em>: the numeric value used in the calculation.<ul>
+<li><code>MOD</code> returns <em>m</em> if <em>n</em> is 0.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span>
+<span class="normal"><a href="#__codelineno-27-7">7</a></span>
+<span class="normal"><a href="#__codelineno-27-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">MOD</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="c1">-- 3</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">MOD</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="c1">-- 0</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">MOD</span><span class="p">(</span><span class="mi">11</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="c1">-- 1.6</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/MOD.html">Oracle Documentation - MOD</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="power">POWER</h2>
+<p>The POWER (Single-Row) Function returns <em>m</em> raised to the <em>n</em>th power.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">POWER</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>m</em>: the base used in the calculation.<ul>
+<li>if <em>m</em> s negative, then <em>n</em> must be an integer.</li>
+</ul>
+</li>
+<li><em>n</em>: the exponent used in the calculation.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span>
+<span class="normal"><a href="#__codelineno-29-6">6</a></span>
+<span class="normal"><a href="#__codelineno-29-7">7</a></span>
+<span class="normal"><a href="#__codelineno-29-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="c1">-- 9</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="c1">-- 125</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">POWER</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="c1">-- -125</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/POWER.html">Oracle Documentation - POWER</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="remainder">REMAINDER</h2>
+<p>The REMAINDER (Single-Row) Function returns the remainder of <em>m</em> divided by <em>n</em>.</p>
+<p>The difference with the MOD function is that REMAINDER uses ROUND in its calculation, and MOD uses the FLOOR function.</p>
+<p>The REMAINDER is calculated as follows:<br />
+<code>m - (n * X)</code><br />
+where X is the integer nearest n / n</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">REMAINDER</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>m</em>: a numeric value used in the calculation.</li>
+<li><em>n</em>: a numeric value used in the calculation.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">4</a></span>
+<span class="normal"><a href="#__codelineno-31-5">5</a></span>
+<span class="normal"><a href="#__codelineno-31-6">6</a></span>
+<span class="normal"><a href="#__codelineno-31-7">7</a></span>
+<span class="normal"><a href="#__codelineno-31-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">REMAINDER</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="c1">-- 3</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">REMAINDER</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="c1">-- 0</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">REMAINDER</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a><span class="c1">-- -1</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/REMAINDER.html">Oracle Documentation - REMAINDER</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="round-number">ROUND (number)</h2>
+<p>The ROUND (Single-Row) Function returns a number rounded to a certain number of decimal places.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">ROUND</span><span class="p">(</span><span class="nb">number</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">decimal_places</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>number</em>: the number to round.</li>
+<li><em>decimal_places</em>: the number of decimal places rounded to.<ul>
+<li>if omitted, the ROUND function will round the number to 0 decimal places.</li>
+<li>ff negative, rounds a number one digit to the left of the decimal point.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
+<span class="normal"><a href="#__codelineno-33-2">2</a></span>
+<span class="normal"><a href="#__codelineno-33-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="mi">152</span><span class="p">.</span><span class="mi">3435</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="c1">-- 150</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/ROUND-number.html">Oracle Documentation - ROUND (number)</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="trunc-number">TRUNC (number)</h2>
+<p>The TRUNC (Single-Row) Function returns a number truncated to a certain number of decimal places.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">TRUNC</span><span class="p">(</span><span class="nb">number</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">decimal_places</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>number</em>: the number to truncate.</li>
+<li><em>decimal_places</em>: the number of decimal places to truncate to.<ul>
+<li>if omitted, the TRUNC function will truncate the number to 0 decimal places.</li>
+<li>if negative, replaces digits to the left of the decimal point with 0.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
+<span class="normal"><a href="#__codelineno-35-2">2</a></span>
+<span class="normal"><a href="#__codelineno-35-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">TRUNC</span><span class="p">(</span><span class="mi">152</span><span class="p">.</span><span class="mi">3435</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="c1">-- 150</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/TRUNC-number.html">Oracle Documentation - TRUNC (number)</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="date-functions">Date Functions</h2>
+<p>Character functions can be used to manipulate temporal values.</p>
+<p><strong>List of Date Functions covered</strong>
+- <code>ADD_MONTHS</code>
+- <code>CURRENT_DATE</code>
+- <code>CURRENT_TIMESTAMP</code>
+- <code>DBTIMEZONE</code>
+- <code>LAST_DAY</code>
+- <code>LOCALTIMESTAMP</code>
+- <code>MONTHS_BETWEEN</code>
+- <code>NEXT_DAY</code>
+- <code>ROUND</code>
+- <code>SESSIONTIMEZONE</code>
+- <code>SYSDATE</code>
+- <code>SYSTIMESTAMP</code>
+- <code>TRUNC</code></p>
+<hr />
+<h2 id="add_months">ADD_MONTHS</h2>
+<p>The ADD_MONTHS (Single-Row) Function returns a date with a specified number of months added.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">ADD_MONTHS</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span><span class="w"> </span><span class="n">number_months</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>date1</em>: the starting date (before the <em>n</em> months have been added).</li>
+<li><em>number_months</em>: number of months to add to <em>date1</em>.</li>
+</ul>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/ADD_MONTHS.html">Oracle Documentation - ADD_MONTHS</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="current_date">CURRENT_DATE</h2>
+<p>CURRENT_DATE returns the current date in the session time zone, in a value in the Gregorian calendar of data type DATE.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
+<span class="normal"><a href="#__codelineno-37-2">2</a></span>
+<span class="normal"><a href="#__codelineno-37-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_DATE</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="c1">-- 06-DEC-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/CURRENT_DATE.html">Oracle Documentation - CURRENT_DATE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="current_timestamp">CURRENT_TIMESTAMP</h2>
+<p>CURRENT_TIMESTAMP returns the current date and time in the session time zone, in a value of data type TIMESTAMP WITH TIME ZONE. The time zone offset reflects the current local time of the SQL session.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="c1">-- 06-DEC-22 03.20.35.553971000 PM EUROPE/BERLIN</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/CURRENT_TIMESTAMP.html">Oracle Documentation - CURRENT_TIMESTAMP</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="dbtimezone">DBTIMEZONE</h2>
+<p>DBTIMEZONE returns the value of the database time zone.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">DBTIMEZONE</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="c1">-- +00:00</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/DBTIMEZONE.html">Oracle Documentation - DBTIMEZONE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="last_day">LAST_DAY</h2>
+<p>The LAST_DAY (Single-Row) Function returns the last day of the month based on a date value.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="n">LAST_DAY</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>date</em>: the date value to use to calculate the last day of the month</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LAST_DAY</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-DEC-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="c1">-- 31-DEC-2022</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LAST_DAY</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;31-DEC-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="c1">-- 31-DEC-2022</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LAST_DAY.html">Oracle Documentation - LAST_DAY</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="localtimestamp">LOCALTIMESTAMP</h2>
+<p>LOCALTIMESTAMP returns the current date and time in the session time zone in a value of data type TIMESTAMP.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">LOCALTIMESTAMP</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="c1">-- 06-DEC-22 03.20.04.446137000 PM</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LOCALTIMESTAMP.html">Oracle Documentation - LOCALTIMESTAMP</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="current_date-vs-current_timestamp-vs-localtimestamp">CURRENT_DATE vs. CURRENT_TIMESTAMP vs. LOCALTIMESTAMP</h2>
+<p><img alt="CURRENT_DATE vs. CURRENT_TIMESTAMP vs. LOCALTIMESTAMP" src="https://i.imgur.com/UWZEQr7.png" /></p>
+<hr />
+<h2 id="months_between">MONTHS_BETWEEN</h2>
+<p>The MONTHS_BETWEEN (Single-Row) Function returns the number of months between date1 and date2.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">MONTHS_BETWEEN</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span><span class="w"> </span><span class="n">date2</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>date1</em>: the first date used to calculate the number of months between.</li>
+<li><em>date2</em>: the second date used to calculate the number of months between.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">MONTHS_BETWEEN</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-DEC-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-JAN-2023&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="c1">-- -1</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">MONTHS_BETWEEN</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-DEC-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-NOV-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="c1">-- 1</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">MONTHS_BETWEEN</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-DEC-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;31-DEC-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="c1">-- 0.96</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/MONTHS_BETWEEN.html">Oracle Documentation - MONTHS_BETWEEN</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="next_day">NEXT_DAY</h2>
+<p>The NEXT_DAY (Single-Row) Function returns the first weekday that is greater than a date.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="n">NEXT_DAY</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">weekday</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>date</em>: a date value used to find the next weekday.</li>
+<li><em>weekday</em>: the day of the week that you wish to return.<ul>
+<li>must be one of the following:<ul>
+<li>SUNDAY or SUN</li>
+<li>MONDAY or MON</li>
+<li>TUESDAY or TUE</li>
+<li>WEDNESDAY or WED</li>
+<li>THURSDAY or THU</li>
+<li>FRIDAY or FRI</li>
+<li>SATURDAY or SAT</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span>
+<span class="normal"><a href="#__codelineno-46-2">2</a></span>
+<span class="normal"><a href="#__codelineno-46-3">3</a></span>
+<span class="normal"><a href="#__codelineno-46-4">4</a></span>
+<span class="normal"><a href="#__codelineno-46-5">5</a></span>
+<span class="normal"><a href="#__codelineno-46-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="c1">-- considering 6 December 2022 was a Tuesday:</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NEXT_DAY</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;06-DEC-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Sunday&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="c1">-- 11-DEC-2022</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4"></a>
+<a id="__codelineno-46-5" name="__codelineno-46-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NEXT_DAY</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;06-DEC-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Tuesday&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6"></a><span class="c1">-- 13-DEC-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/NEXT_DAY.html">Oracle Documentation - NEXT_DAY</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="round-date">ROUND (date)</h2>
+<p>The ROUND (Single-Row) Function returns a date rounded to a specific unit of measure.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="n">ROUND</span><span class="p">(</span><span class="nb">date</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">format</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>date</em>: the date to round.</li>
+<li><em>format</em>: the unit of measure to apply for rounding.<ul>
+<li>if omitted, the function will round to the nearest day</li>
+<li>must be one of the following values: <a href="https://prnt.sc/eusrvY7iTSvr">(complete list)</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span>
+<span class="normal"><a href="#__codelineno-48-2">2</a></span>
+<span class="normal"><a href="#__codelineno-48-3">3</a></span>
+<span class="normal"><a href="#__codelineno-48-4">4</a></span>
+<span class="normal"><a href="#__codelineno-48-5">5</a></span>
+<span class="normal"><a href="#__codelineno-48-6">6</a></span>
+<span class="normal"><a href="#__codelineno-48-7">7</a></span>
+<span class="normal"><a href="#__codelineno-48-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-NOV-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;YEAR&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="c1">-- 01-JAN-2023</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3"></a>
+<a id="__codelineno-48-4" name="__codelineno-48-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;16-NOV-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;MONTH&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="c1">-- 01-DEC-2022</span>
+<a id="__codelineno-48-6" name="__codelineno-48-6"></a>
+<a id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;16-NOV-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-48-8" name="__codelineno-48-8"></a><span class="c1">-- 16-NOV-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/ROUND-date.html">Oracle Documentation - ROUND (date)</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="sessiontimezone">SESSIONTIMEZONE</h2>
+<p>SESSIONTIMEZONE returns the time zone of the current session.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">SESSIONTIMEZONE</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="c1">-- Europe/Berlin</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/SESSIONTIMEZONE.html">Oracle Documentation - SESSIONTIMEZONE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="sysdate">SYSDATE</h2>
+<p>SYSDATE returns the current date and time set for the operating system on which the database server resides.</p>
+<p>The data type of the returned value is DATE, and the format returned depends on the value of the NLS_DATE_FORMAT initialization parameter.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span>
+<span class="normal"><a href="#__codelineno-50-2">2</a></span>
+<span class="normal"><a href="#__codelineno-50-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">SYSDATE</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="c1">-- 06-DEC-2022</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/SYSDATE.html">Oracle Documentation - SYSDATE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="systimestamp">SYSTIMESTAMP</h2>
+<p>SYSTIMESTAMP returns the system date, including fractional seconds and time zone, of the system on which the database resides.</p>
+<p>The return type is TIMESTAMP WITH TIME ZONE.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
+<span class="normal"><a href="#__codelineno-51-2">2</a></span>
+<span class="normal"><a href="#__codelineno-51-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">SYSTIMESTAMP</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="c1">-- 06-DEC-2022 03.41.91.693169000 PM +01:00</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/SYSTIMESTAMP.html">Oracle Documentation - SYSTIMESTAMP</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="interval">INTERVAL</h2>
+<p>The INTERVAL datatype allows you to store periods of time.</p>
+<p>There are two types of INTERVAL:</p>
+<ul>
+<li><code>INTERVAL YEAR TO MONTH</code>: stores intervals using year and month;</li>
+<li><code>INTERVAL DAY TO SECOND</code>: stores intervals using days, hours, and seconds including fractional seconds.</li>
+</ul>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Interval-Expressions.html">Oracle Documentation - Interval Expressions</a></li>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Literals.html">Oracle Documentation - Interval Literals</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="interval-year-to-month">INTERVAL YEAR TO MONTH</h2>
+<p>The INTERVAL YEAR TO MONTH data type allows you to store a period of time using the YEAR and MONTH fields.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nb">INTERVAL</span><span class="w"> </span><span class="k">YEAR</span><span class="w"> </span><span class="p">[(</span><span class="n">year_precision</span><span class="p">)]</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">MONTH</span>
+</code></pre></div></p>
+<ul>
+<li><em>year_precision</em>: number of digits in the YEAR field (<em>ranges from 0 to 9</em>).</li>
+</ul>
+<p><strong>Literals Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;year[-month]&#39;</span><span class="w"> </span><span class="k">leading</span><span class="p">(</span><span class="k">precision</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">trailing</span>
+</code></pre></div></p>
+<ul>
+<li><em>leading</em> and <em>trailing</em> can only be YEAR or MONTH.</li>
+<li>If <em>leading</em> is YEAR and <em>trailing</em> is MONTH, then the MONTH field ranges from 0 to 11.</li>
+<li>The <em>trailing</em> field must be less than the <em>leading</em> field.</li>
+<li><em>precision</em> represents the number of digits in the <em>leading</em> field. (ranges from 0 to 9; default is 2).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-54-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-54-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-54-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-54-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-54-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-54-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-54-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-54-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-54-10">10</a></span>
+<span class="normal"><a href="#__codelineno-54-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;120-3&#39;</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">MONTH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="c1">-- +120-03 (120 years and 3 months)</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3"></a>
+<a id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;105&#39;</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="c1">-- +105-00 (105 years)</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6"></a>
+<a id="__codelineno-54-7" name="__codelineno-54-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;9&#39;</span><span class="w"> </span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8"></a><span class="c1">-- +09-00 (9 years)</span>
+<a id="__codelineno-54-9" name="__codelineno-54-9"></a>
+<a id="__codelineno-54-10" name="__codelineno-54-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;180&#39;</span><span class="w"> </span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-54-11" name="__codelineno-54-11"></a><span class="c1">-- ORA-01873: the leading precision of the interval is too small</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Literals.html">Oracle Documentation - INTERVAL YEAR TO MONTH</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="interval-day-to-second">INTERVAL DAY TO SECOND</h2>
+<p>The INTERVAL DAY TO SECOND stores a period of time in terms of days, hours, minutes, and seconds.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="nb">INTERVAL</span><span class="w"> </span><span class="k">DAY</span><span class="w"> </span><span class="p">[(</span><span class="n">day_precision</span><span class="p">)]</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">SECOND</span><span class="w"> </span><span class="p">[(</span><span class="n">fractional_seconds_precision</span><span class="p">)]</span>
+</code></pre></div></p>
+<ul>
+<li><em>day_precision</em>: number of digits in the DAY field (<em>ranges from 0 to 9</em>).</li>
+<li><em>fractional_seconds_precision</em>: number of digits in the fractional part of the SECOND field (<em>ranges from 0 to 9</em>).</li>
+</ul>
+<p><strong>Literals Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="nb">INTERVAL</span><span class="w"> </span><span class="k">leading</span><span class="p">(</span><span class="n">leading_precision</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">trailing</span><span class="p">(</span><span class="n">fractional_seconds_precision</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-57-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-57-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-57-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-57-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-57-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-57-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-57-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-57-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-57-10">10</a></span>
+<span class="normal"><a href="#__codelineno-57-11">11</a></span>
+<span class="normal"><a href="#__codelineno-57-12">12</a></span>
+<span class="normal"><a href="#__codelineno-57-13">13</a></span>
+<span class="normal"><a href="#__codelineno-57-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;11 10:09:08.555&#39;</span><span class="w"> </span><span class="k">DAY</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">SECOND</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="c1">-- +11 10:09:08.555 (11 days, 10 hours, 9 minutes, 8 seconds and 555 thousandths of a second)</span>
+<a id="__codelineno-57-3" name="__codelineno-57-3"></a>
+<a id="__codelineno-57-4" name="__codelineno-57-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;11 10:09&#39;</span><span class="w"> </span><span class="k">DAY</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">MINUTE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-57-5" name="__codelineno-57-5"></a><span class="c1">-- +11 10:09:00 (11 days, 10 hours and 9 minutes)</span>
+<a id="__codelineno-57-6" name="__codelineno-57-6"></a>
+<a id="__codelineno-57-7" name="__codelineno-57-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;100 10&#39;</span><span class="w"> </span><span class="k">DAY</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">HOUR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-57-8" name="__codelineno-57-8"></a><span class="c1">-- +100 10:00:00 (100 days and 10 hours)</span>
+<a id="__codelineno-57-9" name="__codelineno-57-9"></a>
+<a id="__codelineno-57-10" name="__codelineno-57-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;8&#39;</span><span class="w"> </span><span class="n">HOUR</span><span class="w"> </span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-57-11" name="__codelineno-57-11"></a><span class="c1">-- +00 08:00:00 (8 hours)</span>
+<a id="__codelineno-57-12" name="__codelineno-57-12"></a>
+<a id="__codelineno-57-13" name="__codelineno-57-13"></a><span class="k">SELECT</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;09:30&#39;</span><span class="w"> </span><span class="n">HOUR</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">MINUTE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-57-14" name="__codelineno-57-14"></a><span class="c1">-- +00 09:30:00 (9 hours and 30 minutes)</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Literals.html">Oracle Documentation - INTERVAL DAY TO SECOND</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="trunc-date">TRUNC (date)</h2>
+<p>The TRUNC (Single-Row) Function returns a date truncated to a specific unit of measure.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="n">TRUNC</span><span class="p">(</span><span class="nb">date</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">format</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>date</em>: the date to truncate.</li>
+<li><em>format</em>: the unit of measure to apply for truncating.<ul>
+<li>if omitted, the function will truncate the date to the day value, so that any hours, minutes, or seconds will be truncated off</li>
+<li>Must be one of the following values: <a href="https://prnt.sc/sUPMMLZAJivS">(complete list)</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<ul>
+<li><a href="https://livesql.oracle.com/apex/livesql/s/bbwa5b00l6a1p8bxh838e1iut">Oracle Live SQL - TRUNC (date)</a></li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/TRUNC-date.html">Oracle Documentation - TRUNC (date)</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="null-related-functions">NULL-Related Functions</h2>
+<p>NULL-Related functions are used to handle NULL values.</p>
+<p><strong>List of NULL-Related Functions covered</strong></p>
+<ul>
+<li><code>NVL</code></li>
+<li><code>DECODE</code></li>
+<li><code>NVL2</code></li>
+<li><code>COALESCE</code></li>
+<li><code>NULLIF</code></li>
+</ul>
+<hr />
+<h2 id="nvl">NVL</h2>
+<p>The NVL (Single-Row) Function lets you substitute a value when a NULL value is encountered.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">NVL</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">replace_with</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to test for a NULL value.</li>
+<li><em>replace_with</em>: the value returned if string1 is NULL.<ul>
+<li>dataype must be the same as <em>string1</em></li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="c1">-- Hello</span>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello2&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="c1">-- Hello</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/NVL.html">Oracle Documentation - NVL</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="decode">DECODE</h2>
+<p>The DECODE (Single-Row) Function has the functionality of an IF-THEN-ELSE statement.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="n">DECODE</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span><span class="w"> </span><span class="k">search</span><span class="p">,</span><span class="w"> </span><span class="k">result</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="k">search</span><span class="p">,</span><span class="w"> </span><span class="k">result</span><span class="p">]...</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="k">default</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression</em>: the value to compare.</li>
+<li><em>search</em>: the value that is compared against <em>expression</em>.</li>
+<li><em>result</em>: the value returned, if <em>expression</em> is equal to <em>search</em>.</li>
+<li><em>default</em>: if no matches are found, the DECODE function will return <em>default</em>.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The function returns a value that is the same data type as the first result in the list.</li>
+<li>If the first result is NULL, then the return vlue is converted to VARCHAR2.</li>
+<li>If the first result has a data type of CHAR, then the return value is converted to VARCHAR2.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-62-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-62-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-62-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-62-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-62-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-62-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-62-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-62-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-62-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-62-10">10</a></span>
+<span class="normal"><a href="#__codelineno-62-11">11</a></span>
+<span class="normal"><a href="#__codelineno-62-12">12</a></span>
+<span class="normal"><a href="#__codelineno-62-13">13</a></span>
+<span class="normal"><a href="#__codelineno-62-14">14</a></span>
+<span class="normal"><a href="#__codelineno-62-15">15</a></span>
+<span class="normal"><a href="#__codelineno-62-16">16</a></span>
+<span class="normal"><a href="#__codelineno-62-17">17</a></span>
+<span class="normal"><a href="#__codelineno-62-18">18</a></span>
+<span class="normal"><a href="#__codelineno-62-19">19</a></span>
+<span class="normal"><a href="#__codelineno-62-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">supplier_name</span><span class="p">,</span>
+<a id="__codelineno-62-2" name="__codelineno-62-2"></a><span class="n">DECODE</span><span class="p">(</span><span class="n">supplier_id</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;IBM&#39;</span><span class="p">,</span>
+<a id="__codelineno-62-3" name="__codelineno-62-3"></a><span class="w">                    </span><span class="mi">10001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span>
+<a id="__codelineno-62-4" name="__codelineno-62-4"></a><span class="w">                    </span><span class="mi">10002</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hewlett Packard&#39;</span><span class="p">,</span>
+<a id="__codelineno-62-5" name="__codelineno-62-5"></a><span class="w">                    </span><span class="s1">&#39;Gateway&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">result</span>
+<a id="__codelineno-62-6" name="__codelineno-62-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">suppliers</span><span class="p">;</span>
+<a id="__codelineno-62-7" name="__codelineno-62-7"></a>
+<a id="__codelineno-62-8" name="__codelineno-62-8"></a><span class="c1">-- the above code would be equivalent to:</span>
+<a id="__codelineno-62-9" name="__codelineno-62-9"></a><span class="k">IF</span><span class="w"> </span><span class="n">supplier_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-62-10" name="__codelineno-62-10"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;IBM&#39;</span><span class="p">;</span>
+<a id="__codelineno-62-11" name="__codelineno-62-11"></a>
+<a id="__codelineno-62-12" name="__codelineno-62-12"></a><span class="k">ELSIF</span><span class="w"> </span><span class="n">supplier_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10001</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-62-13" name="__codelineno-62-13"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Microsoft&#39;</span><span class="p">;</span>
+<a id="__codelineno-62-14" name="__codelineno-62-14"></a>
+<a id="__codelineno-62-15" name="__codelineno-62-15"></a><span class="k">ELSIF</span><span class="w"> </span><span class="n">supplier_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10002</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-62-16" name="__codelineno-62-16"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hewlett Packard&#39;</span><span class="p">;</span>
+<a id="__codelineno-62-17" name="__codelineno-62-17"></a>
+<a id="__codelineno-62-18" name="__codelineno-62-18"></a><span class="k">ELSE</span>
+<a id="__codelineno-62-19" name="__codelineno-62-19"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Gateway&#39;</span><span class="p">;</span>
+<a id="__codelineno-62-20" name="__codelineno-62-20"></a><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/DECODE.html">Oracle Documentation - DECODE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="case">CASE</h2>
+<p>The CASE Statement has the functionality of an IF-THEN-ELSE statement.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="k">CASE</span><span class="w"> </span><span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition_1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result_1</span>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition_2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result_2</span>
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition_n</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result_n</span>
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a><span class="w">    </span><span class="p">[</span><span class="k">ELSE</span><span class="w"> </span><span class="k">result</span><span class="p">]</span>
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a><span class="k">END</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression</em>: the value that you are comparing to the list of conditions.</li>
+<li><em>condition_1, condition_2, … condition_n</em>: the conditions that must all be the same datatype. Conditions are evaluated in the order listed.</li>
+<li><em>result_1, result_2, ... result_n</em>: results that must all be the same datatype. This is the value returned once a condition is found to be true.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+</div>
+<ul>
+<li>The CASE Statement returns any datatype such as a String, Numeric, Date, etc.</li>
+<li>All conditions must be the same datatype.</li>
+<li>All results must be the same datatype.</li>
+<li>If ELSE is omitted, the CASE Statement will return NULL if no condition is found to be true.</li>
+<li>You can have up to 255 comparisons in a CASE Statement (each WHEN ... THEN clause is considered 2 comparisons).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<ul>
+<li><a href="https://livesql.oracle.com/apex/livesql/s/bbwavt945vu7c8247nodxt2r2">Oracle Live SQL - CASE</a></li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/lnpls/CASE-statement.html">Oracle Documentation - CASE Statement</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="nvl2">NVL2</h2>
+<p>The NVL2 (Single-Row) Function lets you substitutes a value when a NULL value is encountered as well as when a non-NULL value is encountered.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="n">NVL2</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">value_if_not_null</span><span class="p">,</span><span class="w"> </span><span class="n">value_if_null</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>string1</em>: the string to test for a NULL value.</li>
+<li><em>value_if_not_null</em>: the value returned if <em>string1</em> is <strong>not</strong> NULL.</li>
+<li><em>value_if_null</em>: the value returned if <em>string1</em> is NULL.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-1">1</a></span>
+<span class="normal"><a href="#__codelineno-65-2">2</a></span>
+<span class="normal"><a href="#__codelineno-65-3">3</a></span>
+<span class="normal"><a href="#__codelineno-65-4">4</a></span>
+<span class="normal"><a href="#__codelineno-65-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL2</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello2&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="c1">-- Hello2</span>
+<a id="__codelineno-65-3" name="__codelineno-65-3"></a>
+<a id="__codelineno-65-4" name="__codelineno-65-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL2</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello2&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-65-5" name="__codelineno-65-5"></a><span class="c1">-- Hello</span>
+</code></pre></div></td></tr></table></div>
+- <a href="https://livesql.oracle.com/apex/livesql/s/bbwceaiyt1n3eev61bx75efax">Oracle Live SQL - NVL2</a></p>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/NVL2.html">Oracle Documentation - NVL2</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="coalesce">COALESCE</h2>
+<p>The COALESCE (Single-Row) Function returns the first non-null expression in the list.\
+If all expressions evaluate to NULL, then the COALESCE function will return NULL.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="k">COALESCE</span><span class="p">(</span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression1, expression2, ... expression_n</em>: the expressions to test for non-NULL values.<ul>
+<li>the expressions must all be the same datatype</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-67-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-67-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-67-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-67-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-67-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-67-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-67-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-67-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-67-10">10</a></span>
+<span class="normal"><a href="#__codelineno-67-11">11</a></span>
+<span class="normal"><a href="#__codelineno-67-12">12</a></span>
+<span class="normal"><a href="#__codelineno-67-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="w"> </span><span class="n">address1</span><span class="p">,</span><span class="w"> </span><span class="n">address2</span><span class="p">,</span><span class="w"> </span><span class="n">address3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">result</span>
+<a id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">suppliers</span><span class="p">;</span>
+<a id="__codelineno-67-3" name="__codelineno-67-3"></a>
+<a id="__codelineno-67-4" name="__codelineno-67-4"></a><span class="c1">-- the above code would be equivalent to:</span>
+<a id="__codelineno-67-5" name="__codelineno-67-5"></a><span class="k">IF</span><span class="w"> </span><span class="n">address1</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-67-6" name="__codelineno-67-6"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">address1</span><span class="p">;</span>
+<a id="__codelineno-67-7" name="__codelineno-67-7"></a><span class="k">ELSIF</span><span class="w"> </span><span class="n">address2</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-67-8" name="__codelineno-67-8"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">address2</span><span class="p">;</span>
+<a id="__codelineno-67-9" name="__codelineno-67-9"></a><span class="k">ELSIF</span><span class="w"> </span><span class="n">address3</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-67-10" name="__codelineno-67-10"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">address3</span><span class="p">;</span>
+<a id="__codelineno-67-11" name="__codelineno-67-11"></a><span class="k">ELSE</span>
+<a id="__codelineno-67-12" name="__codelineno-67-12"></a><span class="w">   </span><span class="k">result</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-67-13" name="__codelineno-67-13"></a><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/COALESCE.html">Oracle Documentation - COALESCE</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="nullif">NULLIF</h2>
+<p>The NULLIF (Single-Row) Function compares <em>expr1</em> and <em>expr2</em>.<br />
+If <em>expr1</em> and <em>expr2</em> are equal, the NULLIF function returns NULL. Otherwise, it returns <em>expr1</em>.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="k">NULLIF</span><span class="p">(</span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>expr1</em>: first value to compare.<ul>
+<li>cannot be a literal NULL.</li>
+</ul>
+</li>
+<li><em>expr2</em>: second value to compare.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<ul>
+<li><a href="https://livesql.oracle.com/apex/livesql/s/pb4n0u12ahoqipilw1e74cu3k">Oracle Live SQL - NULLIF</a></li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/NULLIF.html">Oracle Documentation - NULLIF</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="coalesce-vs-nvl">COALESCE vs NVL</h2>
+<ul>
+<li>NVL accepts only 2 arguments whereas COALESCE can take multiple arguments.</li>
+<li>NVL evaluates both the arguments and COALESCE stops at first occurrence of a non-Null value (only exception is a Sequence.NEXTVAL).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-69-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-69-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-69-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-69-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-69-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-69-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-69-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-69-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-69-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-69-10">10</a></span>
+<span class="normal"><a href="#__codelineno-69-11">11</a></span>
+<span class="normal"><a href="#__codelineno-69-12">12</a></span>
+<span class="normal"><a href="#__codelineno-69-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="k">FROM</span>
+<a id="__codelineno-69-3" name="__codelineno-69-3"></a><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">RAWTOHEX</span><span class="p">(</span><span class="n">SYS_GUID</span><span class="p">())))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">val</span>
+<a id="__codelineno-69-4" name="__codelineno-69-4"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span>
+<a id="__codelineno-69-5" name="__codelineno-69-5"></a><span class="w">    </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
+<a id="__codelineno-69-6" name="__codelineno-69-6"></a><span class="c1">-- this query runs approximately in 0.6 seconds</span>
+<a id="__codelineno-69-7" name="__codelineno-69-7"></a>
+<a id="__codelineno-69-8" name="__codelineno-69-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-69-9" name="__codelineno-69-9"></a><span class="k">FROM</span>
+<a id="__codelineno-69-10" name="__codelineno-69-10"></a><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">RAWTOHEX</span><span class="p">(</span><span class="n">SYS_GUID</span><span class="p">())))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">val</span>
+<a id="__codelineno-69-11" name="__codelineno-69-11"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span>
+<a id="__codelineno-69-12" name="__codelineno-69-12"></a><span class="w">    </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
+<a id="__codelineno-69-13" name="__codelineno-69-13"></a><span class="c1">-- this query runs approximately in 0.2 seconds</span>
+</code></pre></div></td></tr></table></div>
+- NVL does an implicit conversion to the datatype of the first parameter, while COALESCE expect all parameters to have the same datatype.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-70-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-70-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-70-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-70-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-70-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-70-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-70-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-70-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-70-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-70-10">10</a></span>
+<span class="normal"><a href="#__codelineno-70-11">11</a></span>
+<span class="normal"><a href="#__codelineno-70-12">12</a></span>
+<span class="normal"><a href="#__codelineno-70-13">13</a></span>
+<span class="normal"><a href="#__codelineno-70-14">14</a></span>
+<span class="normal"><a href="#__codelineno-70-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">sysdate</span><span class="p">)</span>
+<a id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-70-3" name="__codelineno-70-3"></a><span class="c1">-- returns &#39;a&#39;</span>
+<a id="__codelineno-70-4" name="__codelineno-70-4"></a>
+<a id="__codelineno-70-5" name="__codelineno-70-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">sysdate</span><span class="p">)</span>
+<a id="__codelineno-70-6" name="__codelineno-70-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-70-7" name="__codelineno-70-7"></a><span class="c1">-- returns ORA-00932: inconsistent datatypes: expected CHAR got DATE</span>
+<a id="__codelineno-70-8" name="__codelineno-70-8"></a>
+<a id="__codelineno-70-9" name="__codelineno-70-9"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span>
+<a id="__codelineno-70-10" name="__codelineno-70-10"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-70-11" name="__codelineno-70-11"></a><span class="c1">-- returns &#39;test&#39;</span>
+<a id="__codelineno-70-12" name="__codelineno-70-12"></a>
+<a id="__codelineno-70-13" name="__codelineno-70-13"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span>
+<a id="__codelineno-70-14" name="__codelineno-70-14"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+<a id="__codelineno-70-15" name="__codelineno-70-15"></a><span class="c1">-- returns ORA-00932: inconsistent datatypes: expected CHAR got NUMBER</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/COALESCE.html">Oracle Documentation - COALESCE</a></li>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/NVL.html">Oracle Documentation - NVL</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="aggregate-functions">Aggregate Functions</h2>
+<p>Aggregate (or Group) Functions return a single result row based on groups of rows, rather than on single rows.</p>
+<p>They are commonly used with the GROUP BY clause in a SELECT statement, where Oracle Database divides the rows of a queried table or view into groups.<br />
+If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the select list to all the rows in the queried table or view.</p>
+<p>Many Aggregate Functions accept these clauses:</p>
+<ul>
+<li>DISTINCT and UNIQUE (which are synonymous) cause an aggregate function to consider only distinct values of the argument expression.</li>
+<li>ALL causes an aggregate function to consider all values, including all duplicates.</li>
+</ul>
+<p>If both are ommitted, default clause is ALL.</p>
+<p><strong>List of Aggregate Functions covered</strong></p>
+<ul>
+<li><code>COUNT</code></li>
+<li><code>AVG</code></li>
+<li><code>SUM</code></li>
+<li><code>MAX</code></li>
+<li><code>MIN</code></li>
+<li><code>LISTAGG</code></li>
+<li><code>STDDEV</code></li>
+<li><code>VARIANCE</code></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Aggregate Functions can appear in select lists and in ORDER BY and HAVING clauses.</li>
+<li>You use Aggregate Functions in the HAVING clause to eliminate groups from the output based on the results of the Aggregate Functions.</li>
+<li>All Aggregate Functions except COUNT(*) ignore NULLs.</li>
+<li>COUNT never returns NULL, but returns either a number or zero.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<ul>
+<li>DISTINCT average of: 1, 1, 1, and 3 → 2 ([1+3]/2)</li>
+<li>ALL average of: 1, 1, 1, and 3 → 1.5 ([1+1+1+3]/4)</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Aggregate-Functions.html">Oracle Documentation - Aggregate Functions</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="count">COUNT</h2>
+<p>The COUNT (Aggregate) Function returns the count of an expression.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+</code></pre></div></p>
+<p><strong>Syntax with more than one column</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
+<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="k">COUNT</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the COUNT function must be included in the GROUP BY clause.</li>
+<li><em>aggregate_expression</em>: the column or expression whose non-NULL values will be counted.<ul>
+<li>NULL values are ignored</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The COUNT function always returns a numeric value.</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/COUNT.html#GUID-AEF08B79-024D-4E3A-B362-9715FB011776">Oracle Documentation - COUNT</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="avg">AVG</h2>
+<p>The AVG (Aggregate) Function returns the average value of an expression.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+</code></pre></div></p>
+<p><strong>Syntax with more than one column</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
+<a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a><span class="k">AVG</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+<a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the AVG function must be included in the GROUP BY clause.</li>
+<li><em>aggregate_expression</em>: the column or expression that will be averaged.<ul>
+<li>NULL values are ignored</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The AVG function returns a numeric value.</li>
+<li>If <em>aggregate_expression</em> is a String, returns <code>ORA-01722: invalid number</code></li>
+<li>If <em>aggregate_expression</em> is a Date, returns <code>ORA-00932: inconsistent datatypes: expected NUMBER got DATE</code></li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/AVG.html">Oracle Documentation - AVG</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="max">MAX</h2>
+<p>The MAX (Aggregate) Function returns the maximum value of an expression.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+</code></pre></div></p>
+<p><strong>Syntax with more than one column</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="k">MAX</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the MAX function must be included in the GROUP BY clause. </li>
+<li><em>aggregate_expression</em>: the column or expression from which the maximum value will be returned.<ul>
+<li>NULL values are ignored</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The MAX function returns either a string/numeric/date value.</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/MAX.html">Oracle Documentation - MAX</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="min">MIN</h2>
+<p>The MIN (Aggregate) Function returns the minimum value of an expression.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+</code></pre></div></p>
+<p><strong>Syntax with more than one column</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="k">MIN</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+<a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the MAX function must be included in the GROUP BY clause.</li>
+<li><em>aggregate_expression</em>: the column or expression from which the minimum value will be returned.<ul>
+<li>NULL values are ignored</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The MIN function returns either a string/numeric/date value.</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/MIN.html">Oracle Documentation - MIN</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="listagg">LISTAGG</h2>
+<p>The LISTAGG (Aggregate) Function concatenates values of the <em>measure_column</em> for each GROUP based on the <em>order_by_clause</em>.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="n">LISTAGG</span><span class="p">(</span><span class="n">measure_column</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="s1">&#39;delimeter&#39;</span><span class="p">])</span>
+<a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a><span class="w">    </span><span class="n">WITHIN</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="p">(</span><span class="n">order_by_clause</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><em>measure_column</em>: the column or expression whose values you wish to concatenate together in the result set.</li>
+<li><em>delimeter</em>: the delimeter to use when separating the <em>measure_column</em>.</li>
+<li><em>order_by_clause</em>: determines the order that the concatenated values are returned.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>NULL values in the <em>measure_column</em> are ignored</li>
+<li><em>delimeter</em>'s default value is blank space</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><img alt="listagg-example1" src="https://i.imgur.com/nm5cAHr.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LISTAGG</span><span class="p">(</span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="w">    </span><span class="n">WITHIN</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">product_name</span><span class="p">)</span><span class="w"> </span><span class="ss">&quot;Product_Listing&quot;</span>
+<a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="p">;</span>
+<a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a><span class="c1">-- Apples, Bananas, Oranges, Pears</span>
+</code></pre></div>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LISTAGG.html">Oracle Documentation - LISTAGG</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="sum">SUM</h2>
+<p>The SUM (Aggregate) Function returns the summed value of an expression.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+</code></pre></div></p>
+<p><strong>Syntax with more than one column</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="k">SUM</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
+<a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
+<a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
+<a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
+</code></pre></div></p>
+<ul>
+<li><em>expression1, expression2, ... expression_n</em>: expressions that are not encapsulated within the MIN function must be included in the GROUP BY clause.</li>
+<li><em>aggregate_expression</em>: the column or expression that will be summed.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The SUM function returns a numeric value.</li>
+<li>NULL values in the <em>aggregate_expression</em> are ignored.</li>
+<li>If <em>aggregate_expression</em> is a String, returns <code>ORA-01722: invalid number</code></li>
+<li>If <em>aggregate_expression</em> is a Date, returns <code>ORA-00932: inconsistent datatypes: expected NUMBER got DATE</code></li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/SUM.html">Oracle Documentation - SUM</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="conversion-functions">Conversion Functions</h2>
+<p>Conversion Functions convert a value from one form to another.</p>
+<p><strong>List of Conversion Functions covered</strong></p>
+<ul>
+<li><code>TO_NUMBER</code></li>
+<li><code>TO_CHAR</code></li>
+<li><code>TO_DATE</code></li>
+</ul>
+<hr />
+<h2 id="to_number">TO_NUMBER</h2>
+<p>The TO_NUMBER (Conversion) Function converts expr to a value of NUMBER data type.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="n">TO_NUMBER</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="n">format_mask</span><span class="p">])</span>
+</code></pre></div></p>
+<p><strong>Format Mask</strong>
+[...]</p>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/TO_NUMBER.html">Oracle Documentation - TO_NUMBER</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="to_date">TO_DATE</h2>
+<p>The TO_DATE (Conversion) Function converts a string to a date.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="n">TO_DATE</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="n">format_mask</span><span class="p">])</span>
+</code></pre></div></p>
+<ul>
+<li><em>string</em>: the string that will be converted to a date.</li>
+<li><em>format_mask</em>: the format that will be used to convert <em>string</em> to a date.<ul>
+<li>must be one or a combination of the <a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Format-Models.html#GUID-4EF054FF-9996-4637-8476-136FC7A8246D">following values</a>.</li>
+</ul>
+</li>
+</ul>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/TO_DATE.html">Oracle Documentation - TO_DATE</a></li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/nicolovitelli"  target="_blank" rel="noopener">Nicolò Vitelli</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/nicolovitelli" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/nvitelli/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
