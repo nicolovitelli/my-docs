@@ -245,3 +245,36 @@ CREATE SEQUENCE [schema.]sequence_name
 
 ??? abstract "Sources"
     - [Oracle Documentation - Managing Sequences](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/managing-views-sequences-and-synonyms.html)
+    
+---
+
+## ALTER SEQUENCE
+```sql
+ALTER SEQUENCE [schema.]sequence_name
+{
+	{INCREMENT BY number | START WITH number} |
+	{MAXVALUE number | NOMAXVALUE number} |
+	{MINVALUE number | NOMINVALUE number} |
+	RESTART |
+	{CYCLE | NOCYCLE} |
+	{CACHE number | NOCACHE} |
+	{ORDER | NOORDER} |
+	{KEEP | NOKEEP} |
+	{SCALE EXTEND | SCALE NOEXTEND | NOSCALE} |
+	{SHARD EXTEND | SHARD NOEXTEND | NOSHARD} |
+	{SESSION | GLOBAL} 
+}
+```
+
+- `#!sql RESTART`: resets NEXTVAL to MINVALUE for an ascending Sequence. For a descending Sequence restarts NEXTVAL to MAXVALUE.
+
+!!! info "Notes"
+    - To restart a Sequence with a different number, specify both RESTART and START WITH.
+    - A new MAXVALUE cannot be less than the current Sequence number.
+
+!!! warning "Privilege Restrictions"
+    - In your schema: `GRANT ALTER sequence_name TO user_name;`
+    - In another's user schema: `GRANT ALTER ANY SEQUENCE TO user_name`;
+
+??? abstract "Sources"
+    - [Oracle Documentation - ALTER SEQUENCE](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/ALTER-SEQUENCE.html)

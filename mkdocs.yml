@@ -63,5 +63,9 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 copyright: |
   &copy; 2024 <a href="https://github.com/nicolovitelli"  target="_blank" rel="noopener">Nicolò Vitelli</a>
