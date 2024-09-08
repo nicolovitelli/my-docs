@@ -4,18 +4,19 @@ title: DML Statements
 
 Data Manipulation Language (DDL) statements access and manipulate data in existing schema objects.
 
-DML Statements do not implicitly commit the current transaction.
-
 The DML Statements are:
 
-- `CALL`
-- `DELETE`
-- `EXPLAIN PLAN`
-- `INSERT`
-- `LOCK TABLE`
-- `MERGE`
-- `SELECT`
-- `UPDATE`
+- `#!sql CALL`
+- `#!sql DELETE`
+- `#!sql EXPLAIN PLAN`
+- `#!sql INSERT`
+- `#!sql LOCK TABLE`
+- `#!sql MERGE`
+- `#!sql SELECT`
+- `#!sql UPDATE`
+
+!!! info "Notes"
+    - DML Statementes do not implicitly commit the current Transaction.
 
 ??? abstract "Sources"
     - [Oracle Documentation - Data Manipulation Language (DML) Statements](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Types-of-SQL-Statements.html#GUID-2E008D4A-F6FD-4F34-9071-7E10419CA24D)
@@ -110,13 +111,11 @@ FROM source_table;
 ---
 
 ## MERGE
-The MERGE Statement selects data from one or more source tables and updates or inserts it into a target table.
-
 The MERGE statement allows you to specify a condition to determine whether to update data from or insert data into the target table.
 
 **Syntax**
 ```sql
-MERGE INTO target_table
+MERGE INTO [hint] target_table
 USING source_table
 ON (search_condition)
 	WHEN MATCHED THEN
@@ -129,14 +128,19 @@ ON (search_condition)
 		WHERE [condition];
 ```
 
+- *hint*: specify an [Hint](SQL/hints) to apply.
 - *target_table*: Table on which you want to update or insert into.
 - *source_table*: Source of data to be updated or inserted.
 - *search_condition*: Search condition upon which the merge operation either updates or inserts.
 
-For each row in the target table, Oracle evaluates the search condition:
+For each row in the target table, Oracle evaluates the *search_condition*:
 
 - If the result is true, then Oracle updates the row with the corresponding data from the source table.
 - In case the result is false for any rows, then Oracle inserts the corresponding row from the source table into the target table.
+
+!!! info "Notes"
+    - You cannot update the same row of the target Table multiple times in the same MERGE statement. 
+    - You cannot update a column that is referenced in the ON condition clause. 
 
 !!! example "Examples"
     ```sql linenums="1"
@@ -150,6 +154,7 @@ For each row in the target table, Oracle evaluates the search condition:
             VALUES (c.customer#, c.lastname, c.firstname);
     ```
     For each row in Author:
+    
     - If authorid and customer# are equal, then update the Author's lastname (a.lname) and first name (a.fname) with the Customer's last name (c.lastname) and first name (c.firstname).
     - Otherwise inserts a new row in Author with Customer's data.
 

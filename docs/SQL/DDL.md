@@ -10,12 +10,6 @@ Data Definition Language (DDL) statements let you to perform these tasks:
 - Establish auditing options
 - Add comments to the data dictionary
 
-The CREATE, ALTER, and DROP commands require exclusive access to the specified object. For example, an ALTER TABLE statement fails if another user has an open transaction on the specified table.
-
-The GRANT, REVOKE, ANALYZE, AUDIT, and COMMENT commands do not require exclusive access to the specified object. For example, you can analyze a table while other users are updating the table.
-
-Oracle Database implicitly commits the current transaction before and after every DDL statement.
-
 The DDL Statements are:
 
 - `#!sql ALTER ...` (*all statements beginning with ALTER*)
@@ -34,6 +28,10 @@ The DDL Statements are:
 - `#!sql REVOKE`
 - `#!sql TRUNCATE`
 - `#!sql UNDROP`
+
+!!! info "Notes"
+    - Oracle Database implicitly commits the current Transaction before and after every DDL Statement.
+    - `#!sql CREATE`, `#!sql ALTER` and `#!sql DROP` requires exclusive access to the specified Table. You cannot execute any of these commands if another User has an open Transaction on the Table.
 
 ??? abstract "Sources"
     - [Oracle Documentation - Data Definition Language (DDL) Statements](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Types-of-SQL-Statements.html)
@@ -286,8 +284,27 @@ RENAME [schema.]old_object_name TO [schema.]new_object_name;
 
 ## TRUNCATE TABLE
 ```sql
-TRUNCATE TABLE [schema.]table_name;
+TRUNCATE TABLE [schema.]table_name
+    [{PRESERVE | PURGE} MATERIALIZED VIEW LOG]
+    [{DROP ALL | REUSE} STORAGE]
+    [CASCADE];
 ```
+
+- *table_name*: Table you are truncating.
+- `PRESERVE MATERIALIZED VIEW LOG`: specify PRESERVE if any Materialized View log should be preserved.
+    - this is the default option.
+- `PURGE MATERIALIZED VIEW LOG`: specify PURGE if any Materialized View log should be purged.
+- `DROP STORAGE`: specify DROP ALL STORAGE to deallocate all space from the deleted rows from the Table.
+- `REUSE STORAGE`: specify REUSE STORAGE to retain the space from the deleted rows allocated to the table. This space can subsequently be used only by new data in the table resulting from insert or update operations.
+- `CASCADE`: Oracle Database truncates all child Tables that reference *table_name* with an enabled ON DELETE CASCADE referential constraint.
+
+!!! info "Notes"
+    - Removing rows with the TRUNCATE TABLE statement can be faster than removing all rows with the DELETE statement.
+    - You cannot flash back to the state of the Table before the TRUNCATE operation.
+    - You cannot TRUNCATE the parent table of an enabled Foreign Key constraint. You must disable the constraint before truncating the Table.
+
+!!! warning "Privilege Restrictions"
+    - `#!sql GRANT DROP ANY TABLE TO user_name;`
 
 ??? abstract "Sources"
     - [Oracle Documentation - TRUNCATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/TRUNCATE-TABLE.html)
