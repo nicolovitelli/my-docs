@@ -81,11 +81,83 @@ NCHAR[(size)]
 
 ---
 
+## NVARCHAR2
+The NVARCHAR2 data type specifies a variable-length character string in the national character set (which can be `AL16UTF16` or `UTF8`).
+
+**Syntax**
+```sql
+NVARCHAR2(size)
+```
+
+- *size*: integer number which represents the column size. 
+
+!!! info "Notes"
+    - Minimum *size* is 1.
+    - Maximum *size* is:
+        - 1363 -- if `MAX_STRING_SIZE = EXTENDED` and national character set is AL16UTF16.
+        - 2000 -- if `MAX_STRING_SIZE = STANDARD` and national character set is AL16UTF16.
+        - 32767 -- if `MAX_STRING_SIZE = EXTENDED` and national character set is UTF8.
+        - 4000 -- if `MAX_STRING_SIZE = STANDARD`and national character set is UTF8.
+
+??? abstract "Sources"
+    - [Oracle Documentation - NVARCHAR2 Data Type](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Data-Types.html#GUID-CC15FC97-BE94-4FA4-994A-6DDF7F1A9904)
+
+---
+
 ## Number Datatypes
 - `#!sql NUMBER`
 - `#!sql FLOAT`
 - `#!sql BINARY_FLOAT`
 - `#!sql BINARY_DOUBLE`
+
+---
+
+## NUMBER
+The NUMBER data type stores zero as well as positive and negative fixed numbers.
+
+**Syntax**
+```sql
+NUMBER[(precision [,scale])]
+```
+
+- *precision*: maximum number of significant decimal digits.
+- *scale*: number of digits from the decimal point to the least significant digit.
+
+!!! info "Notes"
+    - The *precision* can range from 1 to 38.
+    - The *scale* can range from -84 to 127.
+    - If not specified, the *scale* is 0.
+    - Numbers can go from $1.0$ x $10^{-130}$ to $1.0$ x $10^{126}$.
+    - If a value exceeds the precision, then Oracle returns an error. If a value exceeds the scale, then Oracle rounds it.
+    - The absence of *precision* and *scale* designators specifies the maximum range and precision for an Oracle number.
+
+!!! example "Examples"
+    ```
+    NUMBER      → 123.89 → 123.89
+    NUMBER(3)   → 123.89 → 124
+    NUMBER(3,2) → 123.89 → ORA-01438: value larger than specified precision allowed for this column
+    NUMBER(5,2) → 123.89 → 123.89
+    NUMBER(6,1) → 123.89 → 123.9 
+    ```
+
+??? abstract "Sources"
+    - [Oracle Documentation - NUMBER Data Type](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Data-Types.html#GUID-9401BC04-81C4-4CD5-99E7-C5E25C83F608)
+
+---
+
+## FLOAT Data Type
+The FLOAT data type is a subtype of NUMBER.  
+It can be specified with or without precision, which has the same definition it has for NUMBER.
+
+**Syntax**
+```sql
+FLOAT[(precision)]
+```
+
+- *precision*: maximum number of significant decimal digits.
+
+!!! info "Notes"
+    - Oracle recommends that you use the `#!sql BINARY_FLOAT` and `#!sql BINARY_DOUBLE` data types instead.
 
 ---
 
