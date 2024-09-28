@@ -1006,26 +1006,6 @@
 <li><strong>inline</strong>: as part of the definition of an individual column</li>
 <li><strong>out-of-line</strong>: as part of the Table definition</li>
 </ul>
-<p><strong>View Constraints</strong><br />
-It is possible to create Unique, Primary Key and Foreign Key Constraints on Views, but only if the <code>DISABLE NOVALIDATE</code> clause is specified.</p>
-<div class="admonition warning">
-<p class="admonition-title">General Restrictions</p>
-<p>These restrictions apply to all Primary Key/Foreign Key/Unique Constraints.</p>
-<ul>
-<li>Constraints cannot be created on the following column datatypes:<ul>
-<li><code>LOB</code></li>
-<li><code>LONG</code></li>
-<li><code>LONG RAW</code></li>
-<li><code>VARRAY</code></li>
-<li><code>NESTED TABLE</code></li>
-<li><code>OBJECT</code></li>
-<li><code>REF</code></li>
-<li><code>TIMESTAMP WITH TIME ZONE</code></li>
-<li>user-defined type</li>
-</ul>
-</li>
-</ul>
-</div>
 <hr />
 <h2 id="unique-constraint">UNIQUE Constraint<a class="headerlink" href="#unique-constraint" title="Permanent link">&para;</a></h2>
 <p>A UNIQUE Constraint prohibits multiple rows from having the same value in the same column or combination of columns but allows some values to be NULL.</p>
@@ -1085,12 +1065,6 @@ A Composite Unique Key can only be specified out of line.</p>
 <ul>
 <li>A NOT NULL Constraint must be defined inline. </li>
 <li>It is possible to specify NULL to explicitly permit a column to contain NULLs.</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Restrictions</p>
-<ul>
-<li>You cannot specify NOT NULL in a View Constraint. </li>
 </ul>
 </div>
 <details class="abstract">

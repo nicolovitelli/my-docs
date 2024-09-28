@@ -1181,12 +1181,6 @@
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
-<li>Default and minimum <em>size</em> is 1.</li>
-<li>Maximum <em>size</em> is 1000 characters for <code>AL16UTF16</code> or 2000 for <code>UTF8</code>.<ul>
-<li>However, the maximum lenght of any character value that can be stored into an NCHAR column is 2000 bytes.</li>
-</ul>
-</li>
-<li>When specifying <em>size</em>, you're specifying code points. 1 code point is equivalent to 2 bytes in <code>AL16UTF16</code> and from 1 to 3 bytes in <code>UTF8</code>.</li>
 <li>If you insert a value that is shorter than the column length, then Oracle blank-pads the value to column length.</li>
 <li>This datatype is generally used for storing characters in multiple languages.</li>
 </ul>
@@ -1212,19 +1206,6 @@
 <ul>
 <li><em>size</em>: integer number which represents the column size. </li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">Notes</p>
-<ul>
-<li>Minimum <em>size</em> is 1.</li>
-<li>Maximum <em>size</em> is:<ul>
-<li>1363 -- if <code>MAX_STRING_SIZE = EXTENDED</code> and national character set is AL16UTF16.</li>
-<li>2000 -- if <code>MAX_STRING_SIZE = STANDARD</code> and national character set is AL16UTF16.</li>
-<li>32767 -- if <code>MAX_STRING_SIZE = EXTENDED</code> and national character set is UTF8.</li>
-<li>4000 -- if <code>MAX_STRING_SIZE = STANDARD</code>and national character set is UTF8.</li>
-</ul>
-</li>
-</ul>
-</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>

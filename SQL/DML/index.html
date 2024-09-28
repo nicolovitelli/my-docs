@@ -995,15 +995,6 @@
 <hr />
 <h2 id="insert">INSERT<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h2>
 <p>INSERT allows to add rows to a Table, the base table of a View or a partition of a partitioned Table.</p>
-<p>There are two types of INSERTs, Conventional and Direct-Path:</p>
-<ul>
-<li><strong>Conventional</strong>: Oracle Database reuses free space in the Table into which you are inserting and maintains integrity constraints.</li>
-<li><strong>Direct-Path</strong>: Oracle Database appends the inserted data after existing data in the Table. Data is written directly into data files.<ul>
-<li>attempting to execute multiple Direct-Path INSERTs in one Transaction returns an error</li>
-<li>Direct-Path INSERTs cannot be executed on Tables that have Triggers or Referential Integrity Constraints</li>
-</ul>
-</li>
-</ul>
 <p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="p">[</span><span class="n">hint</span><span class="p">]</span>
 <span class="k">INTO</span><span class="w"> </span><span class="err">{</span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span>
@@ -1012,20 +1003,13 @@
 <span class="err">{</span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1_value</span><span class="p">,</span><span class="w"> </span><span class="n">column_n_value</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span><span class="p">;</span>
 </code></pre></div></p>
 <ul>
-<li><em>hint</em>: specify a comment that passes instructions to the optimizer on choosing an execution plan for the statement.</li>
-<li><em>schema</em>: specify the schema containing the Table, View or Materialized View.</li>
-<li><em>table_name</em> | <em>subquery</em>: specify the name of the Object or the Subquery into which rows are to be inserted.</li>
+<li><em>hint</em>: specify an <a href="SQL/hints">Hint</a> to apply.</li>
 <li><code class="highlight"><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">partition_name</span><span class="p">)</span></code>: specify the name or partition key value of the partition or subpartition within <em>table_name</em>.</li>
-<li><em>column_1, column_n</em>: optional column list.</li>
 <li><code class="highlight"><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1_value</span><span class="p">,</span><span class="w"> </span><span class="n">column_n_value</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span></code>: values you're inserting into the column list. Instead of specifying the values manually, you can also use a Subquery to insert rows into a table.</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
-<li>Using the <code class="highlight"><span class="n">APPEND</span></code> hint activates Direct-Path INSERT<ul>
-<li>see more details about <a href="SQL/hints">Hints</a></li>
-</ul>
-</li>
 <li>If the column list is omitted, then the VALUES clause must specify values for all columns in the Table.</li>
 <li>If the specified <em>partition_name</em> does not exist, the database returns an error.</li>
 <li>If a View was created using the <code class="highlight"><span class="k">WITH</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">OPTION</span></code> clause, then you can insert into the View only rows that satisfy the defining query of the View.</li>
@@ -1074,7 +1058,7 @@ In a conditional INSERT ALL statement, conditions can be added to the INTO claus
 <div class="admonition warning">
 <p class="admonition-title">Restrictions</p>
 <ul>
-<li>Multitable inserts can only be performed on Tables, not on views or Materialized Views.</li>
+<li>Multitable inserts can only be performed on Tables, not on Views or Materialized Views.</li>
 <li>Sequences cannot be used in the multitable insert statement. It is considered a single statement, so only one sequence value will be generated and used for all rows.</li>
 </ul>
 </div>
