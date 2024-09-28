@@ -968,8 +968,7 @@
 
   <h1>DML Statements</h1>
 
-<p>Data Manipulation Language (DDL) statements access and manipulate data in existing schema objects.</p>
-<p>The DML Statements are:</p>
+<p>The DML (Data Manipulation Language) Statements are:</p>
 <ul>
 <li><code class="highlight"><span class="k">CALL</span></code></li>
 <li><code class="highlight"><span class="k">DELETE</span></code></li>
@@ -994,19 +993,11 @@
 </details>
 <hr />
 <h2 id="insert">INSERT<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h2>
-<p>INSERT allows to add rows to a Table, the base table of a View or a partition of a partitioned Table.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="p">[</span><span class="n">hint</span><span class="p">]</span>
 <span class="k">INTO</span><span class="w"> </span><span class="err">{</span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span>
-<span class="p">[</span><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">partition_name</span><span class="p">)]</span>
 <span class="w">    </span><span class="p">[</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_n</span><span class="p">]</span>
 <span class="err">{</span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1_value</span><span class="p">,</span><span class="w"> </span><span class="n">column_n_value</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span><span class="p">;</span>
-</code></pre></div></p>
-<ul>
-<li><em>hint</em>: specify an <a href="SQL/hints">Hint</a> to apply.</li>
-<li><code class="highlight"><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">partition_name</span><span class="p">)</span></code>: specify the name or partition key value of the partition or subpartition within <em>table_name</em>.</li>
-<li><code class="highlight"><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1_value</span><span class="p">,</span><span class="w"> </span><span class="n">column_n_value</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span></code>: values you're inserting into the column list. Instead of specifying the values manually, you can also use a Subquery to insert rows into a table.</li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1032,20 +1023,16 @@
 </details>
 <hr />
 <h2 id="insert-all">INSERT ALL<a class="headerlink" href="#insert-all" title="Permanent link">&para;</a></h2>
-<p><strong>Unconditional INSERT ALL</strong><br />
-When using an unconditional INSERT ALL statement, each row produced by the driving query results in a new row in each of the tables listed in the INTO clauses.</p>
-<p><strong>Unconditional INSERT ALL Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">ALL</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- unconditional INSERT ALL</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">ALL</span>
 <span class="k">INTO</span><span class="w"> </span><span class="n">table_1</span><span class="w"> </span><span class="p">(</span><span class="n">column_a</span><span class="p">,</span><span class="w"> </span><span class="n">column_b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="p">)</span>
 <span class="w">    </span><span class="k">INTO</span><span class="w"> </span><span class="n">table_2</span><span class="w"> </span><span class="p">(</span><span class="n">column_c</span><span class="p">,</span><span class="w"> </span><span class="n">column_d</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="p">)</span>
 <span class="w">    </span><span class="k">INTO</span><span class="w"> </span><span class="n">table_3</span><span class="w"> </span><span class="p">(</span><span class="n">column_e</span><span class="p">,</span><span class="w"> </span><span class="n">column_f</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="p">)</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">column_1</span><span class="p">[,</span><span class="w"> </span><span class="n">column_n</span><span class="p">]</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">source_table</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Conditional INSERT ALL</strong><br />
-In a conditional INSERT ALL statement, conditions can be added to the INTO clauses, which means the total number of rows inserted may be less that the number of source rows multiplied by the number of INTO clauses.</p>
-<p><strong>Conditional INSERT ALL Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">ALL</span>
+
+<span class="c1">-- conditional INSERT ALL</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">ALL</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="k">THEN</span>
 <span class="w">        </span><span class="k">INTO</span><span class="w"> </span><span class="n">table_1</span><span class="w"> </span><span class="p">(</span><span class="n">column_a</span><span class="p">,</span><span class="w"> </span><span class="n">column_b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="p">)</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="k">THEN</span>
@@ -1054,10 +1041,12 @@ In a conditional INSERT ALL statement, conditions can be added to the INTO claus
 <span class="w">        </span><span class="k">INTO</span><span class="w"> </span><span class="n">table_3</span><span class="w"> </span><span class="p">(</span><span class="n">column_e</span><span class="p">,</span><span class="w"> </span><span class="n">column_f</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="p">)</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">source_table</span><span class="p">;</span>
-</code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Restrictions</p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
+<li>When using an unconditional INSERT ALL statement, each row produced by the driving query results in a new row in each of the tables listed in the INTO clauses.</li>
+<li>In a conditional INSERT ALL statement, conditions can be added to the INTO clauses, which means the total number of rows inserted may be less that the number of source rows multiplied by the number of INTO clauses.</li>
 <li>Multitable inserts can only be performed on Tables, not on Views or Materialized Views.</li>
 <li>Sequences cannot be used in the multitable insert statement. It is considered a single statement, so only one sequence value will be generated and used for all rows.</li>
 </ul>
@@ -1077,10 +1066,8 @@ In a conditional INSERT ALL statement, conditions can be added to the INTO claus
 </details>
 <hr />
 <h2 id="merge">MERGE<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h2>
-<p>The MERGE statement allows you to specify a condition to determine whether to update data from or insert data into the target table.</p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="n">MERGE</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">hint</span><span class="p">]</span><span class="w"> </span><span class="n">target_table</span>
-<span class="k">USING</span><span class="w"> </span><span class="n">source_table</span>
+<div class="highlight"><pre><span></span><code><span class="n">MERGE</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">hint</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="n">target_table</span>
+<span class="k">USING</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="n">source_table</span>
 <span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">search_condition</span><span class="p">)</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">MATCHED</span><span class="w"> </span><span class="k">THEN</span>
 <span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value_2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
@@ -1090,18 +1077,7 @@ In a conditional INSERT ALL statement, conditions can be added to the INTO claus
 <span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
 <span class="w">        </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">value_1</span><span class="p">,</span><span class="w"> </span><span class="n">value_2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
 <span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">condition</span><span class="p">];</span>
-</code></pre></div></p>
-<ul>
-<li><em>hint</em>: specify an <a href="SQL/hints">Hint</a> to apply.</li>
-<li><em>target_table</em>: Table on which you want to update or insert into.</li>
-<li><em>source_table</em>: Source of data to be updated or inserted.</li>
-<li><em>search_condition</em>: Search condition upon which the merge operation either updates or inserts.</li>
-</ul>
-<p>For each row in the target table, Oracle evaluates the <em>search_condition</em>:</p>
-<ul>
-<li>If the result is true, then Oracle updates the row with the corresponding data from the source table.</li>
-<li>In case the result is false for any rows, then Oracle inserts the corresponding row from the source table into the target table.</li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>

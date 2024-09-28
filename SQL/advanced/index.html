@@ -633,15 +633,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#substitution-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Substitution Variables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pivot" class="md-nav__link">
     <span class="md-ellipsis">
       PIVOT
@@ -979,15 +970,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#substitution-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Substitution Variables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pivot" class="md-nav__link">
     <span class="md-ellipsis">
       PIVOT
@@ -1095,59 +1077,7 @@ For example:
 </ul>
 </details>
 <hr />
-<h2 id="substitution-variables">Substitution Variables<a class="headerlink" href="#substitution-variables" title="Permanent link">&para;</a></h2>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="c1">-- Definining a new Substitution Variables:</span>
-<span class="n">DEFINE</span><span class="w"> </span><span class="n">variable_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variable_value</span><span class="p">;</span>
-
-<span class="c1">-- Confirming the variable definition:</span>
-<span class="n">DEFINE</span><span class="w"> </span><span class="n">variable_name</span><span class="p">;</span>
-
-<span class="c1">-- Listing all Substitution Variables:</span>
-<span class="n">DEFINE</span><span class="p">;</span>
-
-<span class="c1">-- Deleting a Substitution Variables:</span>
-<span class="n">UNDEFINE</span><span class="w"> </span><span class="n">variable_name</span><span class="p">;</span>
-
-<span class="c1">-- Referencing to a Substitution Variables:</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">&amp;</span><span class="n">variable_name_1</span>
-<span class="k">FROM</span><span class="w"> </span><span class="o">&amp;</span><span class="n">variable_name_2</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Notes about Substitution Variables</strong></p>
-<ul>
-<li>You can use Substitution Variables anywhere in SQL and SQL*Plus commands.</li>
-<li>When SQL*Plus encounters an undefined Substitution Variables in a command, SQL*PLUS prompts you for the value.</li>
-</ul>
-<p><strong>SET Command</strong></p>
-<ul>
-<li>After you enter a value at the prompt, SQL*Plus lists the line containing the Substitution Variable twice: once before substituing the value you enter and once after substitution.</li>
-<li>You can suppress this listing by setting the <code>SET</code> command variable <code>VERIFY</code> to <code>OFF</code>.</li>
-</ul>
-<p><strong>Example</strong></p>
-<p><img alt="sv-ex1" src="https://i.imgur.com/7WfjnkR.png" /></p>
-<p><strong>Difference between "&amp;" and "&amp;&amp;"</strong><br />
-If a single ampersand prefix is used with an undefined variable, the value you enter at the prompt is not stored. Immediately after the value is substituted in the statement the variable is discarded and remains undefined.\
-If the variable is referenced twice, even in the same statement, then you are prompted twice.</p>
-<p><strong>Example</strong>\
-<img alt="sv-ex2" src="https://i.imgur.com/QX29uX0.png" /></p>
-<p>If a double ampersand reference causes SQL*Plus to prompt you for a value, then SQL*Plus defines the variable as that value (that is, the value is stored until you exit).<br />
-Any subsequent reference to the variable (even in the same command) using either "&amp;" or "&amp;&amp;" substitutes the newly defined value.<br />
-SQL*Plus will not prompt you again:</p>
-<p><strong>Example</strong></p>
-<p><img alt="sv-ex3" src="https://i.imgur.com/SCYfLFH.png" /></p>
-<details class="abstract">
-<summary>Sources</summary>
-<ul>
-<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqpug/using-substitution-variables-sqlplus.html">Oracle Documentation - Using Substitution Variables</a></li>
-<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqpug/DEFINE.html">Oracle Documentation - DEFINE</a></li>
-<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqpug/UNDEFINE.html">Oracle Documentation - UNDEFINE</a></li>
-<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqpug/SET-system-variable-summary.html#GUID-74CA1665-165D-4C0D-BBB2-681BD3485211">Oracle Documentation - SET VERIFY</a></li>
-</ul>
-</details>
-<hr />
 <h2 id="pivot">PIVOT<a class="headerlink" href="#pivot" title="Permanent link">&para;</a></h2>
-<p>The <code>PIVOT</code> clause allows you to write a cross-tabulation query. This means that you can aggregate your results and rotate rows into columns.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span>
 <span class="p">(</span>
 <span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span>
@@ -1161,44 +1091,13 @@ SQL*Plus will not prompt you again:</p>
 <span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span>
 <span class="p">)</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Example</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">-- Given the data from this query:</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">CO</span><span class="p">.</span><span class="n">CUSTOMER_ORDER_PRODUCTS</span><span class="p">;</span>
-
-<span class="c1">-- Executing the following query returns the total number of Orders Cancelled and Completed for each Customer:</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span>
-<span class="p">(</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">CUSTOMER_ID</span><span class="p">,</span><span class="w"> </span><span class="n">FULL_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">ORDER_STATUS</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">CO</span><span class="p">.</span><span class="n">CUSTOMER_ORDER_PRODUCTS</span>
-<span class="p">)</span>
-<span class="n">PIVOT</span>
-<span class="p">(</span>
-<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">ORDER_STATUS</span><span class="p">)</span>
-<span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="n">ORDER_STATUS</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CANCELLED&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;COMPLETE&#39;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">FULL_NAME</span><span class="p">;</span>
-</code></pre></div></td></tr></table></div></p>
-<details class="example">
-<summary>Oracle Live SQL</summary>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
 <ul>
-<li><a href="https://livesql.oracle.com/apex/livesql/s/o9mqx91fxkq3wxpgdcemy4jko">PIVOT</a></li>
+<li><a href="https://livesql.oracle.com/apex/livesql/s/o9mqx91fxkq3wxpgdcemy4jko">Oracle Live SQL - PIVOT</a></li>
 </ul>
-</details>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1207,18 +1106,17 @@ SQL*Plus will not prompt you again:</p>
 </details>
 <hr />
 <h2 id="with-function">WITH FUNCTION<a class="headerlink" href="#with-function" title="Permanent link">&para;</a></h2>
-<p><code>WITH_FUNCTION</code> clause allows to use temporary functions without physically creating them.</p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="o">&lt;</span><span class="n">function_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="k">parameters</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">datatype</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">function_name</span><span class="w"> </span><span class="p">(</span><span class="k">parameters</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="n">datatype</span>
 <span class="k">IS</span>
 <span class="w">    </span><span class="p">[</span><span class="n">declaration_statements</span><span class="p">]</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="n">function_statements</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="o">&lt;</span><span class="k">variable</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">function_statements</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="k">variable</span><span class="p">;</span>
 <span class="k">END</span><span class="p">;</span>
-<span class="o">&lt;</span><span class="k">SELECT</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span>
-</code></pre></div></p>
-<p><strong>Example</strong>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">statement</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1236,7 +1134,8 @@ SQL*Plus will not prompt you again:</p>
 <span class="k">END</span><span class="p">;</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">get_value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
+</div>
 
 
 

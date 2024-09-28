@@ -573,42 +573,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#global-temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#private-temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Private Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#global-vs-private-temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global vs. Private Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-directory" class="md-nav__link">
     <span class="md-ellipsis">
       CREATE DIRECTORY
@@ -1123,42 +1087,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#global-temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#private-temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Private Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#global-vs-private-temporary-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global vs. Private Temporary Tables
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-directory" class="md-nav__link">
     <span class="md-ellipsis">
       CREATE DIRECTORY
@@ -1346,15 +1274,7 @@
 
   <h1>DDL Statements</h1>
 
-<p>Data Definition Language (DDL) statements let you to perform these tasks:</p>
-<ul>
-<li>Create, alter, and drop schema objects</li>
-<li>Grant and revoke privileges and roles</li>
-<li>Analyze information on a table, index, or cluster</li>
-<li>Establish auditing options</li>
-<li>Add comments to the data dictionary</li>
-</ul>
-<p>The DDL Statements are:</p>
+<p>The DDL (Data Definition Language) Statements are:</p>
 <ul>
 <li><code class="highlight"><span class="k">ALTER</span><span class="w"> </span><span class="p">...</span></code> (<em>all statements beginning with ALTER</em>)</li>
 <li><code class="highlight"><span class="k">ANALYZE</span></code></li>
@@ -1388,34 +1308,21 @@
 </details>
 <hr />
 <h2 id="create-table">CREATE TABLE<a class="headerlink" href="#create-table" title="Permanent link">&para;</a></h2>
-<p>This statement creates a Table in the Database.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="c1">-- manual column definition</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
-<span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="n">columnname</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span><span class="p">]</span>
-<span class="w">    </span><span class="p">[,</span><span class="w"> </span><span class="n">columnname</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span><span class="p">]]</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[,</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span><span class="p">]]</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">-- subquery definition</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
 <span class="k">AS</span><span class="w"> </span><span class="n">subquery</span><span class="p">;</span>
-</code></pre></div></p>
-<div class="admonition info">
-<p class="admonition-title">Notes</p>
+</code></pre></div>
+<details class="warning">
+<summary>Privilege Restrictions</summary>
 <ul>
-<li>Tables are created with no data unless a Subquery is specified.<ul>
-<li>if the Subquery returns no rows, then the Table is still created with no data.</li>
+<li><code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
 </ul>
-</li>
-<li>It it possible to add rows with the INSERT Statement.</li>
-<li>After creating a Table, it is possible to define additional columns, partitions and integrity constraints with the ALTER TABLE Statement.</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Privilege Restrictions</p>
-<ul>
-<li><code>GRANT CREATE ANY TABLE TO user_name</code></li>
-</ul>
-</div>
+</details>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1423,107 +1330,15 @@
 </ul>
 </details>
 <hr />
-<h2 id="temporary-tables">Temporary Tables<a class="headerlink" href="#temporary-tables" title="Permanent link">&para;</a></h2>
-<p>A Temporary Table holds data that exists only for the duration of a Transaction or session.
-Data in a Temporary Table is private to the session.
-Each session can only see and modify its own data.</p>
-<p>You cannot specify any FOREIGN KEY constraints on Temporary Tables.</p>
-<p>You can create either a Global Temporary Table or a Private Temporary Table.
-The following table shows the essential differences between them:
-| <strong>Characteristic</strong>             | <strong>Global Temporary Table</strong>                                                                 | <strong>Private Temporary Table</strong>                                                                          |
-|--------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Naming rules                   | Same as for permanent tables                                                               | Must be prefixed with ORA$PTT_                                                                       |
-| Visibility of table definition | All sessions                                                                               | Only the session that created the table                                                              |
-| Storage of table definition    | Disk                                                                                       | Memory only                                                                                          |
-| Types                          | Transaction-specific (ON COMMIT DELETE ROWS) or session-specific (ON COMMIT PRESERVE ROWS) | Transaction-specific (ON COMMIT DROP DEFINITION) or session-specific (ON COMMIT PRESERVE DEFINITION) |</p>
-<details class="abstract">
-<summary>Sources</summary>
-<ul>
-<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/23/cncpt/tables-and-table-clusters.html#GUID-97709804-7430-4BD0-AFF4-727B74F6997E">Oracle Documentation - Overview of Temporary Tables</a></li>
-</ul>
-</details>
-<hr />
-<h2 id="global-temporary-tables">Global Temporary Tables<a class="headerlink" href="#global-temporary-tables" title="Permanent link">&para;</a></h2>
-<p>Use the CREATE GLOBAL TEMPORARY TABLE Statement to create a Global Temporary Table.</p>
-<p>The definition of a Global Temporary Table is visible to all sessions, but the data in a Global Temporary Table is visible only to the session that inserts the data into the table.</p>
-<p><strong>The ON COMMIT Clause</strong><br />
-The ON COMMIT clause indicates if the data in the table is transaction-specific (the default) or session-specific, the implications of which are as follows:</p>
-<ul>
-<li><code class="highlight"><span class="k">DELETE</span><span class="w"> </span><span class="k">ROWS</span></code>: The database truncates the table after each commit.<ul>
-<li>Rows will also be deleted after a failed DDL Statement.</li>
-<li>N.B.: only certain failed DDL Statements will delete all rows.</li>
-</ul>
-</li>
-<li><code class="highlight"><span class="k">PRESERVE</span><span class="w"> </span><span class="k">ROWS</span></code>: The database truncates the table when you terminate the session.</li>
-</ul>
-<p><strong>Global Temporary Tables Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="k">TEMPORARY</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">global_temp_table_name</span>
-<span class="w">    </span><span class="p">(</span><span class="n">column_1</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
-<span class="w">    </span><span class="n">column_2</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
-<span class="w">    </span><span class="err">…</span><span class="w"> </span><span class="n">column_n</span><span class="w"> </span><span class="n">datatype</span><span class="p">)</span>
-<span class="p">[</span><span class="k">ON</span><span class="w"> </span><span class="k">COMMIT</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">ROWS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">PRESERVE</span><span class="w"> </span><span class="k">ROWS</span><span class="p">];</span>
-</code></pre></div></p>
-<div class="admonition info">
-<p class="admonition-title">Notes</p>
-<ul>
-<li>DDL operations (except TRUNCATE) are allowed on an existing temporary table only if no session is currently bound to that temporary table. If you rollback a transaction, the data you entered is lost, although the table definition persists.</li>
-<li>Indexes can be created on global temporary tables. They are also temporary and the data in the index has the same session or transaction scope as the data in the underlying table.</li>
-</ul>
-</div>
-<hr />
-<h2 id="private-temporary-tables">Private Temporary Tables<a class="headerlink" href="#private-temporary-tables" title="Permanent link">&para;</a></h2>
-<p>Private Temporary Tables are temporary database objects that are dropped at the end of a transaction or session.</p>
-<p><strong>The ON COMMIT Clause</strong><br />
-The ON COMMIT clause indicates if the data in the table is transaction-specific (the default) or session-specific, the implications of which are as follows:</p>
-<ul>
-<li><code class="highlight"><span class="k">DROP</span><span class="w"> </span><span class="n">DEFINITION</span></code>: All data in the table is lost, and the table is dropped at the end of transaction.</li>
-<li><code class="highlight"><span class="k">PRESERVE</span><span class="w"> </span><span class="n">DEFINITION</span></code>: All data in the table is lost, and the table is dropped at the end of the session that created the table.</li>
-</ul>
-<p><strong>Private Temporary Tables Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">PRIVATE</span><span class="w"> </span><span class="k">TEMPORARY</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ORA$PTT_priv_temp_table_name</span>
-<span class="w">    </span><span class="p">(</span><span class="n">column_1</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
-<span class="w">    </span><span class="n">column_2</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
-<span class="w">    </span><span class="err">…</span><span class="w"> </span><span class="n">column_n</span><span class="w"> </span><span class="n">datatype</span><span class="p">)</span>
-<span class="p">[</span><span class="k">ON</span><span class="w"> </span><span class="k">COMMIT</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="n">DEFINITION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">PRESERVE</span><span class="w"> </span><span class="n">DEFINITION</span><span class="p">];</span>
-</code></pre></div></p>
-<div class="admonition info">
-<p class="admonition-title">Notes</p>
-<ul>
-<li>Private Temporary Tables are stored in memory and each one is visible only to the session that created it.</li>
-<li>The metadata and content of a Private Temporary Table is visible only within the session that created the it.</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Restrictions</p>
-<ul>
-<li>Names of Private Temporary Tables must be prefixed according to the initialization parameter private_temp_table_prefix.</li>
-<li>You cannot create Indexes, Materialized Views on Private Temporary Tables.</li>
-<li>You cannot define column with default values.</li>
-<li>You cannot reference Private Temporary Tables in any permanent object (views or triggers).</li>
-<li>Only three DDL Statements are allowed: CREATE, DROP, and TRUNCATE.<ul>
-<li>Other DDL Statements will return <code class="highlight"><span class="n">ORA</span><span class="o">-</span><span class="mi">00942</span><span class="p">:</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">exist</span></code>.</li>
-</ul>
-</li>
-<li>You must be a User other than SYS to create Private Temporary Tables.</li>
-</ul>
-</div>
-<hr />
-<h2 id="global-vs-private-temporary-tables">Global vs. Private Temporary Tables<a class="headerlink" href="#global-vs-private-temporary-tables" title="Permanent link">&para;</a></h2>
-<p><img alt="Global vs. Private Temporary Tables" src="https://i.imgur.com/0izzyrU.png" /></p>
-<hr />
 <h2 id="create-directory">CREATE DIRECTORY<a class="headerlink" href="#create-directory" title="Permanent link">&para;</a></h2>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">]</span><span class="w"> </span><span class="n">DIRECTORY</span><span class="w"> </span><span class="n">directory_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s1">&#39;path_name&#39;</span><span class="p">;</span>
-</code></pre></div></p>
-<ul>
-<li><code class="highlight"><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span></code>: Specify OR REPLACE to re-create the directory database obejct if it already exists.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Privilege Restrictions</p>
+</code></pre></div>
+<details class="warning">
+<summary>Privilege Restrictions</summary>
 <ul>
 <li><code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">DIRECTORY</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
 </ul>
-</div>
+</details>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1532,16 +1347,14 @@ The ON COMMIT clause indicates if the data in the table is transaction-specific 
 </details>
 <hr />
 <h2 id="drop-directory">DROP DIRECTORY<a class="headerlink" href="#drop-directory" title="Permanent link">&para;</a></h2>
-<p>Use the DROP DIRECTORY Statement to remove a directory object from the Database.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="n">DIRECTORY</span><span class="w"> </span><span class="n">directory_name</span><span class="p">;</span>
-</code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Privilege Restrictions</p>
+</code></pre></div>
+<details class="warning">
+<summary>Privilege Restrictions</summary>
 <ul>
 <li><code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">DIRECTORY</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
 </ul>
-</div>
+</details>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1550,64 +1363,73 @@ The ON COMMIT clause indicates if the data in the table is transaction-specific 
 </details>
 <hr />
 <h2 id="alter-table-add">ALTER TABLE ... ADD<a class="headerlink" href="#alter-table-add" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tablename</span>
-<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="p">(</span><span class="n">columnname</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="p">]</span><span class="w"> </span><span class="p">...);</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="p">]</span><span class="w"> </span><span class="p">...);</span>
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">publisher</span>
-<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="p">(</span><span class="n">ext</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li><code class="highlight"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="p">(</span><span class="n">my_column</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span></code></li>
+</ul>
 </div>
 <hr />
 <h2 id="alter-table-modify">ALTER TABLE ... MODIFY<a class="headerlink" href="#alter-table-modify" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tablename</span>
-<span class="w">    </span><span class="k">MODIFY</span><span class="w"> </span><span class="p">(</span><span class="n">columnname</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="p">],</span><span class="w"> </span><span class="err">…</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">MODIFY</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="p">],</span><span class="w"> </span><span class="err">…</span><span class="p">);</span>
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">publisher</span>
-<span class="w">    </span><span class="k">MODIFY</span><span class="w"> </span><span class="p">(</span><span class="n">rating</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li><code class="highlight"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="p">(</span><span class="n">my_column</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="p">);</span></code></li>
+</ul>
 </div>
 <hr />
 <h2 id="alter-table-drop">ALTER TABLE ... DROP<a class="headerlink" href="#alter-table-drop" title="Permanent link">&para;</a></h2>
-<p>Specify DROP to remove the column descriptor and the data associated with the target column from each row in the table. If you explicitly drop a particular column, then all columns currently marked UNUSED in the target table are dropped at the same time.</p>
-<p>When the column data is dropped:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- dropping one column</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span><span class="p">];</span>
+
+<span class="c1">-- dropping multiple columns</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span><span class="p">];</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
-<li>All indexes defined on any of the target columns are also dropped.</li>
-<li>All constraints that reference a target column are removed.</li>
+<li>When the column data is dropped:<ul>
+<li>all indexes defined on any of the target columns are also dropped</li>
+<li>all constraints that reference a target column are removed</li>
 </ul>
-<p><strong>Syntax - Dropping One Column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tablename</span>
-<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">columnname</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Syntax - Dropping Multiple Columns</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tablename</span>
-<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="p">(</span><span class="n">columnname</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span><span class="p">];</span>
-</code></pre></div></p>
+</li>
+</ul>
+</div>
 <hr />
 <h2 id="alter-table-set-unused">ALTER TABLE ... SET UNUSED<a class="headerlink" href="#alter-table-set-unused" title="Permanent link">&para;</a></h2>
-<p>Specify SET UNUSED to mark one or more columns as unused.</p>
-<p>Unused columns are treated as if they were dropped, even though their column data remains in the table rows. After a column has been marked UNUSED, you have no access to that column.</p>
-<p>A SELECT * query will not retrieve data from unused columns. In addition, the names and types of columns marked UNUSED will not be displayed during a DESCRIBE, and you can add to the table a new column with the same name as an unused column.</p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tablename</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">UNUSED</span><span class="w"> </span><span class="p">[</span><span class="k">COLUMN</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="n">columnname</span><span class="p">);</span>
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">UNUSED</span><span class="w"> </span><span class="p">[</span><span class="k">COLUMN</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Unused columns are treated as if they were dropped, even though their column data remains in the table rows. After a column has been marked UNUSED, you have no access to that column.</li>
+<li>You can add to the table a new column with the same name as an unused column.</li>
+</ul>
+</div>
 <hr />
 <h2 id="alter-table-drop-unused-columns">ALTER TABLE ... DROP UNUSED COLUMNS<a class="headerlink" href="#alter-table-drop-unused-columns" title="Permanent link">&para;</a></h2>
-<p>Specify DROP UNUSED COLUMNS to remove from the table all columns currently marked as unused. Use this statement when you want to reclaim the extra disk space from unused columns in the table. If the table contains no unused columns, then the statement returns with no errors.</p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tablename</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
 <span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="n">UNUSED</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>If the table contains no unused columns, then the statement returns with no errors.</li>
+</ul>
+</div>
 <hr />
 <h2 id="alter-table-exchange-partition">ALTER TABLE ... EXCHANGE PARTITION<a class="headerlink" href="#alter-table-exchange-partition" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">target_table</span><span class="w"> </span><span class="n">EXCHANGE</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">partition_name</span>
-<span class="w">  </span><span class="k">WITH</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">source_table</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="n">target_table</span><span class="w"> </span><span class="n">EXCHANGE</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">partition_name</span>
+<span class="w">  </span><span class="k">WITH</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="n">source_table</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li>Data from the <em>source_table</em> goes into the <em>target_table</em>.</li>
@@ -1629,17 +1451,17 @@ The ON COMMIT clause indicates if the data in the table is transaction-specific 
 <span class="w">    </span><span class="p">[</span><span class="err">{</span><span class="k">DROP</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">REUSE</span><span class="err">}</span><span class="w"> </span><span class="k">STORAGE</span><span class="p">]</span>
 <span class="w">    </span><span class="p">[</span><span class="k">CASCADE</span><span class="p">];</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
-<li><em>table_name</em>: Table you are truncating.</li>
-<li><code>PRESERVE MATERIALIZED VIEW LOG</code>: specify PRESERVE if any <a href="/SQL/db-objects/#create-materialized-view-log">Materialized View Log</a> should be preserved.<ul>
+<li><code>PRESERVE MATERIALIZED VIEW LOG</code>: specify PRESERVE if any <a href="/SQL/db-objects/#create-materialized-view-log">Materialized View Log</a> should be preserved.</li>
 <li>this is the default option.</li>
-</ul>
-</li>
 <li><code>PURGE MATERIALIZED VIEW LOG</code>: specify PURGE if any Materialized View log should be purged.</li>
 <li><code>DROP STORAGE</code>: specify DROP ALL STORAGE to deallocate all space from the deleted rows from the Table.</li>
 <li><code>REUSE STORAGE</code>: specify REUSE STORAGE to retain the space from the deleted rows allocated to the table. This space can subsequently be used only by new data in the table resulting from insert or update operations.</li>
 <li><code>CASCADE</code>: Oracle Database truncates all child Tables that reference <em>table_name</em> with an enabled ON DELETE CASCADE referential constraint.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1648,12 +1470,12 @@ The ON COMMIT clause indicates if the data in the table is transaction-specific 
 <li>You cannot TRUNCATE the parent table of an enabled Foreign Key constraint. You must disable the constraint before truncating the Table.</li>
 </ul>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Privilege Restrictions</p>
+<details class="warning">
+<summary>Privilege Restrictions</summary>
 <ul>
 <li><code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
 </ul>
-</div>
+</details>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1662,22 +1484,28 @@ The ON COMMIT clause indicates if the data in the table is transaction-specific 
 </details>
 <hr />
 <h2 id="drop-table">DROP TABLE<a class="headerlink" href="#drop-table" title="Permanent link">&para;</a></h2>
-<p>This statement is used to move a Table to the recycle bin or to remove the table and all its data from the database entirely.</p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">PURGE</span><span class="p">];</span>
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">PURGE</span><span class="p">];</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
-<li><code class="highlight"><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span></code>: drop all referential integrity constraints that refer to primary and unique keys in the dropped table.</li>
-<li><code class="highlight"><span class="n">PURGE</span></code>: drop the table and release the space associated with it.</li>
+<li><code class="highlight"><span class="k">CASCADE</span><span class="w"> </span><span class="k">CONSTRAINTS</span></code>: drop all referential integrity constraints that refer to primary and unique keys in the dropped Table.</li>
+<li><code class="highlight"><span class="n">PURGE</span></code>: drop the Table and release the space associated with it.</li>
 </ul>
-<p>After a successful DROP TABLE…</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
+<li>After a successful DROP TABLE...<ul>
 <li>An uncommited transaction is automatically committed.</li>
 <li>All indexes and constraints defined on the table are also dropped.</li>
 <li>The dropped table may be moved to the Recycle Bin.</li>
 <li>The dropped table <strong><em>cannot</em></strong> be recovered using the ROLLBACK command.</li>
 <li>Sequences used in the dropped table <strong><em>do remain</em></strong> valid.</li>
 </ul>
+</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1686,20 +1514,13 @@ The ON COMMIT clause indicates if the data in the table is transaction-specific 
 </details>
 <hr />
 <h2 id="purge-statement">PURGE Statement<a class="headerlink" href="#purge-statement" title="Permanent link">&para;</a></h2>
-<p>The PURGE Statement is used to:</p>
-<ul>
-<li>remove a table or index from your Recycle Bin and release all of the space associated with the object;</li>
-<li>remove part or all of a dropped tablespace or tablespace set from the recycle bin;</li>
-<li>remove the entire Recycle Bin.</li>
-</ul>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">PURGE</span><span class="w"> </span><span class="err">{</span>
-<span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span>
+<span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span>
 <span class="k">INDEX</span><span class="w"> </span><span class="n">idx_name</span><span class="w"> </span><span class="o">|</span>
 <span class="n">TABLESPACE</span><span class="w"> </span><span class="n">tablespace_name</span><span class="w"> </span><span class="o">|</span>
 <span class="n">RECYCLEBIN</span>
 <span class="n">DBA_RECYCLEBIN</span><span class="w"> </span><span class="err">}</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>

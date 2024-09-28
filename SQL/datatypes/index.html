@@ -1121,14 +1121,8 @@
 </ul>
 <hr />
 <h2 id="char">CHAR<a class="headerlink" href="#char" title="Permanent link">&para;</a></h2>
-<p>The CHAR data type specifies a fixed-length character string in the database character set.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">CHAR</span><span class="p">[(</span><span class="k">size</span><span class="w"> </span><span class="p">[</span><span class="n">BYTE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">])]</span>
-</code></pre></div></p>
-<ul>
-<li><em>size</em>: integer number which represents the size in BYTE or CHAR.</li>
-<li><code class="highlight"><span class="n">BYTE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">CHAR</span></code>: BYTE indicates the column will have byte length semantics. CHAR indicates that the column will have character semantics. </li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1146,15 +1140,8 @@
 </details>
 <hr />
 <h2 id="varchar2">VARCHAR2<a class="headerlink" href="#varchar2" title="Permanent link">&para;</a></h2>
-<p>Variable-length character string having maximum length <em>size</em> bytes or characters.</p>
-<p>Oracle stores a character value in a VARCHAR2 column exactly as you specify it, without any blank-padding.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">VARCHAR2</span><span class="p">(</span><span class="k">size</span><span class="w"> </span><span class="p">[</span><span class="n">BYTE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">])</span>
-</code></pre></div></p>
-<ul>
-<li><em>size</em>: integer number which represents the size in BYTE or CHAR. </li>
-<li><code class="highlight"><span class="n">BYTE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">CHAR</span></code>: BYTE indicates the column will have byte length semantics. CHAR indicates that the column will have character semantics.</li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1171,13 +1158,8 @@
 </details>
 <hr />
 <h2 id="nchar">NCHAR<a class="headerlink" href="#nchar" title="Permanent link">&para;</a></h2>
-<p>The NCHAR data type specifies a fixed-length character string in the national character set (which can be <code>AL16UTF16</code> or <code>UTF8</code>).</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">NCHAR</span><span class="p">[(</span><span class="k">size</span><span class="p">)]</span>
-</code></pre></div></p>
-<ul>
-<li><em>size</em>: integer number which represents the column size. </li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1199,13 +1181,8 @@
 </details>
 <hr />
 <h2 id="nvarchar2">NVARCHAR2<a class="headerlink" href="#nvarchar2" title="Permanent link">&para;</a></h2>
-<p>The NVARCHAR2 data type specifies a variable-length character string in the national character set (which can be <code>AL16UTF16</code> or <code>UTF8</code>).</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">NVARCHAR2</span><span class="p">(</span><span class="k">size</span><span class="p">)</span>
-</code></pre></div></p>
-<ul>
-<li><em>size</em>: integer number which represents the column size. </li>
-</ul>
+</code></pre></div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1222,14 +1199,8 @@
 </ul>
 <hr />
 <h2 id="number">NUMBER<a class="headerlink" href="#number" title="Permanent link">&para;</a></h2>
-<p>The NUMBER data type stores zero as well as positive and negative fixed numbers.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">NUMBER</span><span class="p">[(</span><span class="k">precision</span><span class="w"> </span><span class="p">[,</span><span class="k">scale</span><span class="p">])]</span>
-</code></pre></div></p>
-<ul>
-<li><em>precision</em>: maximum number of significant decimal digits.</li>
-<li><em>scale</em>: number of digits from the decimal point to the least significant digit.</li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1258,14 +1229,8 @@ NUMBER(6,1) → 123.89 → 123.9
 </details>
 <hr />
 <h2 id="float-data-type">FLOAT Data Type<a class="headerlink" href="#float-data-type" title="Permanent link">&para;</a></h2>
-<p>The FLOAT data type is a subtype of NUMBER.<br />
-It can be specified with or without precision, which has the same definition it has for NUMBER.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">FLOAT</span><span class="p">[(</span><span class="k">precision</span><span class="p">)]</span>
-</code></pre></div></p>
-<ul>
-<li><em>precision</em>: maximum number of significant decimal digits.</li>
-</ul>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>

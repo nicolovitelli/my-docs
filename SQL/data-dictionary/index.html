@@ -1202,34 +1202,19 @@
 
   <h1>Data Dictionary</h1>
 
-<p>The Data Dictionary is a read-only set of tables that provides information about the database.<br />
-A data dictionary contains:</p>
-<ul>
-<li>The definitions of all schema objects in the database (tables, views, indexes, clusters, synonyms, sequences, procedures, functions, packages, triggers, and so on)</li>
-<li>How much space has been allocated for, and is currently used by, the schema objects</li>
-<li>Default values for columns</li>
-<li>Integrity constraint information</li>
-<li>The names of Oracle users</li>
-<li>Privileges and roles each user has been granted</li>
-<li>Auditing information, such as who has accessed or updated various schema objects</li>
-<li>Other general database information</li>
-</ul>
-<p>The data dictionary is structured in tables and views, just like other database data.</p>
-<hr />
+<div class="admonition warning">
+<p class="admonition-title">Work in Progress Section</p>
+</div>
 <h2 id="prefixes-of-data-dictionary-views">Prefixes of Data Dictionary Views<a class="headerlink" href="#prefixes-of-data-dictionary-views" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>USER_</code> → Objects owned by the current user accessing the view.</li>
-<li><code>ALL_</code> → Objects owned by any user in the Database to which the current user has privileges.</li>
-<li><code>DBA_</code> → All objects in the Database.</li>
-<li><code>V_$</code> (views) or <code>V$</code> (public synonyms) → Dynamic Pperformance Views, each of which has a public synonym counterpart. Stores information about the local database instance.</li>
-<li><code>GV_$</code> (views) or <code>GV$</code> (public synonyms) → Global Dynamic Performance Views.</li>
+<li><code>USER_</code> → objects owned by the current user accessing the view.</li>
+<li><code>ALL_</code> → objects owned by any user in the Database to which the current user has privileges.</li>
+<li><code>DBA_</code> → all objects in the Database.</li>
+<li><code>V_$</code> (Views) or <code>V$</code> (public synonyms) → Dynamic Pperformance Views, each of which has a public synonym counterpart. Stores information about the local database instance.</li>
+<li><code>GV_$</code> (Views) or <code>GV$</code> (public synonyms) → Global Dynamic Performance Views.</li>
 </ul>
 <hr />
 <h2 id="dynamic-performance-views">Dynamic Performance Views<a class="headerlink" href="#dynamic-performance-views" title="Permanent link">&para;</a></h2>
-<p>Dynamic Performance Views display information about current database activity in real time.<br />
-They are maintaned automatically by the system and are available for querying with some limitations.</p>
-<p>Dynamic Performance Views start with the prefix V_$ or their public synonym counterpart starts with V$.</p>
-<p><strong>List of Dynamic Performance Views</strong></p>
 <ul>
 <li><code>V$DATABASE</code>: includes information about the Database itself, including the database name, the date created, etc.</li>
 <li><code>V$INSTANCE</code>: includes the instance name, host name, etc.</li>

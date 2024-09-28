@@ -1005,15 +1005,20 @@
   <h1>Joins</h1>
 
 <h2 id="cartesian-join">Cartesian Join<a class="headerlink" href="#cartesian-join" title="Permanent link">&para;</a></h2>
-<p>also known as <em>Cartesian Product</em> or <em>Cross Join</em></p>
-<p>Replicates each row from the first table with every row from the second
-table. Creates a join between tables by displaying every possible record combination.<br />
-Can be created by two methods:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">select_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="p">,</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">select_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span>
+<span class="c1">-- both queries would return the same result.</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
-<li>Not including a joining condition in a WHERE clause</li>
-<li>Using the JOIN method with the CROSS JOIN keywords</li>
+<li>It is also known as <em>Cartesian Product</em> or <em>Cross Join</em>.</li>
+<li>Replicates each row from the first table with every row from the second table. Creates a Join between tables by displaying every possible record combination.</li>
 </ul>
-<p><img alt="Cartesian Join" src="https://i.imgur.com/K7TnIL9.png" /></p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1029,20 +1034,23 @@ Can be created by two methods:</p>
 </details>
 <hr />
 <h2 id="inner-join">Inner Join<a class="headerlink" href="#inner-join" title="Permanent link">&para;</a></h2>
-<p>also known as <em>Equijoin</em>, <em>Equality Join</em> or <em>Simple Join</em></p>
-<p>Creates a join by using a commonly named and defined column.<br />
-Can be created by two methods:</p>
-<ul>
-<li>Using the WHERE clause</li>
-<li>Using the JOIN method with the <code>NATURAL JOIN</code>, <code>JOIN … ON</code>, or <code>JOIN … USING</code> keywords</li>
-</ul>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">table_1</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_2</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">column_2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">column_n</span><span class="p">]);</span>
-</code></pre></div></p>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">[</span><span class="k">INNER</span><span class="p">]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_b</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">column_n</span><span class="p">]);</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">[</span><span class="k">INNER</span><span class="p">]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_b</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">);</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">select_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">table_b</span><span class="w"> </span><span class="n">t2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">;</span>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>It is also known as <em>Equijoin</em>, <em>Equality Join</em> or <em>Simple Join</em>.</li>
+<li>Creates a join by using a commonly named and defined column.  </li>
 <li>The USING clause specifies which columns to test for equality when two tables are joined.</li>
 </ul>
 </div>
@@ -1072,12 +1080,25 @@ Can be created by two methods:</p>
 </ul>
 <hr />
 <h2 id="self-join">Self-Join<a class="headerlink" href="#self-join" title="Permanent link">&para;</a></h2>
-<p>Joins a table to itself.<br />
-Can be created by two methods:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">[</span><span class="k">INNER</span><span class="p">]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">column_n</span><span class="p">]);</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">[</span><span class="k">INNER</span><span class="p">]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">);</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">select_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
-<li>Using the WHERE clause</li>
-<li>Using the JOIN method with the <code>JOIN … ON</code> keywords</li>
+<li>Joins a table to itself.</li>
+<li>To correctly perform a Self-Join, both Tables must have an alias defined in the query.</li>
 </ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1086,12 +1107,42 @@ Can be created by two methods:</p>
 </details>
 <hr />
 <h2 id="outer-join">Outer Join<a class="headerlink" href="#outer-join" title="Permanent link">&para;</a></h2>
-<p>Includes records of a table in output when there’s no matching record in the other table.<br />
-Can be created by two methods:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- LEFT OUTER JOIN: new syntax</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="p">[</span><span class="k">OUTER</span><span class="p">]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">);</span>
+
+<span class="c1">-- LEFT OUTER JOIN: old syntax</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="n">t2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">(</span><span class="o">+</span><span class="p">);</span>
+
+<span class="c1">-- RIGHT OUTER JOIN: new syntax</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">RIGHT</span><span class="w"> </span><span class="p">[</span><span class="k">OUTER</span><span class="p">]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">);</span>
+
+<span class="c1">-- RIGHT OUTER JOIN: old syntax</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="n">t2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">;</span>
+
+<span class="c1">-- FULL OUTER JOIN: new syntax</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="n">t2</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">);</span>
+
+<span class="c1">-- FULL OUTER JOIN: old syntax</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="n">t2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">column_1</span><span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">column_1</span><span class="p">(</span><span class="o">+</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
-<li>Using the WHERE clause with a (þ) operator</li>
-<li>Using the JOIN method with the OUTER JOIN keywords and the assigned type of LEFT, RIGHT, or FULL</li>
+<li>Includes records of a table in output when there's no matching record in the other table.</li>
 </ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>

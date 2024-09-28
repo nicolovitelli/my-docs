@@ -968,11 +968,14 @@
 
   <h1>Subqueries</h1>
 
+<div class="admonition warning">
+<p class="admonition-title">Work in Progress Section</p>
+</div>
 <h2 id="correlated-subqueries">Correlated Subqueries<a class="headerlink" href="#correlated-subqueries" title="Permanent link">&para;</a></h2>
-<p>A Correlated Subquery is a subquery whose some clauses refer to the column expressions in the outer query.</p>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>A Correlated Subquery is a subquery whose some clauses refer to the column expressions in the outer query.</li>
 <li>The Correlated Subquery executes <strong><em>after</em></strong> the outer query returns the row.</li>
 <li>Each row returned by the outer query is evaluated for the results returned by the Correlated Subquery.</li>
 </ul>
@@ -994,8 +997,13 @@
 </div>
 <hr />
 <h2 id="single-row-subqueries">Single-Row Subqueries<a class="headerlink" href="#single-row-subqueries" title="Permanent link">&para;</a></h2>
-<p>A Single-Row Subquery returns zero or one rows to the outer SQL Statement.<br />
-A Single-Row Subquery can be placed in a WHERE clause, HAVING clause, or a FROM clause of a SELECT Statement.</p>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>A Single-Row Subquery returns zero or one rows to the outer SQL Statement.  </li>
+<li>A Single-Row Subquery can be placed in a WHERE clause, HAVING clause, or a FROM clause of a SELECT Statement.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <ul>
@@ -1004,9 +1012,14 @@ A Single-Row Subquery can be placed in a WHERE clause, HAVING clause, or a FROM 
 </div>
 <hr />
 <h2 id="multiple-row-subqueries">Multiple-Row Subqueries<a class="headerlink" href="#multiple-row-subqueries" title="Permanent link">&para;</a></h2>
-<p>A Multiple-Row Subquery returns more than one row to the outer SQL Statement.<br />
-Despite it's called "Multiple-Row Subquery", it can still return 0 or 1 row(s).<br />
-You can use operators such as IN, ANY, or ALL.</p>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>A Multiple-Row Subquery returns more than one row to the outer SQL Statement.  </li>
+<li>Despite it's called "Multiple-Row Subquery", it can still return 0 or 1 row.  </li>
+<li>You can use operators such as IN, ANY, or ALL.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <ul>

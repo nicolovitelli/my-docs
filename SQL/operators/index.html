@@ -1006,35 +1006,37 @@
 
 <h2 id="set-comparison-operators">SET COMPARISON OPERATORS<a class="headerlink" href="#set-comparison-operators" title="Permanent link">&para;</a></h2>
 <ul>
-<li>&lt; ANY ( ): Less than maximum</li>
-<li>&gt; ANY ( ): Greater than minimum<ul>
+<li><em>column_name</em> &lt; ANY (<em>values</em>): Less than maximum</li>
+<li><em>column_name</em> &gt; ANY (<em>values</em>): Greater than minimum<ul>
 <li>Example: <code>x &gt; ANY (1, 2, 3)</code> → <code>x &gt; 1 OR x &gt; 2 OR x &gt; 3 → x &gt; 1</code></li>
 </ul>
 </li>
-<li>= ANY ( ): Equivalent to IN<ul>
+<li><em>column_name</em> = ANY (<em>values</em>): Equivalent to IN<ul>
 <li>Example: <code>x = ANY (1, 2, 3)</code> → <code>x IN (1, 2, 3) → x = 1 OR x = 2 OR x = 3</code></li>
 </ul>
 </li>
-<li>&gt; ALL ( ): Greater than maximum<ul>
+<li><em>column_name</em> &gt; ALL (<em>values</em>): Greater than maximum<ul>
 <li>Example: <code>x &gt; ALL (1,2,3)</code> → <code>x &gt; 1 AND x &gt; 2 AND x &gt; 3 → x &gt; 3</code></li>
 </ul>
 </li>
-<li>&lt; ALL ( ): Less than mininum</li>
+<li><em>column_name</em> &lt; ALL (<em>values</em>): Less than mininum</li>
 </ul>
 <hr />
 <h2 id="any-operator">ANY Operator<a class="headerlink" href="#any-operator" title="Permanent link">&para;</a></h2>
-<p>The ANY Operator is used to compare a value to a list of values or result set returned by a subquery.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">operator</span><span class="w"> </span><span class="n">comparison_op</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="p">(</span><span class="err">{</span><span class="n">expr_1</span><span class="p">,</span><span class="w"> </span><span class="n">expr_n</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">subquery</span><span class="err">}</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>comparison_op</em>: the comparison operator (=, !=, &gt;, &gt;=, etc.)</li>
 <li><em>expr_1, expr_n</em>: values you're comparing to <em>operator</em>.</li>
 <li><em>subquery</em>: subquery returning one or more rows. </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The ANY Operator is used to compare a value to a list of values or result set returned by a subquery.</li>
 <li>If <em>subquery</em> returns no rows, the main query will return no rows as well.</li>
 </ul>
 </div>
@@ -1065,19 +1067,16 @@
 </div>
 <hr />
 <h2 id="intersect-operator">INTERSECT Operator<a class="headerlink" href="#intersect-operator" title="Permanent link">&para;</a></h2>
-<p>The INTERSECT operator compares the result of two queries and returns the distinct rows that are output by both queries.</p>
-<p>INTERSECT does not ignore NULL values.</p>
-<p><img align="left" alt="Image title" src="https://i.imgur.com/gp8xApQ.png" /></p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list_1</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tablename_1</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_1</span>
 <span class="k">INTERSECT</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list_2</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tablename_2</span><span class="p">;</span>
-</code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Restrictions</p>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_2</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
+<li>The INTERSECT operator compares the result of two queries and returns the distinct rows that are output by both queries.</li>
 <li>The number and order of columns must be the same in the two queries.</li>
 <li>The data type of the corresponding columns must be in the same data type group such as numeric or character.</li>
 </ul>
@@ -1090,18 +1089,16 @@
 </details>
 <hr />
 <h2 id="minus-operator">MINUS Operator<a class="headerlink" href="#minus-operator" title="Permanent link">&para;</a></h2>
-<p>The MINUS operator is used to return all rows in the first SELECT statement that are not returned by the second SELECT statement.</p>
-<p><img alt="minus" src="https://i.imgur.com/pToKBoe.png" /></p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list_1</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tablename_1</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_1</span>
 <span class="n">MINUS</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list_2</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tablename_2</span><span class="p">;</span>
-</code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Restrictions</p>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_2</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
+<li>The MINUS operator is used to return all rows in the first SELECT statement that are not returned by the second SELECT statement.</li>
 <li>The number and order of columns must be the same in the two queries.</li>
 <li>The data type of the corresponding columns must be in the same data type group such as numeric or character.</li>
 </ul>
@@ -1114,18 +1111,16 @@
 </details>
 <hr />
 <h2 id="union-union-all-operators">UNION &amp; UNION ALL Operators<a class="headerlink" href="#union-union-all-operators" title="Permanent link">&para;</a></h2>
-<p>The UNION &amp; UNION ALL operators are set operators that combines result sets of two or more SELECT statements into a single result set.</p>
-<p><img alt="union" src="https://i.imgur.com/iPgeR08.png" /></p>
-<p><strong>Syntax</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list_1</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tablename_1</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_1</span>
 <span class="k">UNION</span><span class="w"> </span><span class="p">[</span><span class="k">ALL</span><span class="p">]</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list_2</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tablename_2</span><span class="p">;</span>
-</code></pre></div></p>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">column_list</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table_2</span><span class="p">;</span>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The UNION &amp; UNION ALL operators are set operators that combines result sets of two or more SELECT statements into a single result set.</li>
 <li>UNION ALL returns all records including duplicates, while UNION returns only unique records.</li>
 </ul>
 </div>

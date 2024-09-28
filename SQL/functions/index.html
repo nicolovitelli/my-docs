@@ -1940,35 +1940,43 @@
 
   <h1>Functions</h1>
 
+<div class="admonition warning">
+<p class="admonition-title">Work in Progress Section</p>
+</div>
 <h2 id="character-functions">Character Functions<a class="headerlink" href="#character-functions" title="Permanent link">&para;</a></h2>
-<p>Character functions operate on values of dataype CHAR or VARCHAR2.</p>
-<p><strong>List of Character Functions covered</strong></p>
 <ul>
-<li><code>CONCAT</code></li>
-<li><code>INITCAP</code></li>
-<li><code>LOWER</code></li>
-<li><code>LPAD</code></li>
-<li><code>LTRIM</code></li>
-<li><code>REPLACE</code></li>
-<li><code>RPAD</code></li>
-<li><code>RTRIM</code></li>
-<li><code>SUBSTR</code></li>
-<li><code>TRIM</code></li>
-<li><code>UPPER</code></li>
-<li><code>INSTR</code></li>
-<li><code>LENGTH</code></li>
+<li><code class="highlight"><span class="n">CONCAT</span></code></li>
+<li><code class="highlight"><span class="n">INITCAP</span></code></li>
+<li><code class="highlight"><span class="k">LOWER</span></code></li>
+<li><code class="highlight"><span class="n">LPAD</span></code></li>
+<li><code class="highlight"><span class="n">LTRIM</span></code></li>
+<li><code class="highlight"><span class="k">REPLACE</span></code></li>
+<li><code class="highlight"><span class="n">RPAD</span></code></li>
+<li><code class="highlight"><span class="n">RTRIM</span></code></li>
+<li><code class="highlight"><span class="n">SUBSTR</span></code></li>
+<li><code class="highlight"><span class="k">TRIM</span></code></li>
+<li><code class="highlight"><span class="k">UPPER</span></code></li>
+<li><code class="highlight"><span class="n">INSTR</span></code></li>
+<li><code class="highlight"><span class="k">LENGTH</span></code></li>
 </ul>
 <hr />
 <h2 id="concat">CONCAT<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h2>
-<p>The CONCAT (Single-Row) Function concatenates two strings and returns the combined string.</p>
-<p>The two strings do not need to be the same data type.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">CONCAT</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">string2</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the first string to concatenate.</li>
 <li><em>string2</em>: the second string to concatenate.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The CONCAT Function concatenates two strings and returns the combined string.</li>
+<li>The two strings do not need to be the same data type.</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1977,16 +1985,18 @@
 </details>
 <hr />
 <h2 id="initcap">INITCAP<a class="headerlink" href="#initcap" title="Permanent link">&para;</a></h2>
-<p>The INITCAP (Single-Row) Function sets the first character in each word to uppercase and the rest to lowercase.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">INITCAP</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string argument whose first character in each word will be converted to uppercase and all remaining characters converted to lowercase.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The INITCAP Function sets the first character in each word to uppercase and the rest to lowercase.</li>
 <li>Special characters and numbers are unaffected by this function.</li>
 </ul>
 </div>
@@ -2017,16 +2027,18 @@
 </details>
 <hr />
 <h2 id="lower">LOWER<a class="headerlink" href="#lower" title="Permanent link">&para;</a></h2>
-<p>The LOWER (Single-Row) Function converts all letters in the specified string to lowercase.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">LOWER</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to convert to lowercase.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The LOWER Function converts all letters in the specified string to lowercase.</li>
 <li>Special characters and numbers are unaffected by this function.</li>
 </ul>
 </div>

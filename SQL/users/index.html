@@ -865,6 +865,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grant-object-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRANT - Object Privileges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#with-grant-option-vs-with-admin-option" class="md-nav__link">
     <span class="md-ellipsis">
       WITH GRANT OPTION vs. WITH ADMIN OPTION
@@ -932,6 +941,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grant-object-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRANT - Object Privileges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#with-grant-option-vs-with-admin-option" class="md-nav__link">
     <span class="md-ellipsis">
       WITH GRANT OPTION vs. WITH ADMIN OPTION
@@ -966,14 +984,10 @@
 
   <h1>Managing Users</h1>
 
+<div class="admonition warning">
+<p class="admonition-title">Work in Progress Section</p>
+</div>
 <h2 id="grant">GRANT<a class="headerlink" href="#grant" title="Permanent link">&para;</a></h2>
-<p>Use this Statement to grant:</p>
-<ul>
-<li>System Privileges to Users and Roles</li>
-<li>Roles to Users, Roles and Program Unites</li>
-<li>Object Privileges for a particular Object to Users and Roles</li>
-</ul>
-<p><strong>Syntax - System Privileges</strong>
 <div class="highlight"><pre><span></span><code><span class="k">GRANT</span>
 <span class="w">    </span><span class="n">role_name</span><span class="w"> </span><span class="o">|</span>
 <span class="w">    </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="o">|</span>
@@ -983,7 +997,9 @@
 <span class="w">    </span><span class="n">user_name</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">password</span>
 <span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="err">{</span><span class="k">ADMIN</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DELEGATE</span><span class="err">}</span><span class="w"> </span><span class="k">OPTION</span><span class="p">]</span>
 <span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>role_name</em>: specify the role you want to grant.</li>
 <li><code class="highlight"><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span></code>: if you want to grant all of the System Privileges<ul>
@@ -1010,7 +1026,9 @@
 </ul>
 </li>
 </ul>
-<p><strong>Syntax - Object Privileges</strong>
+</div>
+<hr />
+<h2 id="grant-object-privileges">GRANT - Object Privileges<a class="headerlink" href="#grant-object-privileges" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">GRANT</span>
 <span class="w">    </span><span class="n">object_privilege_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">object_privilege_n</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
 <span class="w">    </span><span class="k">ALL</span><span class="w"> </span><span class="p">[</span><span class="k">PRIVILEGES</span><span class="p">]</span>
@@ -1023,34 +1041,20 @@
 <span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="k">HIERARCHY</span><span class="w"> </span><span class="k">OPTION</span><span class="p">]</span>
 <span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">]</span>
 <span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>object_privilege_1</em>, <em>object_privilege_n</em>: specify the Object Privilege(s) you want to grant.</li>
 <li><code class="highlight"><span class="k">ALL</span><span class="w"> </span><span class="p">[</span><span class="k">PRIVILEGES</span><span class="p">]</span></code>: specify ALL to grant all the privileges for <em>object_name</em>.</li>
 <li>[(<em>column_1</em> [, <em>column_n</em>])]: specify the Table or View column on which privileges are to be granted. Can only be specified for INSERT, REFERENCES or UPDATE Object Privileges.</li>
-<li><em>object_name</em>: specify the schema object on which the privileges are to be granted.<ul>
-<li>Must be one of the following:<ul>
-<li>Table</li>
-<li>View</li>
-<li>Materialized View</li>
-<li>Sequence</li>
-<li>Procedure</li>
-<li>Function</li>
-<li>Package</li>
-<li>User-defined Type</li>
-<li>Synonym</li>
-<li>Directory</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="highlight"><span class="k">ON</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">user_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">user_n</span><span class="p">]</span></code>: specify the database user you want to grant privileges to.<ul>
+<li><em>object_name</em>: specify the schema object on which the privileges are to be granted.</li>
+<li><code class="highlight"><span class="k">ON</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">user_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">user_n</span><span class="p">]</span></code>: specify the database user you want to grant privileges to.</li>
 <li>You cannot specify PUBLIC as <em>user</em>.</li>
-</ul>
-</li>
 <li><code class="highlight"><span class="k">WITH</span><span class="w"> </span><span class="k">HIERARCHY</span><span class="w"> </span><span class="k">OPTION</span></code>: grants the specified Object Privileges on all subobjects of <em>object_name</em>, such as subviews created under a View.</li>
 <li><code class="highlight"><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span></code>: enables the grantee to grant the Object Privileges to other users and roles.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>

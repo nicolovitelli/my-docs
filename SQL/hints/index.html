@@ -950,16 +950,16 @@
 
   <h1>Hints</h1>
 
-<p>Hints are comments in a SQL statement that pass instructions to the Oracle Database optimizer.<br />
-Hints can only be used in SELECT, UPDATE, INSERT, MERGE or DELETE Statements.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">DML_keyword</span><span class="w"> </span><span class="cm">/*+ hint_1 [hint_n] */</span>
 <span class="n">DML_statement</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>DML_keyword</em>: must be one of the following: SELECT, UPDATE, INSERT, MERGE, DELETE.</li>
 <li><em>hint_1, [hint_n]</em>: name of the hint being used. Multiple Hints can be used in one statement.</li>
 </ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -968,20 +968,22 @@ Hints can only be used in SELECT, UPDATE, INSERT, MERGE or DELETE Statements.</p
 </details>
 <hr />
 <h2 id="parallel-hint">PARALLEL Hint<a class="headerlink" href="#parallel-hint" title="Permanent link">&para;</a></h2>
-<p>The PARALLEL hint instructs the optimizer to use the specified number of concurrent servers for a parallel operation.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">DML_keyword</span><span class="w"> </span><span class="cm">/*+ PARALLEL[(degree | DEFAULT | MANUAL)]</span>
 <span class="cm">DML_statement</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>DML_keyword</em>: must be one of the following: SELECT, UPDATE, INSERT, MERGE, DELETE</li>
 <li><em>degree</em>: degree of parallelism used for the statement.</li>
 <li><code class="highlight"><span class="k">DEFAULT</span></code>: the optimizer calculates a degree of parallelism equal to the number of CPUs availables times the value of the <code class="highlight"><span class="n">PARALLEL_THREADS_PER_CPU</span></code> parameter.</li>
 <li><code class="highlight"><span class="n">MANUAL</span></code>: the optimize uses the degree of parallelism specified in the Object.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The PARALLEL hint instructs the optimizer to use the specified number of concurrent servers for a parallel operation.</li>
 <li>Query to get the number of CPUs availables and the <code class="highlight"><span class="n">PARALLEL_THREADS_PER_CPU</span></code> parameter's value:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -999,16 +1001,16 @@ Hints can only be used in SELECT, UPDATE, INSERT, MERGE or DELETE Statements.</p
 </details>
 <hr />
 <h2 id="append-hint">APPEND Hint<a class="headerlink" href="#append-hint" title="Permanent link">&para;</a></h2>
-<p>The APPEND hint instructs the optimizer to use direct-path INSERT with the subquery syntax of the INSERT statement.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="cm">/*+ APPEND */</span>
 <span class="k">INTO</span><span class="w"> </span><span class="k">table_name</span>
 <span class="n">subquery</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
-<li><em>table_name</em>: table on which you're inserting data.</li>
-<li><em>subquery</em>: SELECT Statement from which you're getting data.</li>
+<li>The APPEND hint instructs the optimizer to use direct-path INSERT with the subquery syntax of the INSERT statement.</li>
 </ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>

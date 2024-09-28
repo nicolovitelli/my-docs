@@ -1074,21 +1074,21 @@
 </details>
 <hr />
 <h2 id="column-aliases">Column Aliases<a class="headerlink" href="#column-aliases" title="Permanent link">&para;</a></h2>
-<p>Column Aliases can be used to create a temporary name for columns or expressions.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">column_name</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="p">]</span><span class="w"> </span><span class="n">alias_name</span>
-</code></pre></div></p>
-<p><strong>Examples</strong></p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>If <em>alias_name</em> contains spaces, you must enclose <em>alias_name</em> in quotes.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
 <ul>
 <li><code>first_name AS Employee</code></li>
 <li><code>first_name Employee</code></li>
 <li><code>first_name || ' ' || last_name AS "Employee Details"</code></li>
 <li><code>first_name "Employee's First Name"</code></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Restrictions</p>
-<ul>
-<li>If <em>alias_name</em> contains spaces, you must enclose <em>alias_name</em> in quotes.</li>
 </ul>
 </div>
 <details class="abstract">
@@ -1099,13 +1099,11 @@
 </details>
 <hr />
 <h2 id="distinct">DISTINCT<a class="headerlink" href="#distinct" title="Permanent link">&para;</a></h2>
-<p>The DISTINCT clause is used to remove duplicates from the result set.<br />
-This clause can only be used within SELECT Statements.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">column_name</span>
 <span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
 </code></pre></div>
-<strong>Notes about DISTINCT</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
 <li>When only one expression is provided in the DISTINCT clause, the query will return the unique values for that expression.</li>
 <li>When more than one expression is provided in the DISTINCT clause, the query will retrieve unique combinations for the expressions listed.</li>
@@ -1113,6 +1111,7 @@ This clause can only be used within SELECT Statements.</p>
 <li>UNIQUE is a synonym of DISTINCT.</li>
 <li>You cannot specify DISTINCT if the SELECT list contains LOB columns.</li>
 </ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1136,10 +1135,9 @@ This clause can only be used within SELECT Statements.</p>
 </details>
 <hr />
 <h2 id="alternative-quote-operator-q">Alternative Quote Operator (<em>q</em>)<a class="headerlink" href="#alternative-quote-operator-q" title="Permanent link">&para;</a></h2>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w">  </span><span class="n">q</span><span class="s1">&#39;{text}&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">column_1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">column_n</span>
 <span class="k">FROM</span><span class="w">    </span><span class="n">tablename</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
 <details class="example">
 <summary>Examples</summary>
 <ul>
@@ -1166,9 +1164,10 @@ This clause can only be used within SELECT Statements.</p>
 </details>
 <hr />
 <h2 id="describe">DESCRIBE<a class="headerlink" href="#describe" title="Permanent link">&para;</a></h2>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">DESC</span><span class="p">[</span><span class="n">RIBE</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">object</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
 <ul>
 <li><em>object</em> can be:<ul>
 <li>a Table</li>
@@ -1180,20 +1179,20 @@ This clause can only be used within SELECT Statements.</p>
 <li>a PL/SQL Package</li>
 </ul>
 </li>
-</ul>
-<p><strong>Command Output</strong><br />
-The description for <em>object</em> contains the following information:</p>
-<ul>
+<li>the description for <em>object</em> contains the following information:<ul>
 <li>each column's name</li>
 <li>whether or not null values are allowed (NULL or NOT NULL) for each column</li>
 <li>datatype of columns and their precision (and scale, if any, for a numeric column)</li>
 </ul>
-<details class="example">
-<summary>Examples</summary>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
 <ul>
 <li><a href="https://livesql.oracle.com/apex/livesql/s/pdt89lso3vvk4893eazxegs4p">Oracle Live SQL - DESC</a></li>
 </ul>
-</details>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1202,13 +1201,16 @@ The description for <em>object</em> contains the following information:</p>
 </details>
 <hr />
 <h2 id="default-clause">DEFAULT Clause<a class="headerlink" href="#default-clause" title="Permanent link">&para;</a></h2>
-<p>This clause lets you specify a value to be assigned to the column if a subsequent INSERT statement omits a value for the column.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">column_1</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span>
 <span class="p">);</span>
 </code></pre></div>
-- <code class="highlight"><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span></code>: <em>value</em> must be the same datatype as the column definition (or must be implicitly convertible). </p>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
+<ul>
+<li><code class="highlight"><span class="k">DEFAULT</span><span class="w"> </span><span class="n">value</span></code>: <em>value</em> must be the same datatype as the column definition (or must be implicitly convertible). </li>
+</ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -1218,13 +1220,13 @@ The description for <em>object</em> contains the following information:</p>
 <li><em>value</em> cannot be an user-defined PL/SQL Function.</li>
 </ul>
 </div>
-<details class="example">
-<summary>Examples</summary>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
 <ul>
 <li><a href="https://livesql.oracle.com/apex/livesql/s/b6fdxz904263hde4c8rphu73f">Oracle Live SQL - DEFAULT Clause</a></li>
 <li><a href="https://livesql.oracle.com/apex/livesql/s/b6fl7rg2dw1cxkdk75e7yqcbe">Oracle Live SQL - DEFAULT Clause - Using a Sequence</a></li>
 </ul>
-</details>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>

@@ -986,64 +986,23 @@
 
   <h1>Transactions</h1>
 
-<p>A Transaction is a logical, atomic unit of work that contains one or more SQL statements</p>
-<p>A Transaction groups SQL statements so that they are either all committed, which means they are applied to the database, or all rolled back, which means they are undone from the database.<br />
-Oracle Database assigns every transaction a unique identifier called a transaction ID.</p>
-<p><strong>ACID</strong><br />
-All Oracle transactions obey the basic properties of a database transaction, known as ACID properties.<br />
-ACID is an acronym for the following:</p>
-<ul>
-<li><strong>ATOMICITY</strong>: All tasks of a Transaction are performed or none of them are. There are no partial Transactions.<ul>
-<li>For example, if a Transaction starts updating 100 rows, but the system fails after 20 updates, then the Database rolls back the changes to these 20 rows.</li>
-</ul>
-</li>
-<li><strong>CONSISTENCY</strong>: The Transaction takes the Database from one consistent state to another consistent state.<ul>
-<li>For example, in a banking Transaction that debits a savings account and credits a checking account, a failure must not cause the Database to credit only one account, which would lead to inconsistent data.</li>
-</ul>
-</li>
-<li><strong>ISOLATION</strong>: The effect of a Transaction is not visible to other Transactions until the Transaction is committed.<ul>
-<li>For example, one user updating the hr.employees table does not see the uncommitted changes to employees made concurrently by another user. Thus, it appears to users as if Transactions are executing serially.</li>
-</ul>
-</li>
-<li><strong>DURABILITY</strong>: Changes made by committed Transactions are permanent. After a Transaction completes, the Database ensures through its recovery mechanisms that changes from the Transaction are not lost.</li>
-</ul>
-<p><strong>Structure of a Transaction</strong><br />
-A Database Transaction consists of one or more statements. Specifically, a Transaction consists of one of the following:</p>
-<ul>
-<li>One or more DML Statements that together constitute an atomic change to the Database;</li>
-<li>One DDL Statement.</li>
-</ul>
-<p><strong>Beginning of a Transaction</strong><br />
-A Transaction begins when the first executable SQL Statement is encountered.</p>
-<p>A Transaction ID is unique to a Transaction and represents the undo segment number, slot, and sequence number.</p>
-<p><strong>End of a Transaction</strong><br />
-A Transaction ends when any of the following actions occurs:</p>
-<ul>
-<li>A user issues a COMMIT or ROLLBACK statement without a SAVEPOINT clause.</li>
-<li>A user runs a DDL command such as CREATE, DROP, RENAME, or ALTER.</li>
-<li>A user exits normally from most Oracle Database utilities and tools, causing the current transaction to be implicitly committed. The commit behavior when a user disconnects is application-dependent and configurable.</li>
-<li>A client process terminates abnormally, causing the transaction to be implicitly rolled back using metadata stored in the transaction table and the undo segment.</li>
-</ul>
-<details class="abstract">
-<summary>Sources</summary>
-<ul>
-<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/transactions.html">Oracle Documentation - Transactions</a></li>
-</ul>
-</details>
-<hr />
 <h2 id="rollback">ROLLBACK<a class="headerlink" href="#rollback" title="Permanent link">&para;</a></h2>
-<p>A rollback of an uncommitted Transaction undoes any changes to data that have been performed by SQL Statements within the transaction.<br />
-After a Transaction has been rolled back, the effects of the work done in the Transaction no longer exist.</p>
-<p>In rolling back an entire Transaction, without referencing any savepoints, Oracle Database performs the following actions:</p>
-<ul>
-<li>Undoes all changes made by all the SQL Statements in the Transaction</li>
-<li>Releases all the locks of data held by the Transaction</li>
-<li>Erases all savepoints in the Transaction</li>
-<li>Ends the transaction</li>
-</ul>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">ROLLBACK</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>A rollback of an uncommitted Transaction undoes any changes to data that have been performed by SQL Statements within the transaction.  </li>
+<li>After a Transaction has been rolled back, the effects of the work done in the Transaction no longer exist.</li>
+<li>In rolling back an entire Transaction, without referencing any savepoints, Oracle Database performs the following actions:<ul>
+<li>undoes all changes made by all the SQL Statements in the Transaction</li>
+<li>releases all the locks of data held by the Transaction</li>
+<li>erases all savepoints in the Transaction</li>
+<li>ends the transaction</li>
+</ul>
+</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1052,17 +1011,20 @@ After a Transaction has been rolled back, the effects of the work done in the Tr
 </details>
 <hr />
 <h2 id="commit">COMMIT<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h2>
-<p>A commit ends the current Transaction and makes permanent all changes performed in the Transaction.</p>
-<p>When a Transaction commits, the following actions occur:</p>
-<ul>
-<li>Oracle Database releases locks held on rows and tables</li>
-<li>Oracle Database deletes savepoints.</li>
-<li>Oracle Database marks the transaction complete.</li>
-</ul>
-<p>After a Transaction commits, users can view the changes.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>A commit ends the current Transaction and makes permanent all changes performed in the Transaction.</li>
+<li>When a Transaction commits, the following actions occur:<ul>
+<li>locks held on rows and table are released.</li>
+<li>any savepoint is deleted.</li>
+<li>the transaction is marked as complete.</li>
+</ul>
+</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -1071,9 +1033,6 @@ After a Transaction has been rolled back, the effects of the work done in the Tr
 </details>
 <hr />
 <h2 id="flashback-table">FLASHBACK TABLE<a class="headerlink" href="#flashback-table" title="Permanent link">&para;</a></h2>
-<p>This Statement is used to restore an earlier state of a Table in the event of human or application error.<br />
-The time in the past to which the Table can be flashed back is dependent on the amount of undo data in the system.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">FLASHBACK</span><span class="w"> </span><span class="k">TABLE</span>
 <span class="w">    </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
 <span class="w">    </span><span class="p">[,</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="p">]</span>
@@ -1081,10 +1040,10 @@ The time in the past to which the Table can be flashed back is dependent on the 
 <span class="w">    </span><span class="k">BEFORE</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="p">[</span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">table_name</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
 <span class="w">    </span><span class="err">{</span><span class="n">RESTORE</span><span class="w"> </span><span class="n">POINT</span><span class="w"> </span><span class="n">rp_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SCN</span><span class="w"> </span><span class="n">number_value</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="n">date_value</span><span class="w"> </span><span class="n">ENABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DISABLE</span><span class="w"> </span><span class="n">TRIGGERS</span><span class="err">}</span>
 <span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
-<li><em>schema</em>: the schema containing the Table to be restored.</li>
-<li><em>table_name</em>: the table(s) that needs to be restored.</li>
 <li><code class="highlight"><span class="k">TO</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="k">DROP</span></code>: retrieve from the Recycle Bin a Table that has been dropped. Tables dropped with the PURGE clause cannot be recovered.</li>
 <li><code class="highlight"><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">table_name</span></code>: specify this clause if you want to rename the Table after it is recovered.</li>
 <li><code class="highlight"><span class="k">TO</span><span class="w"> </span><span class="n">RESTORE</span><span class="w"> </span><span class="n">POINT</span><span class="w"> </span><span class="n">rp_name</span></code>: specify a restore point to which you want to flash back the Table.</li>
@@ -1092,9 +1051,12 @@ The time in the past to which the Table can be flashed back is dependent on the 
 <li><code class="highlight"><span class="n">TO_TIMESTAMP</span><span class="w"> </span><span class="n">date_value</span></code>: specify a timestamp value corresponding to the poin in time to which you want to return the Table.</li>
 <li><code class="highlight"><span class="n">ENABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DISABLE</span><span class="w"> </span><span class="n">TRIGGERS</span></code>: by default, Oracle disables all the Triggers related to the Table during the Flashback operation (they get re-enabled after the operation is done). Specify ENABLE if you want to override this option and keep them active.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>This Statement is used to restore an earlier state of a Table in the event of human or application error.  </li>
+<li>The time in the past to which the Table can be flashed back is dependent on the amount of undo data in the system.</li>
 <li>You cannot roll back a FLASHBACK TABLE Statement. However, you can issue another FLASHBACK TABLE to undo a previous flashback.</li>
 <li>During a Flashback operation, Oracle Database locks the Table until the Flashback is done. The operation is done in a single Transaction.</li>
 <li>If you're issuing a FLASHBACK TABLE on multiple Tables, all of them must succeed to complete the operation, otherwise the Statement will be reverted.</li>
@@ -1107,8 +1069,18 @@ The time in the past to which the Table can be flashed back is dependent on the 
 </li>
 <li>You cannot perform a FLASHBACK TABLE on a Materialized View.</li>
 <li>FLASHBACK TABLE might require to enable a Table's row movement:<ul>
-<li>To check if it is enabled: <code class="highlight"><span class="k">SELECT</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">row_movement</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">all_tables</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">your_table_name</span><span class="p">;</span></code></li>
-<li>To enable it: <code class="highlight"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="n">ENABLE</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="n">MOVEMENT</span><span class="p">;</span></code></li>
+<li>To check if it is enabled:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">row_movement</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dba_tables</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">your_table_name</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></li>
+<li>To enable it:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span>
+<span class="n">ENABLE</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="n">MOVEMENT</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></li>
 </ul>
 </li>
 </ul>
@@ -1116,8 +1088,7 @@ The time in the past to which the Table can be flashed back is dependent on the 
 <div class="admonition warning">
 <p class="admonition-title">Privilege Restrictions</p>
 <ul>
-<li>In your Schema: <code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="n">FLASHBACK</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
-<li>In another's user Schema: <code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="n">FLASHBACK</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
+<li><code class="highlight"><span class="k">GRANT</span><span class="w"> </span><span class="n">FLASHBACK</span><span class="w"> </span><span class="err">{</span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="k">TABLE</span><span class="err">}</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span></code></li>
 </ul>
 </div>
 <details class="abstract">
@@ -1128,23 +1099,17 @@ The time in the past to which the Table can be flashed back is dependent on the 
 </details>
 <hr />
 <h2 id="lock-table">LOCK TABLE<a class="headerlink" href="#lock-table" title="Permanent link">&para;</a></h2>
-<p>Use this Statement to lock:</p>
-<ul>
-<li>one or more Tables</li>
-<li>Table Partitions</li>
-<li>Table Subpartitions</li>
-</ul>
-<p>A Locked Table remains locked until you either commit your Transaction or roll it back.<br />
-A Locked Table does not prevent other users from querying the Table.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">LOCK</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">schema</span><span class="p">.]</span><span class="n">object_name</span>
 <span class="w">    </span><span class="p">[</span>
 <span class="w">        </span><span class="n">PARTITION</span><span class="w"> </span><span class="err">{</span><span class="p">(</span><span class="n">partition_name</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">partition_key_value_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">partition_key_value_n</span><span class="p">])</span><span class="w"> </span><span class="o">|</span><span class="w"> </span>
 <span class="w">        </span><span class="n">SUBPARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">subpartition_name</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">subpartition_key_vale_1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">subpartition_key_value_n</span><span class="p">])</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="k">IN</span><span class="w"> </span><span class="n">lockmode</span><span class="w"> </span><span class="k">MODE</span>
-<span class="p">[</span><span class="k">NO</span><span class="w"> </span><span class="n">WAIT</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">WAIT</span><span class="w"> </span><span class="n">number_value</span><span class="p">]</span>
-</code></pre></div></p>
+<span class="p">[</span><span class="k">NO</span><span class="w"> </span><span class="n">WAIT</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">WAIT</span><span class="w"> </span><span class="nb">integer</span><span class="p">]</span>
+<span class="p">;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>object_name</em>; specify the Table or View you want to lock.<ul>
 <li>specifying a View causes the Database to lock the base Tables of the View.</li>
@@ -1160,11 +1125,14 @@ A Locked Table does not prevent other users from querying the Table.</p>
 </ul>
 </li>
 <li><code class="highlight"><span class="n">NOWAIT</span></code>: immediately return an error message if the Table is already locked.</li>
-<li><code class="highlight"><span class="n">WAIT</span><span class="w"> </span><span class="n">number_value</span></code>: wait for <em>number_value</em> (in seconds) to acquire a DML Lock.</li>
+<li><code class="highlight"><span class="n">WAIT</span><span class="w"> </span><span class="nb">integer</span></code>: wait for <em>integer</em> (in seconds) to acquire a DML Lock.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>A Locked Table remains locked until you either commit your Transaction or roll it back.  </li>
+<li>A Locked Table does not prevent other users from querying the Table.</li>
 <li>If you specify neither NOWAIT nor WAIT, the Database waits indefinitely until the Table is available.</li>
 </ul>
 </div>
