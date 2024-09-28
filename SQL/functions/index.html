@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../db-objects/">
+        <link rel="prev" href="../datatypes/">
       
       
         <link rel="next" href="../hints/">
@@ -666,27 +666,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../db-objects/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Other Database Objects
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1065,9 +1044,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interval-year-to-month-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL YEAR TO MONTH - Literals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interval-day-to-second" class="md-nav__link">
     <span class="md-ellipsis">
       INTERVAL DAY TO SECOND
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interval-day-to-second-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL DAY TO SECOND - Literals
     </span>
   </a>
   
@@ -1281,11 +1278,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../indexes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indexes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../joins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../materialized-views/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Materialized Views
   </span>
   
 
@@ -1323,11 +1362,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../sequences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequences
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../subqueries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Subqueries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synonyms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synonyms
   </span>
   
 
@@ -1370,6 +1451,27 @@
   
   <span class="md-ellipsis">
     Managing Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../views/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Views
   </span>
   
 
@@ -1744,9 +1846,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interval-year-to-month-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL YEAR TO MONTH - Literals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interval-day-to-second" class="md-nav__link">
     <span class="md-ellipsis">
       INTERVAL DAY TO SECOND
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interval-day-to-second-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERVAL DAY TO SECOND - Literals
     </span>
   </a>
   
@@ -1940,24 +2060,21 @@
 
   <h1>Functions</h1>
 
-<div class="admonition warning">
-<p class="admonition-title">Work in Progress Section</p>
-</div>
 <h2 id="character-functions">Character Functions<a class="headerlink" href="#character-functions" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code class="highlight"><span class="n">CONCAT</span></code></li>
-<li><code class="highlight"><span class="n">INITCAP</span></code></li>
-<li><code class="highlight"><span class="k">LOWER</span></code></li>
-<li><code class="highlight"><span class="n">LPAD</span></code></li>
-<li><code class="highlight"><span class="n">LTRIM</span></code></li>
-<li><code class="highlight"><span class="k">REPLACE</span></code></li>
-<li><code class="highlight"><span class="n">RPAD</span></code></li>
-<li><code class="highlight"><span class="n">RTRIM</span></code></li>
-<li><code class="highlight"><span class="n">SUBSTR</span></code></li>
-<li><code class="highlight"><span class="k">TRIM</span></code></li>
-<li><code class="highlight"><span class="k">UPPER</span></code></li>
-<li><code class="highlight"><span class="n">INSTR</span></code></li>
-<li><code class="highlight"><span class="k">LENGTH</span></code></li>
+<li><a href="#concat"><code class="highlight"><span class="n">CONCAT</span></code></a></li>
+<li><a href="#initcap"><code class="highlight"><span class="n">INITCAP</span></code></a></li>
+<li><a href="#lower"><code class="highlight"><span class="k">LOWER</span></code></a></li>
+<li><a href="#lpad-rpad"><code class="highlight"><span class="n">LPAD</span></code></a></li>
+<li><a href="#ltrim-rtrim"><code class="highlight"><span class="n">LTRIM</span></code></a></li>
+<li><a href="#replace"><code class="highlight"><span class="k">REPLACE</span></code></a></li>
+<li><a href="#lpad-rpad"><code class="highlight"><span class="n">RPAD</span></code></a></li>
+<li><a href="#ltrim-rtrim"><code class="highlight"><span class="n">RTRIM</span></code></a></li>
+<li><a href="#substr"><code class="highlight"><span class="n">SUBSTR</span></code></a></li>
+<li><a href="#trim"><code class="highlight"><span class="k">TRIM</span></code></a></li>
+<li><a href="#upper"><code class="highlight"><span class="k">UPPER</span></code></a></li>
+<li><a href="#instr"><code class="highlight"><span class="n">INSTR</span></code></a></li>
+<li><a href="#length"><code class="highlight"><span class="k">LENGTH</span></code></a></li>
 </ul>
 <hr />
 <h2 id="concat">CONCAT<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h2>
@@ -2069,16 +2186,18 @@
 </details>
 <hr />
 <h2 id="upper">UPPER<a class="headerlink" href="#upper" title="Permanent link">&para;</a></h2>
-<p>The UPPER (Single-Row) Function converts all letters in the specified string to uppercase.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">UPPER</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to convert to uppercase.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The UPPER Function converts all letters in the specified string to uppercase.</li>
 <li>Special characters and numbers are unaffected by this function.</li>
 </ul>
 </div>
@@ -2109,22 +2228,22 @@
 </details>
 <hr />
 <h2 id="lpad-rpad">LPAD &amp; RPAD<a class="headerlink" href="#lpad-rpad" title="Permanent link">&para;</a></h2>
-<p>The LPAD &amp; RPAD (Single-Row) Functions pad the left/right-side of a string with a specific set of characters.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">LPAD</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">padded_length</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">pad_string</span><span class="p">])</span>
 <span class="n">RPAD</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">padded_length</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">pad_string</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to pad characters to (the left/right-hand side).</li>
 <li><em>padded_length</em>: the number of characters to return.</li>
-<li><em>pad_string</em> the string that will be padded to the left/right-hand side of <em>string1</em>.<ul>
+<li><em>pad_string</em> the string that will be padded to the left/right-hand side of <em>string1</em>.</li>
 <li>optional value; default is blank space.</li>
 </ul>
-</li>
-</ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The LPAD &amp; RPAD Functions pad the left/right-side of a string with a specific set of characters.</li>
 <li>If <em>string1</em> is NULL, the function returns NULL.</li>
 <li>If the <em>padded_length</em> is smaller than the original string, the function will truncate the string to the size of <em>padded_length</em>.</li>
 </ul>
@@ -2151,11 +2270,11 @@
 </details>
 <hr />
 <h2 id="ltrim-rtrim">LTRIM &amp; RTRIM<a class="headerlink" href="#ltrim-rtrim" title="Permanent link">&para;</a></h2>
-<p>The LTRIM &amp; RTRIM (Single-Row) Functions remove all specified characters from the left/right-hand side of a string.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">LTRIM</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">trim_string</span><span class="p">])</span>
 <span class="n">RPAD</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">trim_string</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to trim the characters from the left/right-hand side.</li>
 <li><em>trim_string</em>: the string that will be removed from the left/right-hand side of <em>string1</em>.<ul>
@@ -2163,6 +2282,13 @@
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The LTRIM &amp; RTRIM Functions remove all specified characters from the left/right-hand side of a string.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2191,14 +2317,14 @@
 </details>
 <hr />
 <h2 id="trim">TRIM<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h2>
-<p>The TRIM (Single-Row) Function removes all specified characters either from the beginning or the end of a string.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">TRIM</span><span class="p">([[</span><span class="k">LEADING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TRAILING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">BOTH</span><span class="p">]</span><span class="w"> </span><span class="n">trim_character</span><span class="w"> </span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="n">string1</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
-<li><code>LEADING</code>: the function will remove <em>trim_character</em> from the front of <em>string1</em>.</li>
-<li><code>TRAILING</code>: the function will remove <em>trim_character</em> from the end of <em>string1</em>.</li>
-<li><code>BOTH</code>: the function will remove <em>trim_character</em> from the front and end of <em>string1</em>.</li>
+<li><code class="highlight"><span class="k">LEADING</span></code>: the function will remove <em>trim_character</em> from the front of <em>string1</em>.</li>
+<li><code class="highlight"><span class="k">TRAILING</span></code>: the function will remove <em>trim_character</em> from the end of <em>string1</em>.</li>
+<li><code class="highlight"><span class="k">BOTH</span></code>: the function will remove <em>trim_character</em> from the front and end of <em>string1</em>.</li>
 <li><em>trim_character</em>: the character that will be removed from <em>string1</em>.<ul>
 <li>optional value; default is blank space.</li>
 <li>this argument cannot contain more than 1 character.</li>
@@ -2206,6 +2332,13 @@
 </li>
 <li><em>string1</em>: the string to trim.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The TRIM Function removes all specified characters either from the beginning or the end of a string.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2233,10 +2366,10 @@
 </details>
 <hr />
 <h2 id="replace">REPLACE<a class="headerlink" href="#replace" title="Permanent link">&para;</a></h2>
-<p>The REPLACE (Single-Row) Function replaces a sequence of characters in a string with another set of characters.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">REPLACE</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">string_to_replace</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">replacement_string</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to replace a sequence of characters with another set of characters.</li>
 <li><em>string_to_replace</em>: the string that will be searched for in <em>string1</em>.</li>
@@ -2245,6 +2378,13 @@
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The REPLACE Function replaces a sequence of characters in a string with another set of characters.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2272,16 +2412,18 @@
 </details>
 <hr />
 <h2 id="length">LENGTH<a class="headerlink" href="#length" title="Permanent link">&para;</a></h2>
-<p>The LENGTH (Single-Row) Function returns the length of the specified string.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">LENGTH</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to return the length for.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The LENGTH Function returns the length of the specified string.</li>
 <li>LENGTH does <strong>not</strong> count dashes in DATE values.</li>
 </ul>
 </div>
@@ -2312,18 +2454,20 @@
 </details>
 <hr />
 <h2 id="substr">SUBSTR<a class="headerlink" href="#substr" title="Permanent link">&para;</a></h2>
-<p>The SUBSTR (Single-Row) Function allows to extract a substring from a string.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">SUBSTR</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="w"> </span><span class="n">start_position</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="k">length</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string</em>: the source string.</li>
 <li><em>start_position</em>: the starting position for extraction. First position is always 1.</li>
-<li><em>length</em>: number of characters to extract.</li>
+<li><em>length</em>: number of characters to extract.    </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The SUBSTR Function allows to extract a substring from a string.</li>
 <li>If <em>string</em> is SYSDATE, Oracle will execute an implicit data type conversion.</li>
 <li>If <em>start_position</em> is 0, SUBSTR treats <em>start_position</em> as 1.</li>
 <li>If <em>start_position</em> is negative, SUBSTR start from the end of the string and count backwards.</li>
@@ -2339,10 +2483,10 @@
 </details>
 <hr />
 <h2 id="instr">INSTR<a class="headerlink" href="#instr" title="Permanent link">&para;</a></h2>
-<p>The INSTR (Single-Row) Function returns the location of a substring in a string.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">INSTR</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="k">substring</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">start_position</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">nth_appearance</span><span class="p">]])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string</em>: the string to search.</li>
 <li><em>substring</em>: substring to search for in <em>string</em>.</li>
@@ -2355,9 +2499,11 @@
 </ul>
 </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The INSTR Function returns the location of a substring in a string.</li>
 <li>If either <em>string</em> or <em>substring</em> is NULL, INSTR returns NULL.</li>
 <li>If <em>substring</em> is not found in <em>string</em>, INSTR returns 0.</li>
 <li>If <em>start_position</em> negative, the INSTR function counts backwards.</li>
@@ -2380,17 +2526,19 @@
 </details>
 <hr />
 <h2 id="least">LEAST<a class="headerlink" href="#least" title="Permanent link">&para;</a></h2>
-<p>The LEAST (Single-Row) Function returns the smallest value in a list of expressions.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">LEAST</span><span class="p">(</span><span class="n">expr1</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expr_n</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expr1</em>: the first expression to evaluate whether it is the smallest.</li>
 <li><em>expr2, expr_n</em>: additional expressions that are to be evaluated.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The LEAST Function returns the smallest value in a list of expressions.</li>
 <li>If either <em>expr1</em> or <em>expr2</em> is NULL, LEAST returns NULL.</li>
 </ul>
 </div>
@@ -2421,27 +2569,32 @@
 </details>
 <hr />
 <h2 id="numeric-functions">Numeric Functions<a class="headerlink" href="#numeric-functions" title="Permanent link">&para;</a></h2>
-<p>The Numeric Functions take a numeric input as an expression and return numeric values.<br />
-The return type for most of the Numeric Functions is NUMBER.</p>
-<p><strong>List of Numeric Functions covered</strong></p>
 <ul>
-<li><code>CEIL</code></li>
-<li><code>FLOOR</code></li>
-<li><code>MOD</code></li>
-<li><code>POWER</code></li>
-<li><code>REMAINDER</code></li>
-<li><code>ROUND</code></li>
-<li><code>TRUNC</code></li>
+<li><a href="#ceil"><code class="highlight"><span class="n">CEIL</span></code></a></li>
+<li><a href="#floor"><code class="highlight"><span class="n">FLOOR</span></code></a></li>
+<li><a href="#mod"><code class="highlight"><span class="k">MOD</span></code></a></li>
+<li><a href="#power"><code class="highlight"><span class="n">POWER</span></code></a></li>
+<li><a href="#remainder"><code class="highlight"><span class="n">REMAINDER</span></code></a></li>
+<li><a href="#round-number"><code class="highlight"><span class="n">ROUND</span></code></a></li>
+<li><a href="#trunc-number"><code class="highlight"><span class="n">TRUNC</span></code></a></li>
 </ul>
 <hr />
 <h2 id="ceil">CEIL<a class="headerlink" href="#ceil" title="Permanent link">&para;</a></h2>
-<p>The CEIL (Single-Row) Function returns the smallest integer value that is greater than or equal to a number.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">CEIL</span><span class="p">(</span><span class="nb">number</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>number</em>: the value used to find the smallest integer value.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The CEIL Function returns the smallest integer value that is greater than or equal to a number.</li>
+<li>If either <em>expr1</em> or <em>expr2</em> is NULL, LEAST returns NULL.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2475,13 +2628,20 @@ The return type for most of the Numeric Functions is NUMBER.</p>
 </details>
 <hr />
 <h2 id="floor">FLOOR<a class="headerlink" href="#floor" title="Permanent link">&para;</a></h2>
-<p>The FLOOR (Single-Row) Function returns the largest integer value that is equal to or less than a number.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">FLOOR</span><span class="p">(</span><span class="nb">number</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>number</em>: the value used to determine the largest integer value that is equal to or less than a number.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The FLOOR Function returns the largest integer value that is equal to or less than a number.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2515,18 +2675,23 @@ The return type for most of the Numeric Functions is NUMBER.</p>
 </details>
 <hr />
 <h2 id="mod">MOD<a class="headerlink" href="#mod" title="Permanent link">&para;</a></h2>
-<p>The MOD (Single-Row) Function returns the remainder of <em>m</em> divided by <em>n</em>.</p>
-<p>The difference with the REMAINDER function is that REMAINDER uses ROUND in its calculation, and MOD uses the FLOOR function.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">MOD</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>m</em>: the numeric value used in the calculation.</li>
-<li><em>n</em>: the numeric value used in the calculation.<ul>
-<li><code>MOD</code> returns <em>m</em> if <em>n</em> is 0.</li>
+<li><em>n</em>: the numeric value used in the calculation.</li>
 </ul>
-</li>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The MOD Function returns the remainder of <em>m</em> divided by <em>n</em>.</li>
+<li>The difference with the REMAINDER function is that REMAINDER uses ROUND in its calculation, and MOD uses the FLOOR function.</li>
+<li>MOD returns <em>m</em> if <em>n</em> is 0.</li>
 </ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2554,10 +2719,10 @@ The return type for most of the Numeric Functions is NUMBER.</p>
 </details>
 <hr />
 <h2 id="power">POWER<a class="headerlink" href="#power" title="Permanent link">&para;</a></h2>
-<p>The POWER (Single-Row) Function returns <em>m</em> raised to the <em>n</em>th power.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">POWER</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>m</em>: the base used in the calculation.<ul>
 <li>if <em>m</em> s negative, then <em>n</em> must be an integer.</li>
@@ -2565,6 +2730,13 @@ The return type for most of the Numeric Functions is NUMBER.</p>
 </li>
 <li><em>n</em>: the exponent used in the calculation.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The POWER Function returns <em>m</em> raised to the <em>n</em>th power.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2592,18 +2764,23 @@ The return type for most of the Numeric Functions is NUMBER.</p>
 </details>
 <hr />
 <h2 id="remainder">REMAINDER<a class="headerlink" href="#remainder" title="Permanent link">&para;</a></h2>
-<p>The REMAINDER (Single-Row) Function returns the remainder of <em>m</em> divided by <em>n</em>.</p>
-<p>The difference with the MOD function is that REMAINDER uses ROUND in its calculation, and MOD uses the FLOOR function.</p>
-<p>The REMAINDER is calculated as follows:<br />
-<code>m - (n * X)</code><br />
-where X is the integer nearest n / n</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">REMAINDER</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>m</em>: a numeric value used in the calculation.</li>
 <li><em>n</em>: a numeric value used in the calculation.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The REMAINDER Function returns the remainder of <em>m</em> divided by <em>n</em>.</li>
+<li>The difference with the MOD function is that REMAINDER uses ROUND in its calculation, and MOD uses the FLOOR function.</li>
+<li>The REMAINDER is calculated as follows: <code>m - (n * X)</code>  where X is the integer nearest <em>n</em> / <em>n</em>.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2631,10 +2808,10 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="round-number">ROUND (number)<a class="headerlink" href="#round-number" title="Permanent link">&para;</a></h2>
-<p>The ROUND (Single-Row) Function returns a number rounded to a certain number of decimal places.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">ROUND</span><span class="p">(</span><span class="nb">number</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">decimal_places</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>number</em>: the number to round.</li>
 <li><em>decimal_places</em>: the number of decimal places rounded to.<ul>
@@ -2643,6 +2820,13 @@ where X is the integer nearest n / n</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The ROUND Function returns a number rounded to a certain number of decimal places.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2660,10 +2844,10 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="trunc-number">TRUNC (number)<a class="headerlink" href="#trunc-number" title="Permanent link">&para;</a></h2>
-<p>The TRUNC (Single-Row) Function returns a number truncated to a certain number of decimal places.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">TRUNC</span><span class="p">(</span><span class="nb">number</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">decimal_places</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>number</em>: the number to truncate.</li>
 <li><em>decimal_places</em>: the number of decimal places to truncate to.<ul>
@@ -2672,6 +2856,13 @@ where X is the integer nearest n / n</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The TRUNC Function returns a number truncated to a certain number of decimal places.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2689,31 +2880,38 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="date-functions">Date Functions<a class="headerlink" href="#date-functions" title="Permanent link">&para;</a></h2>
-<p>Character functions can be used to manipulate temporal values.</p>
-<p><strong>List of Date Functions covered</strong>
-- <code>ADD_MONTHS</code>
-- <code>CURRENT_DATE</code>
-- <code>CURRENT_TIMESTAMP</code>
-- <code>DBTIMEZONE</code>
-- <code>LAST_DAY</code>
-- <code>LOCALTIMESTAMP</code>
-- <code>MONTHS_BETWEEN</code>
-- <code>NEXT_DAY</code>
-- <code>ROUND</code>
-- <code>SESSIONTIMEZONE</code>
-- <code>SYSDATE</code>
-- <code>SYSTIMESTAMP</code>
-- <code>TRUNC</code></p>
+<ul>
+<li><code>ADD_MONTHS</code></li>
+<li><code>CURRENT_DATE</code></li>
+<li><code>CURRENT_TIMESTAMP</code></li>
+<li><code>DBTIMEZONE</code></li>
+<li><code>LAST_DAY</code></li>
+<li><code>LOCALTIMESTAMP</code></li>
+<li><code>MONTHS_BETWEEN</code></li>
+<li><code>NEXT_DAY</code></li>
+<li><code>ROUND</code></li>
+<li><code>SESSIONTIMEZONE</code></li>
+<li><code>SYSDATE</code></li>
+<li><code>SYSTIMESTAMP</code></li>
+<li><code>TRUNC</code></li>
+</ul>
 <hr />
 <h2 id="add_months">ADD_MONTHS<a class="headerlink" href="#add_months" title="Permanent link">&para;</a></h2>
-<p>The ADD_MONTHS (Single-Row) Function returns a date with a specified number of months added.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">ADD_MONTHS</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span><span class="w"> </span><span class="n">number_months</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>date1</em>: the starting date (before the <em>n</em> months have been added).</li>
 <li><em>number_months</em>: number of months to add to <em>date1</em>.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The ADD_MONTHS Function returns a date with a specified number of months added.</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -2722,15 +2920,17 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="current_date">CURRENT_DATE<a class="headerlink" href="#current_date" title="Permanent link">&para;</a></h2>
-<p>CURRENT_DATE returns the current date in the session time zone, in a value in the Gregorian calendar of data type DATE.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_DATE</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- 06-DEC-2022</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>CURRENT_DATE returns the current date in the session time zone, in a value in the Gregorian calendar of data type DATE.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2740,13 +2940,17 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="current_timestamp">CURRENT_TIMESTAMP<a class="headerlink" href="#current_timestamp" title="Permanent link">&para;</a></h2>
-<p>CURRENT_TIMESTAMP returns the current date and time in the session time zone, in a value of data type TIMESTAMP WITH TIME ZONE. The time zone offset reflects the current local time of the SQL session.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- 06-DEC-22 03.20.35.553971000 PM EUROPE/BERLIN</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>CURRENT_TIMESTAMP returns the current date and time in the session time zone, in a value of data type TIMESTAMP WITH TIME ZONE. The time zone offset reflects the current local time of the SQL session.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2756,13 +2960,17 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="dbtimezone">DBTIMEZONE<a class="headerlink" href="#dbtimezone" title="Permanent link">&para;</a></h2>
-<p>DBTIMEZONE returns the value of the database time zone.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">DBTIMEZONE</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">DBTIMEZONE</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- +00:00</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>DBTIMEZONE returns the value of the database time zone.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2772,13 +2980,20 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="last_day">LAST_DAY<a class="headerlink" href="#last_day" title="Permanent link">&para;</a></h2>
-<p>The LAST_DAY (Single-Row) Function returns the last day of the month based on a date value.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">LAST_DAY</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>date</em>: the date value to use to calculate the last day of the month</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The LAST_DAY Function returns the last day of the month based on a date value.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">LAST_DAY</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-DEC-2022&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
@@ -2796,13 +3011,17 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="localtimestamp">LOCALTIMESTAMP<a class="headerlink" href="#localtimestamp" title="Permanent link">&para;</a></h2>
-<p>LOCALTIMESTAMP returns the current date and time in the session time zone in a value of data type TIMESTAMP.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">LOCALTIMESTAMP</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">LOCALTIMESTAMP</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- 06-DEC-22 03.20.04.446137000 PM</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>LOCALTIMESTAMP returns the current date and time in the session time zone in a value of data type TIMESTAMP.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2815,14 +3034,21 @@ where X is the integer nearest n / n</p>
 <p><img alt="CURRENT_DATE vs. CURRENT_TIMESTAMP vs. LOCALTIMESTAMP" src="https://i.imgur.com/UWZEQr7.png" /></p>
 <hr />
 <h2 id="months_between">MONTHS_BETWEEN<a class="headerlink" href="#months_between" title="Permanent link">&para;</a></h2>
-<p>The MONTHS_BETWEEN (Single-Row) Function returns the number of months between date1 and date2.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">MONTHS_BETWEEN</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span><span class="w"> </span><span class="n">date2</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>date1</em>: the first date used to calculate the number of months between.</li>
 <li><em>date2</em>: the second date used to calculate the number of months between.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The MONTHS_BETWEEN Function returns the number of months between date1 and date2.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">MONTHS_BETWEEN</span><span class="p">(</span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-DEC-2022&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;01-JAN-2023&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
@@ -2843,10 +3069,10 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="next_day">NEXT_DAY<a class="headerlink" href="#next_day" title="Permanent link">&para;</a></h2>
-<p>The NEXT_DAY (Single-Row) Function returns the first weekday that is greater than a date.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">NEXT_DAY</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">weekday</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>date</em>: a date value used to find the next weekday.</li>
 <li><em>weekday</em>: the day of the week that you wish to return.<ul>
@@ -2863,6 +3089,13 @@ where X is the integer nearest n / n</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The NEXT_DAY Function returns the first weekday that is greater than a date.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2886,10 +3119,10 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="round-date">ROUND (date)<a class="headerlink" href="#round-date" title="Permanent link">&para;</a></h2>
-<p>The ROUND (Single-Row) Function returns a date rounded to a specific unit of measure.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">ROUND</span><span class="p">(</span><span class="nb">date</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">format</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>date</em>: the date to round.</li>
 <li><em>format</em>: the unit of measure to apply for rounding.<ul>
@@ -2898,6 +3131,13 @@ where X is the integer nearest n / n</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The ROUND Function returns a date rounded to a specific unit of measure.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2925,13 +3165,15 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="sessiontimezone">SESSIONTIMEZONE<a class="headerlink" href="#sessiontimezone" title="Permanent link">&para;</a></h2>
-<p>SESSIONTIMEZONE returns the time zone of the current session.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">SESSIONTIMEZONE</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- Europe/Berlin</span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>SESSIONTIMEZONE returns the time zone of the current session.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2941,16 +3183,18 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="sysdate">SYSDATE<a class="headerlink" href="#sysdate" title="Permanent link">&para;</a></h2>
-<p>SYSDATE returns the current date and time set for the operating system on which the database server resides.</p>
-<p>The data type of the returned value is DATE, and the format returned depends on the value of the NLS_DATE_FORMAT initialization parameter.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">SYSDATE</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- 06-DEC-2022</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>SYSDATE returns the current date and time set for the operating system on which the database server resides.</li>
+<li>The data type of the returned value is DATE, and the format returned depends on the value of the NLS_DATE_FORMAT initialization parameter.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2960,16 +3204,18 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="systimestamp">SYSTIMESTAMP<a class="headerlink" href="#systimestamp" title="Permanent link">&para;</a></h2>
-<p>SYSTIMESTAMP returns the system date, including fractional seconds and time zone, of the system on which the database resides.</p>
-<p>The return type is TIMESTAMP WITH TIME ZONE.</p>
-<div class="admonition example">
-<p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">SYSTIMESTAMP</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="p">;</span>
 <span class="c1">-- 06-DEC-2022 03.41.91.693169000 PM +01:00</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>SYSTIMESTAMP returns the system date, including fractional seconds and time zone, of the system on which the database resides.</li>
+<li>The return type is TIMESTAMP WITH TIME ZONE.</li>
+</ul>
 </div>
 <details class="abstract">
 <summary>Sources</summary>
@@ -2994,22 +3240,39 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="interval-year-to-month">INTERVAL YEAR TO MONTH<a class="headerlink" href="#interval-year-to-month" title="Permanent link">&para;</a></h2>
-<p>The INTERVAL YEAR TO MONTH data type allows you to store a period of time using the YEAR and MONTH fields.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">INTERVAL</span><span class="w"> </span><span class="k">YEAR</span><span class="w"> </span><span class="p">[(</span><span class="n">year_precision</span><span class="p">)]</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">MONTH</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>year_precision</em>: number of digits in the YEAR field (<em>ranges from 0 to 9</em>).</li>
 </ul>
-<p><strong>Literals Syntax</strong>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The INTERVAL YEAR TO MONTH data type allows you to store a period of time using the YEAR and MONTH fields.</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Literals.html">Oracle Documentation - INTERVAL YEAR TO MONTH</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="interval-year-to-month-literals">INTERVAL YEAR TO MONTH - Literals<a class="headerlink" href="#interval-year-to-month-literals" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;year[-month]&#39;</span><span class="w"> </span><span class="k">leading</span><span class="p">(</span><span class="k">precision</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">trailing</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>leading</em> and <em>trailing</em> can only be YEAR or MONTH.</li>
 <li>If <em>leading</em> is YEAR and <em>trailing</em> is MONTH, then the MONTH field ranges from 0 to 11.</li>
 <li>The <em>trailing</em> field must be less than the <em>leading</em> field.</li>
 <li><em>precision</em> represents the number of digits in the <em>leading</em> field. (ranges from 0 to 9; default is 2).</li>
 </ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3043,17 +3306,31 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="interval-day-to-second">INTERVAL DAY TO SECOND<a class="headerlink" href="#interval-day-to-second" title="Permanent link">&para;</a></h2>
-<p>The INTERVAL DAY TO SECOND stores a period of time in terms of days, hours, minutes, and seconds.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">INTERVAL</span><span class="w"> </span><span class="k">DAY</span><span class="w"> </span><span class="p">[(</span><span class="n">day_precision</span><span class="p">)]</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">SECOND</span><span class="w"> </span><span class="p">[(</span><span class="n">fractional_seconds_precision</span><span class="p">)]</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>day_precision</em>: number of digits in the DAY field (<em>ranges from 0 to 9</em>).</li>
 <li><em>fractional_seconds_precision</em>: number of digits in the fractional part of the SECOND field (<em>ranges from 0 to 9</em>).</li>
 </ul>
-<p><strong>Literals Syntax</strong>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The INTERVAL DAY TO SECOND stores a period of time in terms of days, hours, minutes, and seconds.</li>
+</ul>
+</div>
+<details class="abstract">
+<summary>Sources</summary>
+<ul>
+<li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Literals.html">Oracle Documentation - INTERVAL DAY TO SECOND</a></li>
+</ul>
+</details>
+<hr />
+<h2 id="interval-day-to-second-literals">INTERVAL DAY TO SECOND - Literals<a class="headerlink" href="#interval-day-to-second-literals" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nb">INTERVAL</span><span class="w"> </span><span class="k">leading</span><span class="p">(</span><span class="n">leading_precision</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="k">trailing</span><span class="p">(</span><span class="n">fractional_seconds_precision</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3093,10 +3370,10 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="trunc-date">TRUNC (date)<a class="headerlink" href="#trunc-date" title="Permanent link">&para;</a></h2>
-<p>The TRUNC (Single-Row) Function returns a date truncated to a specific unit of measure.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">TRUNC</span><span class="p">(</span><span class="nb">date</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">format</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>date</em>: the date to truncate.</li>
 <li><em>format</em>: the unit of measure to apply for truncating.<ul>
@@ -3105,6 +3382,13 @@ where X is the integer nearest n / n</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The TRUNC Function returns a date truncated to a specific unit of measure.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <ul>
@@ -3119,8 +3403,6 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="null-related-functions">NULL-Related Functions<a class="headerlink" href="#null-related-functions" title="Permanent link">&para;</a></h2>
-<p>NULL-Related functions are used to handle NULL values.</p>
-<p><strong>List of NULL-Related Functions covered</strong></p>
 <ul>
 <li><code>NVL</code></li>
 <li><code>DECODE</code></li>
@@ -3130,10 +3412,10 @@ where X is the integer nearest n / n</p>
 </ul>
 <hr />
 <h2 id="nvl">NVL<a class="headerlink" href="#nvl" title="Permanent link">&para;</a></h2>
-<p>The NVL (Single-Row) Function lets you substitute a value when a NULL value is encountered.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">NVL</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">replace_with</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to test for a NULL value.</li>
 <li><em>replace_with</em>: the value returned if string1 is NULL.<ul>
@@ -3141,6 +3423,13 @@ where X is the integer nearest n / n</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The NVL Function lets you substitute a value when a NULL value is encountered.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
@@ -3158,19 +3447,21 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="decode">DECODE<a class="headerlink" href="#decode" title="Permanent link">&para;</a></h2>
-<p>The DECODE (Single-Row) Function has the functionality of an IF-THEN-ELSE statement.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">DECODE</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span><span class="w"> </span><span class="k">search</span><span class="p">,</span><span class="w"> </span><span class="k">result</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="k">search</span><span class="p">,</span><span class="w"> </span><span class="k">result</span><span class="p">]...</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="k">default</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression</em>: the value to compare.</li>
 <li><em>search</em>: the value that is compared against <em>expression</em>.</li>
 <li><em>result</em>: the value returned, if <em>expression</em> is equal to <em>search</em>.</li>
-<li><em>default</em>: if no matches are found, the DECODE function will return <em>default</em>.</li>
+<li><em>default</em>: if no matches are found, the DECODE function will return <em>default</em>.    </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The DECODE Function has the functionality of an IF-THEN-ELSE statement.</li>
 <li>The function returns a value that is the same data type as the first result in the list.</li>
 <li>If the first result is NULL, then the return vlue is converted to VARCHAR2.</li>
 <li>If the first result has a data type of CHAR, then the return value is converted to VARCHAR2.</li>
@@ -3227,8 +3518,6 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="case">CASE<a class="headerlink" href="#case" title="Permanent link">&para;</a></h2>
-<p>The CASE Statement has the functionality of an IF-THEN-ELSE statement.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">CASE</span><span class="w"> </span><span class="p">[</span><span class="n">expression</span><span class="p">]</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition_1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result_1</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition_2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result_2</span>
@@ -3236,22 +3525,26 @@ where X is the integer nearest n / n</p>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition_n</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result_n</span>
 <span class="w">    </span><span class="p">[</span><span class="k">ELSE</span><span class="w"> </span><span class="k">result</span><span class="p">]</span>
 <span class="k">END</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression</em>: the value that you are comparing to the list of conditions.</li>
 <li><em>condition_1, condition_2, … condition_n</em>: the conditions that must all be the same datatype. Conditions are evaluated in the order listed.</li>
-<li><em>result_1, result_2, ... result_n</em>: results that must all be the same datatype. This is the value returned once a condition is found to be true.</li>
+<li><em>result_1, result_2, ... result_n</em>: results that must all be the same datatype. This is the value returned once a condition is found to be true.    </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
-</div>
 <ul>
+<li>The CASE Statement has the functionality of an IF-THEN-ELSE statement.</li>
 <li>The CASE Statement returns any datatype such as a String, Numeric, Date, etc.</li>
 <li>All conditions must be the same datatype.</li>
 <li>All results must be the same datatype.</li>
 <li>If ELSE is omitted, the CASE Statement will return NULL if no condition is found to be true.</li>
 <li>You can have up to 255 comparisons in a CASE Statement (each WHEN ... THEN clause is considered 2 comparisons).</li>
 </ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <ul>
@@ -3266,15 +3559,22 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="nvl2">NVL2<a class="headerlink" href="#nvl2" title="Permanent link">&para;</a></h2>
-<p>The NVL2 (Single-Row) Function lets you substitutes a value when a NULL value is encountered as well as when a non-NULL value is encountered.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">NVL2</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span><span class="w"> </span><span class="n">value_if_not_null</span><span class="p">,</span><span class="w"> </span><span class="n">value_if_null</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string1</em>: the string to test for a NULL value.</li>
 <li><em>value_if_not_null</em>: the value returned if <em>string1</em> is <strong>not</strong> NULL.</li>
-<li><em>value_if_null</em>: the value returned if <em>string1</em> is NULL.</li>
+<li><em>value_if_null</em>: the value returned if <em>string1</em> is NULL.  </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The NVL2 Function lets you substitutes a value when a NULL value is encountered as well as when a non-NULL value is encountered.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3297,17 +3597,24 @@ where X is the integer nearest n / n</p>
 </details>
 <hr />
 <h2 id="coalesce">COALESCE<a class="headerlink" href="#coalesce" title="Permanent link">&para;</a></h2>
-<p>The COALESCE (Single-Row) Function returns the first non-null expression in the list.\
-If all expressions evaluate to NULL, then the COALESCE function will return NULL.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">COALESCE</span><span class="p">(</span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression1, expression2, ... expression_n</em>: the expressions to test for non-NULL values.<ul>
 <li>the expressions must all be the same datatype</li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The COALESCE Function returns the first non-null expression in the list.</li>
+<li>If all expressions evaluate to NULL, then the COALESCE function will return NULL.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3345,11 +3652,10 @@ If all expressions evaluate to NULL, then the COALESCE function will return NULL
 </details>
 <hr />
 <h2 id="nullif">NULLIF<a class="headerlink" href="#nullif" title="Permanent link">&para;</a></h2>
-<p>The NULLIF (Single-Row) Function compares <em>expr1</em> and <em>expr2</em>.<br />
-If <em>expr1</em> and <em>expr2</em> are equal, the NULLIF function returns NULL. Otherwise, it returns <em>expr1</em>.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">NULLIF</span><span class="p">(</span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expr1</em>: first value to compare.<ul>
 <li>cannot be a literal NULL.</li>
@@ -3357,6 +3663,14 @@ If <em>expr1</em> and <em>expr2</em> are equal, the NULLIF function returns NULL
 </li>
 <li><em>expr2</em>: second value to compare.</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The NULLIF Function compares <em>expr1</em> and <em>expr2</em>.  </li>
+<li>If <em>expr1</em> and <em>expr2</em> are equal, the NULLIF function returns NULL. Otherwise, it returns <em>expr1</em>.</li>
+</ul>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
 <ul>
@@ -3444,16 +3758,6 @@ If <em>expr1</em> and <em>expr2</em> are equal, the NULLIF function returns NULL
 </details>
 <hr />
 <h2 id="aggregate-functions">Aggregate Functions<a class="headerlink" href="#aggregate-functions" title="Permanent link">&para;</a></h2>
-<p>Aggregate (or Group) Functions return a single result row based on groups of rows, rather than on single rows.</p>
-<p>They are commonly used with the GROUP BY clause in a SELECT statement, where Oracle Database divides the rows of a queried table or view into groups.<br />
-If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the select list to all the rows in the queried table or view.</p>
-<p>Many Aggregate Functions accept these clauses:</p>
-<ul>
-<li>DISTINCT and UNIQUE (which are synonymous) cause an aggregate function to consider only distinct values of the argument expression.</li>
-<li>ALL causes an aggregate function to consider all values, including all duplicates.</li>
-</ul>
-<p>If both are ommitted, default clause is ALL.</p>
-<p><strong>List of Aggregate Functions covered</strong></p>
 <ul>
 <li><code>COUNT</code></li>
 <li><code>AVG</code></li>
@@ -3488,19 +3792,19 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="count">COUNT<a class="headerlink" href="#count" title="Permanent link">&para;</a></h2>
-<p>The COUNT (Aggregate) Function returns the count of an expression.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Syntax with more than one column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
+
+<span class="c1">-- syntax with more than one column</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
 <span class="k">COUNT</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the COUNT function must be included in the GROUP BY clause.</li>
 <li><em>aggregate_expression</em>: the column or expression whose non-NULL values will be counted.<ul>
@@ -3508,9 +3812,11 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </ul>
 </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The COUNT Function returns the count of an expression.</li>
 <li>The COUNT function always returns a numeric value.</li>
 </ul>
 </div>
@@ -3522,19 +3828,19 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="avg">AVG<a class="headerlink" href="#avg" title="Permanent link">&para;</a></h2>
-<p>The AVG (Aggregate) Function returns the average value of an expression.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Syntax with more than one column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
+
+<span class="c1">-- syntax with more than one column</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
 <span class="k">AVG</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the AVG function must be included in the GROUP BY clause.</li>
 <li><em>aggregate_expression</em>: the column or expression that will be averaged.<ul>
@@ -3542,9 +3848,11 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </ul>
 </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The AVG Function returns the average value of an expression.</li>
 <li>The AVG function returns a numeric value.</li>
 <li>If <em>aggregate_expression</em> is a String, returns <code>ORA-01722: invalid number</code></li>
 <li>If <em>aggregate_expression</em> is a Date, returns <code>ORA-00932: inconsistent datatypes: expected NUMBER got DATE</code></li>
@@ -3558,19 +3866,19 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="max">MAX<a class="headerlink" href="#max" title="Permanent link">&para;</a></h2>
-<p>The MAX (Aggregate) Function returns the maximum value of an expression.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Syntax with more than one column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
+
+<span class="c1">-- syntax with more than one column</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span>
 <span class="k">MAX</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the MAX function must be included in the GROUP BY clause. </li>
 <li><em>aggregate_expression</em>: the column or expression from which the maximum value will be returned.<ul>
@@ -3578,9 +3886,11 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </ul>
 </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The MAX Function returns the maximum value of an expression.</li>
 <li>The MAX function returns either a string/numeric/date value.</li>
 </ul>
 </div>
@@ -3592,29 +3902,31 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="min">MIN<a class="headerlink" href="#min" title="Permanent link">&para;</a></h2>
-<p>The MIN (Aggregate) Function returns the minimum value of an expression.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Syntax with more than one column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span><span class="w"> </span>
+
+<span class="c1">-- syntax with more than one column</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span><span class="w"> </span>
 <span class="k">MIN</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression1, expression2, ... expression_n</em>: expressions that are <strong>not</strong> encapsulated within the MAX function must be included in the GROUP BY clause.</li>
 <li><em>aggregate_expression</em>: the column or expression from which the minimum value will be returned.<ul>
-<li>NULL values are ignored</li>
+<li>NULL values are ignored </li>
 </ul>
 </li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The MIN Function returns the minimum value of an expression.</li>
 <li>The MIN function returns either a string/numeric/date value.</li>
 </ul>
 </div>
@@ -3626,19 +3938,21 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="listagg">LISTAGG<a class="headerlink" href="#listagg" title="Permanent link">&para;</a></h2>
-<p>The LISTAGG (Aggregate) Function concatenates values of the <em>measure_column</em> for each GROUP based on the <em>order_by_clause</em>.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">LISTAGG</span><span class="p">(</span><span class="n">measure_column</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="s1">&#39;delimeter&#39;</span><span class="p">])</span>
 <span class="w">    </span><span class="n">WITHIN</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="p">(</span><span class="n">order_by_clause</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>measure_column</em>: the column or expression whose values you wish to concatenate together in the result set.</li>
 <li><em>delimeter</em>: the delimeter to use when separating the <em>measure_column</em>.</li>
 <li><em>order_by_clause</em>: determines the order that the concatenated values are returned.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The LISTAGG Function concatenates values of the <em>measure_column</em> for each GROUP based on the <em>order_by_clause</em>.</li>
 <li>NULL values in the <em>measure_column</em> are ignored</li>
 <li><em>delimeter</em>'s default value is blank space</li>
 </ul>
@@ -3660,26 +3974,28 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="sum">SUM<a class="headerlink" href="#sum" title="Permanent link">&para;</a></h2>
-<p>The SUM (Aggregate) Function returns the summed value of an expression.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
-</code></pre></div></p>
-<p><strong>Syntax with more than one column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span><span class="w"> </span>
+
+<span class="c1">-- syntax with more than one column</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">,</span><span class="w"> </span>
 <span class="k">SUM</span><span class="p">([</span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">tablename</span>
 <span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">];</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">expression_n</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>expression1, expression2, ... expression_n</em>: expressions that are not encapsulated within the MIN function must be included in the GROUP BY clause.</li>
 <li><em>aggregate_expression</em>: the column or expression that will be summed.</li>
 </ul>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Notes</p>
 <ul>
+<li>The SUM Function returns the summed value of an expression.</li>
 <li>The SUM function returns a numeric value.</li>
 <li>NULL values in the <em>aggregate_expression</em> are ignored.</li>
 <li>If <em>aggregate_expression</em> is a String, returns <code>ORA-01722: invalid number</code></li>
@@ -3694,8 +4010,6 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="conversion-functions">Conversion Functions<a class="headerlink" href="#conversion-functions" title="Permanent link">&para;</a></h2>
-<p>Conversion Functions convert a value from one form to another.</p>
-<p><strong>List of Conversion Functions covered</strong></p>
 <ul>
 <li><code>TO_NUMBER</code></li>
 <li><code>TO_CHAR</code></li>
@@ -3703,12 +4017,14 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </ul>
 <hr />
 <h2 id="to_number">TO_NUMBER<a class="headerlink" href="#to_number" title="Permanent link">&para;</a></h2>
-<p>The TO_NUMBER (Conversion) Function converts expr to a value of NUMBER data type.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">TO_NUMBER</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="n">format_mask</span><span class="p">])</span>
-</code></pre></div></p>
-<p><strong>Format Mask</strong>
-[...]</p>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The TO_NUMBER (Conversion) Function converts expr to a value of NUMBER data type.</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
@@ -3717,10 +4033,10 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </details>
 <hr />
 <h2 id="to_date">TO_DATE<a class="headerlink" href="#to_date" title="Permanent link">&para;</a></h2>
-<p>The TO_DATE (Conversion) Function converts a string to a date.</p>
-<p><strong>Syntax</strong>
 <div class="highlight"><pre><span></span><code><span class="n">TO_DATE</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="p">[,</span><span class="n">format_mask</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Semantics</p>
 <ul>
 <li><em>string</em>: the string that will be converted to a date.</li>
 <li><em>format_mask</em>: the format that will be used to convert <em>string</em> to a date.<ul>
@@ -3728,6 +4044,13 @@ If you omit the GROUP BY clause, then Oracle applies Aggregate Functions in the 
 </ul>
 </li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>The TO_DATE (Conversion) Function converts a string to a date.</li>
+</ul>
+</div>
 <details class="abstract">
 <summary>Sources</summary>
 <ul>
